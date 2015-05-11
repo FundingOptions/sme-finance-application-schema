@@ -1,0 +1,248 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"SME Finance Application",
+    "description":"An application for finance by a Small or Medium Enterprise (SME)",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "company_number":{
+            "type":"string",
+            "title":"Company number",
+            "description":"The Companies House number for this SME"
+        },
+        "months_revenue": {
+            "title":"Months of revenue",
+            "description":"How long the SME has been receiving revenues, in months",
+            "type": "integer"
+        },
+        "date_finance_requested": {
+            "title":"When the finance was requested",
+            "description":"The date on which the finance was requested",
+            "type":"string",
+            "format": "date-time"
+        },
+        "date_finance_required": {
+            "title":"When the finance is required",
+            "description":"The date on which the finance is required",
+            "type":"string",
+            "format": "date-time"
+        },
+        "finance_type_requested": {
+            "title":"Finance type requested",
+            "description":"The finance type requested by the SME, if specified",
+            "enum":[ "term_loan",
+                "overdraft",
+                "hire_purchase_or_lease",
+                "commercial_mortgage",
+                "business_credit_card",
+                "factoring_or_discounting",
+                "other_finance"
+            ]
+        },
+        "business_assets": {
+            "title":"Business assets",
+            "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
+            "type":"integer"
+        },
+        "sic_code": {
+            "title":"Sector Industry Classification code",
+            "description":"The Sector Industry Classification (SIC) code for the SME, according to the 2007 SIC structure. Any level of SIC code is acceptable, from Section to Sub Class.",
+            "type":"string",
+            "pattern": "^([a-uA-U]|[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}/[0-9])$"
+        },
+        "profitability": {
+            "title":"Profitability before tax",
+            "description":"The pre-tax profitability of the SME, expressed as a percentage",
+            "type": "integer"
+        },
+        "purpose": {
+            "title":"Purpose",
+            "description":"The purpose of the finance application",
+            "enum": [
+                "other_cashflow",
+                "other_asset_purchase",
+                "other_property_purchase",
+                "other_long_term_growth",
+                "other_turnaround_restructuring",
+                "other",
+                "bill_or_tax_payment",
+                "research_and_development",
+                "business_premises",
+                "equipment_repairs",
+                "expand_existing_business",
+                "launch_a_new_business_line",
+                "agricultural_equipment",
+                "new_contract",
+                "construction_vehicles",
+                "cashflow_headroom",
+                "bridging_loan",
+                "buy_to_let",
+                "printing_equipment",
+                "fund_a_merger_or_aquisition",
+                "deliver_on_new_contract",
+                "development_finance",
+                "machinery",
+                "refurbishment",
+                "fund_a_prepackaged_insolvency",
+                "replace_an_existing_funder",
+                "stock",
+                "construction_equipment",
+                "facilities_improvement",
+                "transport_vehicles",
+                "insolvency_or_restructuring_support",
+                "debt_refinancing",
+                "deliver_strategic_plan",
+                "seasonal_trading"
+                ]
+        },
+        "overseas_revenue": {
+            "title":"Overseas revenue",
+            "description":"The proportion of revenue the SME receives from sales outside the United Kingdom, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "directors_pensions": {
+            "title":"Directors' pensions",
+            "description":"The combined value of the Directors' or other proprietors' pensions, in GBP",
+            "type": "integer"
+        },
+        "up_to_date_accounts": {
+            "title":"Up to date accounts available",
+            "description":"Statutory or management accounts fewer than two months old are available",
+            "type": "boolean"
+        },
+        "financial_forecast": {
+            "title":"Financial forecast available",
+            "description":"A financial forecast is available",
+            "type": "boolean"
+        },
+        "business_plan": {
+            "title":"Business plan available",
+            "description":"A written business plan is available",
+            "type": "boolean"
+        },
+        "legal_status": {
+            "title":"Legal status",
+            "description":"The legal status of the SME",
+            "enum": [
+                "limited_company",
+                "limited_partnership",
+                "partnership_less_than_5",
+                "partnership_more_than_4",
+                "public_company",
+                "sole_trader",
+                "charity_limited_by_guarantee",
+                "other"
+                ]
+        },
+        "card_revenue": {
+            "title":"Card revenue",
+            "description":"The proportion of revenue the SME receives from sales via card terminals, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "revenue": {
+            "title":"Monthly revenue",
+            "description":"The average monthly revenue of the SME, in GBP",
+            "type": "integer"
+        },
+        "directors_houses": {
+            "title":"Directors' residential property",
+            "description":"The combined value of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
+            "type": "integer"
+        },
+        "online_revenue": {
+            "title":"Online revenue",
+            "description":"The proportion of revenue the SME receives from sales online, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "institutional_revenue": {
+            "title":"Institutional revenue",
+            "description":"The proportion of revenue the SME receives from sales to listed companies, 'household name' businesses, and local and central government bodies, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "finance_term_general": {
+            "title":"Finance term",
+            "description":"Whether the application is for long term investment, an ongoing finance facility or a term loan",
+            "enum": [
+                "long_term_investing",
+                "ongoing_finance",
+                "term_loan"
+            ]
+        },
+        "finance_term_length": {
+            "title":"Finance term length",
+            "description":"The term length required, in days",
+            "type": "integer"
+        },
+        "stock_ready": {
+            "title":"Ready for sale stock",
+            "description":"The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "revenue_growth": {
+            "title":"Turnover growth",
+            "description":"The change in the SME's revenue in the last year, expressed as a percentage",
+            "type": "integer"
+        },
+        "requested_amount": {
+            "title":"Requested amount",
+            "description":"The amount of finance requested, in GBP",
+            "type": "integer"
+        },
+        "intellectual_property": {
+            "title":"Intellectual property",
+            "description":"The SME has recognised intellectual property such as patents",
+            "type": "boolean"
+        },
+        "trade_credit": {
+            "title":"Trade credit",
+            "description":"The proportion of revenue the SME receives from sales conducted on trade credit, expressed as a percentage",
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
+        },
+        "business_premises": {
+            "title":"Business premises",
+            "description":"The value of any business premises owned by the SME, net of any existing finance, in GBP",
+            "type":"integer"
+        },
+        "registered_brand": {
+            "title":"Registered brand",
+            "description":"The SME has a registered trademark or is otherwise generally well known",
+            "type": "boolean"
+        },
+        "customers": {
+            "title":"Customers",
+            "description":"The number of customers the SME traded with in the last year",
+            "type":"integer"
+        },
+        "region": {
+          "title":"Region",
+          "description":"Region in which the SME is based according to NUTS 2013 (level 1 region)",
+          "enum":[
+                "UKC",
+                "UKD",
+                "UKE",
+                "UKF",
+                "UKG",
+                "UKH",
+                "UKI",
+                "UKJ",
+                "UKK",
+                "UKL",
+                "UKM",
+                "UKN",
+                "UKZ"
+            ]
+        }
+    }
+}

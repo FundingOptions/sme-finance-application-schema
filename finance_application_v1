@@ -1,0 +1,20 @@
+
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"SME Finance Application wrapper",
+    "description":"A wrapper for an SME finance application and associated information identifying the applicant",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "identifying_information", "finance_application"
+    ],
+    "properties": {
+        "identifying_information": {
+            "$ref": "https://apply.fundingoptions.com/schema/sme_contact_v2#"
+        },
+        "finance_application": {
+            "$ref": "https://apply.fundingoptions.com/schema/sme_v3#"
+        }
+    }
+}
+    
