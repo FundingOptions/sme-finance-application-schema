@@ -2,7 +2,7 @@
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"Identifying information",
     "description":"Identifying information for use with an SME finance application",
-    "additionalProperties": "true",
+    "additionalProperties": false,
     "type": "object",
     "required": [
         "email"
