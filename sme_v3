@@ -150,7 +150,7 @@
         },
         "directors_houses": {
             "title":"Directors' residential property",
-            "description":"The combined value of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
+            "description":"The combined equity of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
             "type": "integer"
         },
         "online_revenue": {
