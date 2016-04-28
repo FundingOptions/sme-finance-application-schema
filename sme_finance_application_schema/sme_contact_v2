@@ -44,12 +44,12 @@
             "type": "string"
         },
         "county": {
-            "title":"Address",
+            "title":"County",
             "description":"The postal address of the applicant",
             "type": "string"
         },
         "city": {
-            "title":"Address",
+            "title":"City",
             "description":"The postal address of the applicant",
             "type": "string"
         },
