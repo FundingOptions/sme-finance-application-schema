@@ -2,7 +2,7 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"Management Information reporting",
-    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This schema supports reporting on individual stages of a referral in any combination.",
     "additionalProperties": false,
     "type": "object",
     "required": [
