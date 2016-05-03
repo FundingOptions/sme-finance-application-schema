@@ -11,7 +11,7 @@
     "properties": {
         "referral_unique_id": {
             "title":"The unique ID for the referral being reported on",
-            "description":"The unique ID for this referral, specific to the reporting Platform. If the same SME was referred to other Platforms, each of these will report a different unique ID.",
+            "description":"The unique ID for this referral, specific to the reporting Platform. If the same SME was referred to other Platforms by the same referring bank, each of these Platforms will report a different unique ID.",
             "type": "string"
         },
         "stage_1": {
@@ -31,4 +31,3 @@
         },
     }
 }
-    
