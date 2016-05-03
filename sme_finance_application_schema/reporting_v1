@@ -11,9 +11,8 @@
     "properties": {
         "referral_unique_id": {
             "title":"The unique ID for the referral being reported on",
-            "description":"A UUID field that uniquely identifies this referral across the Bank Referral Scheme",
-            "type": "string",
-            "pattern": "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"
+            "description":"The unique ID for this referral, specific to the reporting Platform. If the same SME was referred to other Platforms, each of these will report a different unique ID.",
+            "type": "string"
         },
         "stage_1": {
             "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_1_v1#"
