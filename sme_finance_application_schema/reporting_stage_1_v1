@@ -32,7 +32,7 @@
         },
         "sme_postcode": {
             "title":"SME Postcode",
-            "description":"The postal address SME referred to the platform",
+            "description":"The postcode of the Registered Address of the SME",
             "type": "string"
         },
         "amount_of_finance_requested": {
