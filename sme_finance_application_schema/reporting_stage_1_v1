@@ -32,17 +32,17 @@
         },
         "sme_postcode": {
             "title":"SME Postcode",
-            "description":"The postcode of the Registered Address of the SME",
+            "description":"The postcode of the Registered Address of the SME. This is given by the referring bank to the Platform on behalf of the SME.",
             "type": "string"
         },
         "amount_of_finance_requested": {
             "title":"Amount of finance requested",
-            "description":"The amount of finance requested, in GBP",
+            "description":"The amount of finance requested by the SME, in GBP. This is given by the referring bank to the Platform on behalf of the SME.",
             "type": "integer"
         },
         "type_of_finance_requested": {
             "title":"Type of finance requested",
-            "description":"The finance type requested by the SME",
+            "description":"The finance type requested by the SME. This is given by the referring bank to the Platform on behalf of the SME.",
             "enum":[ "term_loan",
                 "overdraft",
                 "hire_purchase_or_lease",
@@ -55,7 +55,7 @@
         },
         "sme_legal_status": {
             "title":"SME legal status",
-            "description":"The legal status of the SME",
+            "description":"The legal status of the SME. This is given by the referring bank to the Platform on behalf of the SME.",
             "enum": [
                 "limited_company",
                 "limited_partnership",
@@ -69,13 +69,13 @@
         },
         "date_sme_started_trading": {
             "title":"When the SME started trading",
-            "description":"The date on which the SME started trading",
+            "description":"The date on which the SME started trading. This is given by the referring bank to the Platform on behalf of the SME.",
             "type":"string",
             "format": "date-time"
         },
         "date_finance_required": {
             "title":"When the finance is required",
-            "description":"The date by which the SME requires finance",
+            "description":"The date by which the SME requires finance. This is given by the referring bank to the Platform on behalf of the SME.",
             "type":"string",
             "format": "date-time"
         }
