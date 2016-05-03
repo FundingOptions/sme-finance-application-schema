@@ -19,7 +19,7 @@
             "title":"Did the referral complete or fail to complete Stage 2?",
             "description":"If the SME did not make contact with the Platform within 30 days of the initial referral it is deemed to have failed Stage 2",
             "type": "boolean"
-        }
+        },
         "amount_of_finance_requested": {
             "title":"Amount of finance requested",
             "description":"The amount of finance requested by the SME, in GBP. This is given by the SME directly to the Platform.",
