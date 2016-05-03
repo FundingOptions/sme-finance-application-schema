@@ -1,6 +1,6 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
-    "title":"Management Information reporting - Stage 1",
+    "title":"Management Information reporting - Stage 2",
     "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 2 ('Initial Contact [of the Platform by the SME within 30 days]') completion.",
     "additionalProperties": false,
     "type": "object",
