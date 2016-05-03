@@ -1,0 +1,32 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Management Information reporting - Stage 3",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 3 ('Matching Process') completion.",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "event_datetime",
+        "stage_passed"
+    ],
+    "properties": {
+        "event_datetime": {
+            "title":"When the referral completed or failed to complete Stage 3",
+            "description":"Stage 3 is 'Matching Process', so this is the datetime the SME completed the matching process or stage 1 datetime + 30 days if failed.",
+            "type":"string",
+            "format": "date-time"
+        },
+        "stage_passed": {
+            "title":"Did the referral complete or fail to complete Stage 3?",
+            "description":"If the SME did not complete the matching process within 30 days of initial referral it is deemed to have failed Stage 3",
+            "type": "boolean"
+        },
+        "possibly_suitable_finance_products": {
+            "title":"Possibly suitable Finance Products",
+            "description":"The Finance Products available on the Platform at time of matching which may be suitable for this SME based on matching on information provided so far",
+            "type": "array",
+            "minItems": 0,
+            "items": { "type": "string" },
+            "uniqueItems": true
+        }
+    }
+}
