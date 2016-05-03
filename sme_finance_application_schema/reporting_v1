@@ -15,19 +15,19 @@
             "type": "string"
         },
         "stage_1": {
-            "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_1_v1#"
+            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_1_v1#"
         },
         "stage_2": {
-            "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_2_v1#"
+            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_2_v1#"
         },
         "stage_3": {
-            "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_3_v1#"
+            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_3_v1#"
         },
         "stage_4": {
-            "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_4_v1#"
+            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_4_v1#"
         },
         "stage_5": {
-            "$ref": "https://apply.fundingoptions.com/schema/reporting_stage_5_v1#"
+            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_5_v1#"
         },
     }
 }
