@@ -1,0 +1,84 @@
+
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Management Information reporting - Stage 1",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 1 ('SME Referral') completion.",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "event_datetime",
+        "referring_bank",
+        "sme_postcode",
+        "amount_of_finance_requested",
+        "type_of_finance_requested",
+        "sme_legal_status",
+        "date_sme_started_trading",
+        "date_finance_required"
+    ],
+    "properties": {
+        "event_datetime": {
+            "title":"When the referral completed Stage 1",
+            "description":"Stage 1 is 'SME Referral', so this is the datetime the referral was accepted by the platform",
+            "type":"string",
+            "format": "date-time"
+        },
+        "referring_bank": {
+            "title":"The referring bank",
+            "description":"Which Bank referred the sme to the platform",
+            "enum":[ "lloyds",
+                "hsbc",
+                "rbs",
+            ]
+        },
+        "sme_postcode": {
+            "title":"SME Postcode",
+            "description":"The postal address SME referred to the platform",
+            "type": "string"
+        },
+        "amount_of_finance_requested": {
+            "title":"Amount of finance requested",
+            "description":"The amount of finance requested, in GBP",
+            "type": "integer"
+        },
+        "type_of_finance_requested": {
+            "title":"Type of finance requested",
+            "description":"The finance type requested by the SME",
+            "enum":[ "term_loan",
+                "overdraft",
+                "hire_purchase_or_lease",
+                "commercial_mortgage",
+                "business_credit_card",
+                "factoring_or_discounting",
+                "other_finance",
+                "not_specified"
+            ]
+        },
+        "sme_legal_status": {
+            "title":"SME legal status",
+            "description":"The legal status of the SME",
+            "enum": [
+                "limited_company",
+                "limited_partnership",
+                "partnership_fewer_than_5",
+                "partnership_5_or_more",
+                "public_company",
+                "sole_trader",
+                "charity_limited_by_guarantee",
+                "other"
+            ]
+        },
+        "date_sme_started_trading": {
+            "title":"When the SME started trading",
+            "description":"The date on which the SME started trading",
+            "type":"string",
+            "format": "date-time"
+        },
+        "date_finance_required": {
+            "title":"When the finance is required",
+            "description":"The date by which the SME requires finance",
+            "type":"string",
+            "format": "date-time"
+        },
+    }
+}
+    
