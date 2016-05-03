@@ -10,10 +10,10 @@
     ],
     "properties": {
         "identifying_information": {
-            "$ref": "https://apply.fundingoptions.com/schema/sme_contact_v2#"
+            "$ref": "https://www.fundingoptions.com/schema/sme_contact_v2#"
         },
         "finance_application": {
-            "$ref": "https://apply.fundingoptions.com/schema/sme_v3#"
+            "$ref": "https://www.fundingoptions.com/schema/sme_v3#"
         }
     }
 }
