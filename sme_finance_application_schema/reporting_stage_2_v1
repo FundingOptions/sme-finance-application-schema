@@ -1,24 +1,18 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"Management Information reporting - Stage 2",
-    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 2 ('Initial Contact [of the Platform by the SME within 30 days]') completion.",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 2 ('Initial Contact [of the Platform by the SME]') completion.",
     "additionalProperties": false,
     "type": "object",
     "required": [
         "event_datetime",
-        "stage_passed"
     ],
     "properties": {
         "event_datetime": {
             "title":"When the referral completed or failed to complete Stage 2",
-            "description":"Stage 2 is 'Initial Contact [of the Platform by the SME within 30 days]', so this is the datetime the SME made contact with the Platform or stage 1 datetime + 30 days if failed.",
+            "description":"Stage 2 is 'Initial Contact [of the Platform by the SME]', so this is the datetime the SME made contact with the Platform.",
             "type":"string",
             "format": "date-time"
-        },
-        "stage_passed": {
-            "title":"Did the referral complete or fail to complete Stage 2?",
-            "description":"If the SME did not make contact with the Platform within 30 days of the initial referral it is deemed to have failed Stage 2",
-            "type": "boolean"
         },
         "amount_of_finance_requested": {
             "title":"Amount of finance requested",

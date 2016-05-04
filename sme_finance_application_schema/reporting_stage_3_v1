@@ -6,19 +6,14 @@
     "type": "object",
     "required": [
         "event_datetime",
-        "stage_passed"
+        "possibly_suitable_finance_products"
     ],
     "properties": {
         "event_datetime": {
             "title":"When the referral completed or failed to complete Stage 3",
-            "description":"Stage 3 is 'Matching Process', so this is the datetime the SME completed the matching process or stage 1 datetime + 30 days if failed.",
+            "description":"Stage 3 is 'Matching Process', so this is the datetime the SME completed the matching process.",
             "type":"string",
             "format": "date-time"
-        },
-        "stage_passed": {
-            "title":"Did the referral complete or fail to complete Stage 3?",
-            "description":"If the SME did not complete the matching process within 30 days of initial referral it is deemed to have failed Stage 3",
-            "type": "boolean"
         },
         "possibly_suitable_finance_products": {
             "title":"Possibly suitable Finance Products",
