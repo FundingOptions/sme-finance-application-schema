@@ -1,0 +1,24 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Management Information reporting - Stage 4",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 4 ('Provider Contact') completion.",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "event_datetime",
+        "contacted_finance_product"
+    ],
+    "properties": {
+        "event_datetime": {
+            "title":"When the referral completed or failed to complete Stage 4",
+            "description":"Stage 4 is 'Provider Contact', so this is the datetime the SME contacted the Finance Provider. Note that this is the datetime the SME contacted the Finance Provider, NOT the datetime the Finance Provider contacted the Platform to inform the Platform that the SME made contact with the Finance Provider.",
+            "type":"string",
+            "format": "date-time"
+        },
+        "contacted_finance_product": {
+            "title":"Contacted Finance Product",
+            "description":"The Finance Product that was contacted by the SME",
+            "type": "string"
+        }
+    }
+}

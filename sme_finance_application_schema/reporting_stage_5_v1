@@ -1,0 +1,69 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Management Information reporting - Stage 5",
+    "description":"A proposed schema for reporting Management Information to the British Business Bank and the Treasury. This covers reporting a Stage 5 ('[Finance Provider] Outcome') completion.",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "event_datetime",
+        "reporting_finance_product",
+        "received_finance"
+    ],
+    "properties": {
+        "event_datetime": {
+            "title":"When the referral completed or failed to complete Stage 4",
+            "description":"Stage 5 is '[Finance Provider] Outcome', so this is the datetime the SME received finance from the Finance Provider or the datetime the Finance Provider rejected the application. It is NOT the datetime the Finance Provider reported back to the Platform. Receiving finance is defined as the funds being transferred to the SME's bank account.",
+            "type":"string",
+            "format": "date-time"
+        },
+        "reporting_finance_product": {
+            "title":"Reporting Finance Product",
+            "description":"The Finance Product on whose outcome we are reporting",
+            "type": "string"
+        },
+        "received_finance": {
+            "title":"Did the SME receive finance?"
+            "description":"Whether or not the SME received this Finance Product or a comparable one from the same Lender",
+            "type": "boolean"
+        },
+        "datetime_offer_accepted": {
+            "title":"When the SME accepted the offer of finance",
+            "description":"Whether or not the SME received this Finance Product or a comparable one from the same Lender",
+            "type":"string",
+            "format": "date-time"
+        },
+        "amount_of_finance_received: {
+            "title":"Amount of finance received",
+            "description":"The amount of finance received by the SME, in GBP.",
+            "type": "integer"
+        },
+        "finance_term_received": {
+            "title":"Term of finance received",
+            "description":"The finance term provided to the SME, in days. Does not apply to ongoing facilities.",
+            "type": "integer"
+        },
+        "type_of_finance_received": {
+            "title":"Type of finance received",
+            "description":"The finance type provided to the SME.",
+            "enum":[ "term_loan",
+                "overdraft",
+                "hire_purchase_or_lease",
+                "commercial_mortgage",
+                "business_credit_card",
+                "factoring_or_discounting",
+                "other_finance",
+                "not_specified"
+            ]
+        },
+        "one_year_cost": {
+            "title":"The cost of the finance product over the first year, or term if shorter",
+            "description":"This includes fees, charges and interest. Does not apply to invoice finance, spot factoring products or other variable drawdown facilities.",
+            "type": "integer"
+        },
+        "platform_commission": {
+            "title":"Platform commission",
+            "description":"The commission, including fees and charges, received by the Platform. Does not apply to invoice finance, spot factoring products or other variable drawdown facilities.",
+            "type": "integer"
+        }
+    }
+}
