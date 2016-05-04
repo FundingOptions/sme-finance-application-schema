@@ -24,10 +24,16 @@
             "$ref": "https://www.fundingoptions.com/schema/reporting_stage_3_v1#"
         },
         "stage_4": {
-            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_4_v1#"
+            "type": "array",
+            "minItems": 0,
+            "items": { "$ref": "https://www.fundingoptions.com/schema/reporting_stage_4_v1#" },
+            "uniqueItems": true
         },
         "stage_5": {
-            "$ref": "https://www.fundingoptions.com/schema/reporting_stage_5_v1#"
+            "type": "array",
+            "minItems": 0,
+            "items": { "$ref": "https://www.fundingoptions.com/schema/reporting_stage_5_v1#" },
+            "uniqueItems": true
         },
     }
 }
