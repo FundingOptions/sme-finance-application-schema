@@ -11,7 +11,7 @@
         "referral_unique_id": {
             "title":"Referral Unique ID",
             "description":"The unique identifier for the Referral. This was created by the referring Bank and passed to the Platforms",
-            "type":"string",
+            "type":"string"
         },
         "referring_bank": {
             "title":"The referring Bank",
