@@ -25,9 +25,16 @@
         "referring_bank": {
             "title":"The referring bank",
             "description":"Which Bank referred the sme to the platform",
-            "enum":[ "lloyds",
+            "enum":[
+                "allied_irish_bank",
+                "barclays",
+                "bank_of_ireland",
+                "clydesdale",
+                "danske",
                 "hsbc",
-                "rbs"
+                "lloyds",
+                "rbs",
+                "santander"
             ]
         },
         "sme_postcode": {
