@@ -27,7 +27,7 @@
             "description":"Which Bank referred the sme to the platform",
             "enum":[ "lloyds",
                 "hsbc",
-                "rbs",
+                "rbs"
             ]
         },
         "sme_postcode": {

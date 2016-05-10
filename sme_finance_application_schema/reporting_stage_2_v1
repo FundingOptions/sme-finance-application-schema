@@ -5,7 +5,7 @@
     "additionalProperties": false,
     "type": "object",
     "required": [
-        "event_datetime",
+        "event_datetime"
     ],
     "properties": {
         "event_datetime": {

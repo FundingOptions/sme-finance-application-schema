@@ -22,7 +22,7 @@
             "type": "string"
         },
         "received_finance": {
-            "title":"Did the SME receive finance?"
+            "title":"Did the SME receive finance?",
             "description":"Whether or not the SME received this Finance Product or a comparable one from the same Lender",
             "type": "boolean"
         },
@@ -32,7 +32,7 @@
             "type":"string",
             "format": "date-time"
         },
-        "amount_of_finance_received: {
+        "amount_of_finance_received": {
             "title":"Amount of finance received",
             "description":"The amount of finance received by the SME, in GBP.",
             "type": "integer"

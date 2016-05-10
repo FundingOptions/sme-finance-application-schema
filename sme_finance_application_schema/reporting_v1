@@ -6,7 +6,7 @@
     "additionalProperties": false,
     "type": "object",
     "required": [
-        "referral_unique_id",
+        "referral_unique_id"
     ],
     "properties": {
         "referral_unique_id": {
@@ -34,6 +34,6 @@
             "minItems": 0,
             "items": { "$ref": "https://www.fundingoptions.com/schema/reporting_stage_5_v1#" },
             "uniqueItems": true
-        },
+        }
     }
 }
