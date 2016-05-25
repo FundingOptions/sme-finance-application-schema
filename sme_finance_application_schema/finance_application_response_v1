@@ -1,0 +1,24 @@
+
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"SME Finance Application response",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "referral_unique_id", "success"
+    ],
+    "properties": {
+        "referral_unique_id": {
+          "title": "Referral Unique ID",
+          "type": "string"
+        },
+        "response_text": {
+          "title": "Response Text",
+          "type": "string"
+        },
+        "success": {
+          "title": "Success Indicator",
+          "type": "boolean"
+        }
+    }
+}
