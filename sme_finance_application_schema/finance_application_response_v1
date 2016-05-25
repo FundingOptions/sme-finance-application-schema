@@ -1,6 +1,7 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"SME Finance Application response",
+    "description":"The response object for receipt of an SME Finance Application. This is required to ensure that information is returned even in cases when SME Finance Applications are submitted by batch methods such as file transfers",
     "additionalProperties": false,
     "type": "object",
     "required": [
