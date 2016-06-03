@@ -5,7 +5,7 @@
     "additionalProperties": false,
     "type": "object",
     "required": [
-        "platform_batch_unique_id", "total_applications", "total_successes", "receipt_datetime"
+        "platform_batch_unique_id", "total_applications", "total_successes"
     ],
     "properties": {
         "referrer_batch_unique_id": {
