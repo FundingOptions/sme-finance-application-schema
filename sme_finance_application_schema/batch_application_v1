@@ -9,7 +9,7 @@
     ],
     "properties": {
         "batch_unique_identifier": {
-            "description":"A unique identifier for the batch provided by the organisation referring the applicant",
+            "description":"A unique identifier for the batch provided by the organisation referring the applicants",
             "type":"string"
         },
         "finance_applications": {
