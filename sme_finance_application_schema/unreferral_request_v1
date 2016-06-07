@@ -1,7 +1,7 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"SME Finance Application unreferral request",
-    "description":"A request to unreferr an SME from the Bank Referral Scheme. This request will be sent by either the original referring Bank or a Platform on behalf of a referred SME. It will be sent to all participating Platforms.",
+    "description":"A request to unrefer an SME from the Bank Referral Scheme. This request will be sent by either the original referring Bank or a Platform on behalf of a referred SME. It will be sent to all participating Platforms.",
     "additionalProperties": false,
     "type": "object",
     "required": [
@@ -15,7 +15,7 @@
         },
         "referring_bank": {
             "title":"The referring Bank",
-            "description":"The Bank which referred the SME to the Platform, if different from the entity making the request to unreferr",
+            "description":"The Bank which referred the SME to the Platform, if different from the entity making the request to unrefer",
             "enum":[ 
                 "allied_irish_bank",
                 "barclays",
