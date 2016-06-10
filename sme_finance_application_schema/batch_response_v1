@@ -19,12 +19,12 @@
             "type": "string"
         },
         "total_applications": {
-            "title": "Total number of Finance Applications"
+            "title": "Total number of Finance Applications",
             "description": "The total number of Finance Applications in the batch as calculated by the receiving Platform",
             "type": "integer"
         },
         "total_successes": {
-            "title": "Number of Finance Applications accepted"
+            "title": "Number of Finance Applications accepted",
             "description": "The number of Finance Applications in the batch accepted by the receiving Platform",
             "type": "integer"
         },
