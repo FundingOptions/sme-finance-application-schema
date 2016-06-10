@@ -15,6 +15,11 @@
         "finance_application": {
             "$ref": "https://www.fundingoptions.com/schema/sme_v3#"
         },
+        "unique_identifier": {
+            "title":"Unique identifier",
+            "description":"A unique identifier provided by the organisation referring the applicant",
+            "type":"string"
+        },
         "brand": {
             "type":"string",
             "title":"Brand",
