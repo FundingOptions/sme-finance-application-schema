@@ -28,6 +28,11 @@
             "description":"The name of the SME represented by the applicant",
             "type": "string"
         },
+        "company_number":{
+            "type":"string",
+            "title":"Company number",
+            "description":"The Companies House number for this SME"
+        },
         "address_line_1": {
             "title":"Address line 1",
             "description":"The postal address of the applicant",
