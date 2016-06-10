@@ -14,6 +14,11 @@
         },
         "finance_application": {
             "$ref": "https://www.fundingoptions.com/schema/sme_v3#"
+        },
+        "brand": {
+            "type":"string",
+            "title":"Brand",
+            "description":"The brand from which the SME has been referred (e.g. 'Natwest' for an RBS referral)"
         }
     }
 }
