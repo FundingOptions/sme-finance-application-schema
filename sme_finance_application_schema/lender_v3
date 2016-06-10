@@ -1123,6 +1123,7 @@
     },
     "revenue": {
       "title": "Monthly Turnover",
+      "description": "The average monthly revenue of the SME, in GBP",
       "additionalProperties": false,
       "type": "object",
       "properties": {

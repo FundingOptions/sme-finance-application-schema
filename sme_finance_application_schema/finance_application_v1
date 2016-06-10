@@ -19,6 +19,11 @@
             "title":"Unique identifier",
             "description":"A unique identifier provided by the organisation referring the applicant",
             "type":"string"
+        },
+        "brand": {
+            "type":"string",
+            "title":"Brand",
+            "description":"The brand from which the SME has been referred (e.g. 'Natwest' for an RBS referral)"
         }
     }
 }
