@@ -1,0 +1,78 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Identifying information",
+    "description":"Identifying information for use with an SME finance application",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "email",
+        "sme_name",
+        "address_line_1",
+        "postcode",
+        "telephone"
+    ],
+    "properties": {
+        "applicant_title": {
+            "title":"Applicant title",
+            "description":"The preferred title (form of address) of the applicant, such as Mr., Ms. or Sir",
+            "type": "string"
+        },
+        "applicant_first_name": {
+            "title":"Applicant first name",
+            "description":"The first name of the applicant",
+            "type": "string"
+        },
+        "applicant_surname": {
+            "title":"Applicant surname",
+            "description":"The surname of the applicant",
+            "type": "string"
+        },
+        "sme_name": {
+            "title":"SME name",
+            "description":"The name of the SME represented by the applicant",
+            "type": "string"
+        },
+        "company_number":{
+            "type":"string",
+            "title":"Company number",
+            "description":"The Companies House number for this SME"
+        },
+        "address_line_1": {
+            "title":"Address line 1",
+            "description":"The postal address of the applicant",
+            "type": "string"
+        },
+        "address_line_2": {
+            "title":"Address line 2",
+            "description":"The postal address of the applicant",
+            "type": "string"
+        },
+        "postcode": {
+            "title":"Postcode",
+            "description":"The postal address of the applicant",
+            "type": "string"
+        },
+        "county": {
+            "title":"County",
+            "description":"The postal address of the applicant",
+            "type": "string"
+        },
+        "city": {
+            "title":"City",
+            "description":"The postal address of the applicant",
+            "type": "string"
+        },
+        "email": {
+            "title":"Email",
+            "description":"The email address of the applicant",
+            "type": "string",
+            "format": "email"
+        },
+        "telephone": {
+            "title":"Telephone number",
+            "description":"The telephone number of the applicant, in E.164 format",
+            "type": "string",
+            "pattern": "^\+?[1-9]\d{1,14}$"
+        }
+    }
+}
