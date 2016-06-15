@@ -1,26 +1,19 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"SME Finance Application",
-    "description":"An application for finance by a Small or Medium Enterprise (SME)",
+    "description":"An application for finance by a Small or Medium Enterprise (SME). Note that the following information is required under the The Small and Medium Sized Business (Finance Platforms) Regulations 2015: '...(c) the amount of finance requested by the business; (d) the type of finance requested by the business (where a specific type of finance has been requested by the business); (e) the legal structure of the business (limited company, limited partnership, partnership sole trader, or other); (f) the period in years and months for which the business has been trading and receiving income; (g) the date by which the business requires finance by or, if such date is not known, the date by which the business has requested finance.' This is captured in the following properties of this schema: requested_amount, finance_type_requested, legal_status, months_revenue, date_finance_required, date_finance_requested. In addition, the Platforms participating in the referral scheme recommend that the following properties be provided: revenue, sic_code, finance_term_length, profitability, directors_houses. All other properties may not be supported by all Platforms.",
     "additionalProperties": false,
     "type": "object",
+    "required": [
+        "requested_amount",
+        "legal_status",
+        "months_revenue"
+    ],
     "properties": {
-        "months_revenue": {
-            "title":"Months of revenue",
-            "description":"How long the SME has been receiving revenues, in months",
+        "requested_amount": {
+            "title":"Requested amount",
+            "description":"The amount of finance requested, in GBP",
             "type": "integer"
-        },
-        "date_finance_requested": {
-            "title":"When the finance was requested",
-            "description":"The date on which the finance was requested",
-            "type":"string",
-            "format": "date-time"
-        },
-        "date_finance_required": {
-            "title":"When the finance is required",
-            "description":"The date on which the finance is required",
-            "type":"string",
-            "format": "date-time"
         },
         "finance_type_requested": {
             "title":"Finance type requested",
@@ -34,10 +27,41 @@
                 "other_finance"
             ]
         },
-        "business_assets": {
-            "title":"Business assets",
-            "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
-            "type":"integer"
+        "legal_status": {
+            "title":"Legal status",
+            "description":"The legal status of the SME",
+            "enum": [
+                "limited_company",
+                "limited_partnership",
+                "partnership_less_than_equal_to_3",
+                "partnership_greater_than_3",
+                "public_company",
+                "sole_trader",
+                "charity_limited_by_guarantee",
+                "other"
+                ]
+        },
+        "months_revenue": {
+            "title":"Months of revenue",
+            "description":"How long the SME has been receiving revenues, in months",
+            "type": "integer"
+        },
+        "date_finance_required": {
+            "title":"When the finance is required",
+            "description":"The date on which the finance is required",
+            "type":"string",
+            "format": "date-time"
+        },
+        "date_finance_requested": {
+            "title":"When the finance was requested",
+            "description":"The date on which the finance was requested",
+            "type":"string",
+            "format": "date-time"
+        },
+        "revenue": {
+            "title":"Monthly revenue",
+            "description":"The average monthly revenue of the SME, in GBP",
+            "type": "integer"
         },
         "sic_code": {
             "title":"Sector Industry Classification code",
@@ -45,10 +69,25 @@
             "type":"string",
             "pattern": "^([a-uA-U]|[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}/[0-9])$"
         },
+        "finance_term_length": {
+            "title":"Finance term length",
+            "description":"The term length required, in days",
+            "type": "integer"
+        },
         "profitability": {
             "title":"Profitability before tax",
             "description":"The pre-tax profitability of the SME, expressed as a percentage",
             "type": "integer"
+        },
+        "directors_houses": {
+            "title":"Directors' residential property",
+            "description":"The combined equity of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
+            "type": "integer"
+        },
+        "business_assets": {
+            "title":"Business assets",
+            "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
+            "type":"integer"
         },
         "purpose": {
             "title":"Purpose",
@@ -117,36 +156,12 @@
             "description":"A written business plan is available",
             "type": "boolean"
         },
-        "legal_status": {
-            "title":"Legal status",
-            "description":"The legal status of the SME",
-            "enum": [
-                "limited_company",
-                "limited_partnership",
-                "partnership_less_than_equal_to_3",
-                "partnership_greater_than_3",
-                "public_company",
-                "sole_trader",
-                "charity_limited_by_guarantee",
-                "other"
-                ]
-        },
         "card_revenue": {
             "title":"Card revenue",
             "description":"The proportion of revenue the SME receives from sales via card terminals, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
-        },
-        "revenue": {
-            "title":"Monthly revenue",
-            "description":"The average monthly revenue of the SME, in GBP",
-            "type": "integer"
-        },
-        "directors_houses": {
-            "title":"Directors' residential property",
-            "description":"The combined equity of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
-            "type": "integer"
         },
         "online_revenue": {
             "title":"Online revenue",
@@ -171,11 +186,6 @@
                 "term_loan"
             ]
         },
-        "finance_term_length": {
-            "title":"Finance term length",
-            "description":"The term length required, in days",
-            "type": "integer"
-        },
         "stock_ready": {
             "title":"Ready for sale stock",
             "description":"The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
@@ -186,11 +196,6 @@
         "revenue_growth": {
             "title":"Turnover growth",
             "description":"The change in the SME's revenue in the last year, expressed as a percentage",
-            "type": "integer"
-        },
-        "requested_amount": {
-            "title":"Requested amount",
-            "description":"The amount of finance requested, in GBP",
             "type": "integer"
         },
         "intellectual_property": {
