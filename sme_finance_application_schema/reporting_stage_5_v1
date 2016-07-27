@@ -11,7 +11,7 @@
     ],
     "properties": {
         "event_datetime": {
-            "title":"When the referral completed or failed to complete Stage 4",
+            "title":"When the referral completed or failed to complete Stage 5",
             "description":"Stage 5 is '[Finance Provider] Outcome', so this is the datetime the SME received finance from the Finance Provider or the datetime the Finance Provider rejected the application. It is NOT the datetime the Finance Provider reported back to the Platform. Receiving finance is defined as the funds being transferred to the SME's bank account.",
             "type":"string",
             "format": "date-time"
