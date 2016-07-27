@@ -5,7 +5,11 @@
     "additionalProperties": false,
     "type": "object",
     "required": [
-        "email"
+        "email",
+        "sme_name",
+        "address_line_1",
+        "postcode",
+        "telephone"
     ],
     "properties": {
         "applicant_title": {
@@ -66,8 +70,9 @@
         },
         "telephone": {
             "title":"Telephone number",
-            "description":"The telephone number of the applicant",
-            "type": "string"
+            "description":"The telephone number of the applicant, in E.164 format",
+            "type": "string",
+            "pattern": "^\+?[1-9]\d{1,14}$"
         }
     }
 }

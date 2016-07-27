@@ -1301,12 +1301,12 @@
           "minimum":0,
           "type": "integer"
         },
-        "partnership_less_than_5": {
+        "partnership_less_than_equal_to_3": {
           "maximum":100,
           "minimum":0,
           "type": "integer"
         },
-        "partnership_more_than_4": {
+        "partnership_greater_than_3": {
           "maximum":100,
           "minimum":0,
           "type": "integer"
