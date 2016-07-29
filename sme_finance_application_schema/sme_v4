@@ -4,10 +4,9 @@
     "description":"An application for finance by a Small or Medium Enterprise (SME). Note that the following information is required under the The Small and Medium Sized Business (Finance Platforms) Regulations 2015: '...(c) the amount of finance requested by the business; (d) the type of finance requested by the business (where a specific type of finance has been requested by the business); (e) the legal structure of the business (limited company, limited partnership, partnership sole trader, or other); (f) the period in years and months for which the business has been trading and receiving income; (g) the date by which the business requires finance by or, if such date is not known, the date by which the business has requested finance.' This is captured in the following properties of this schema: requested_amount, finance_type_requested, legal_status, months_revenue, date_finance_required, date_finance_requested. In addition, the Platforms participating in the referral scheme recommend that the following properties be provided: revenue, sic_code, finance_term_length, profitability, directors_houses. All other properties may not be supported by all Platforms.",
     "additionalProperties": false,
     "type": "object",
-    "required": [
-        "requested_amount",
-        "legal_status",
-        "months_revenue"
+    "anyOf":[
+        {"required": ["requested_amount","legal_status","months_revenue","date_finance_required"]},
+        {"required": ["requested_amount","legal_status","months_revenue","date_finance_requested"]}
     ],
     "properties": {
         "requested_amount": {
