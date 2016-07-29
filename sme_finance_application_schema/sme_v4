@@ -11,7 +11,7 @@
     "properties": {
         "requested_amount": {
             "title":"Requested amount",
-            "description":"The amount of finance requested, in GBP",
+            "description":"The amount of finance requested, in GBP. If the SME has requested and been declined for an increase in an existing facility, this should be the amount of the increase.",
             "type": "integer"
         },
         "finance_type_requested": {
