@@ -23,7 +23,8 @@
                 "commercial_mortgage",
                 "business_credit_card",
                 "factoring_or_discounting",
-                "other_finance"
+                "other_finance",
+                "multiple"
             ]
         },
         "legal_status": {
