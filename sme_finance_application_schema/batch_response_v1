@@ -36,7 +36,8 @@
         "datetime_accepted": {
           "title": "Datetime of batch acceptance for processing",
           "description": "When the batch was accepted for processing by the Platform",
-          "type": "date-time"
+          "type": "string",
+          "format": "date-time"
         },
         "finance_application_responses": {
             "type": "array",

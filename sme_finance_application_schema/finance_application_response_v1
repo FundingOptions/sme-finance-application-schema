@@ -26,7 +26,8 @@
         "datetime_accepted": {
           "title": "Datetime of acceptance for processing",
           "description": "When the Finance Application was accepted for processing by the Platform",
-          "type": "date-time"
+          "type": "string",
+          "format": "date-time"
         },
         "success": {
             "title": "Success indicator",
