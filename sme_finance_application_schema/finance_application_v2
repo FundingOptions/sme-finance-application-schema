@@ -6,7 +6,7 @@
     "additionalProperties": false,
     "type": "object",
     "required": [
-        "identifying_information", "finance_application"
+        "identifying_information", "finance_application", "unique_identifier"
     ],
     "properties": {
         "identifying_information": {
