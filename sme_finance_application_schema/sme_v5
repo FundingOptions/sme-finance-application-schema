@@ -244,15 +244,15 @@
                 "UKZ"
             ]
         },
-        "personal_credit": {
+        "personal_credit_ratings": {
             "title":"Directors' personal credit ratings",
-            "description":"The personal credit ratings of the Directors. If there is more than one Director, the lowest credit rating should be provided. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'OK'), for CallCredit scores map 'Poor' as 'Very poor', 'Fair' as 'Poor', 'Good' as 'OK', 'Very good' as 'Good' and 'Excellent' as 'Excellent'.",
+            "description":"The personal credit ratings of the Directors. If there is more than one Director, the lowest credit rating should be provided. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
             "enum":[
-                "Very poor",
-                "Poor",
-                "OK",
-                "Good",
-                "Excellent"
+                "very_poor",
+                "poor",
+                "ok",
+                "good",
+                "excellent"
             ]
         }
     }
