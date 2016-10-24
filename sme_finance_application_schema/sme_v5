@@ -136,6 +136,11 @@
             "maximum":100,
             "minimum":0
         },
+        "exports": {
+            "title":"Exports",
+            "description":"Does the SME export or plans to export",
+            "type": "boolean"
+        },
         "stock_imports": {
             "title":"Stock Imports",
             "description":"The proportion of stock the SME imports from outside the United Kingdom, expressed as a percentage",
