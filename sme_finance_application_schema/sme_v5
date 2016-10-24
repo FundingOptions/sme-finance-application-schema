@@ -177,9 +177,8 @@
         },
         "card_revenue": {
             "title":"Card revenue",
-            "description":"The proportion of revenue the SME receives from sales via card terminals, expressed as a percentage",
+            "description":"The monthly revenue the SME receives from sales via card terminals, in GBP",
             "type": "integer",
-            "maximum":100,
             "minimum":0
         },
         "online_revenue": {
