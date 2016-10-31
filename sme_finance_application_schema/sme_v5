@@ -195,15 +195,6 @@
             "maximum":100,
             "minimum":0
         },
-        "finance_term_general": {
-            "title":"Finance term",
-            "description":"Whether the application is for long term investment, an ongoing finance facility or a term loan",
-            "enum": [
-                "long_term_investing",
-                "ongoing_finance",
-                "term_loan"
-            ]
-        },
         "stock_ready": {
             "title":"Ready for sale stock",
             "description":"The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
