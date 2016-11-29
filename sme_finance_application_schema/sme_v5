@@ -202,13 +202,6 @@
             "maximum":100,
             "minimum":0
         },
-        "stock_imports": {
-            "title":"Imported stock",
-            "description":"The proportion of stock purchased by the SME that is imported to the United Kingdom, expressed as a percentage",
-            "type": "integer",
-            "maximum":100,
-            "minimum":0
-        },
         "revenue_growth": {
             "title":"Turnover growth",
             "description":"The change in the SME's revenue in the last year, expressed as a percentage",
