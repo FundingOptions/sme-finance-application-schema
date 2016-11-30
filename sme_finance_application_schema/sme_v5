@@ -44,7 +44,8 @@
         "months_revenue": {
             "title":"Months of revenue",
             "description":"How long the SME has been receiving revenues, in months",
-            "type": "integer"
+            "type": "integer",
+            "maximum":1800
         },
         "date_finance_required": {
             "title":"When the finance is required",
