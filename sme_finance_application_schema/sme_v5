@@ -295,16 +295,16 @@
             "title": "The accounting software the SME uses",
             "description": "The accounting software the SME uses",
             "enum": [
-                "SageOne",
-                "SageLive",
-                "Sage Instant",
-                "Sage Line 50",
-                "Sage - Other",
-                "Xero QuickBooks Online",
-                "Xero QuickBooks Pro",
-                "Freeagent",
-                "Spreadsheet",
-                "Other"
+                "sage_one",
+                "sage_live",
+                "sage_instant",
+                "sage_line_50",
+                "sage_other", 
+                "xero_quickbooks_online",
+                "xero_quickbooks_pro",
+                "freeagent",
+                "spreadsheet",
+                "other",
             ]
         }
     }
