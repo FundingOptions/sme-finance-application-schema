@@ -1,0 +1,37 @@
+
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"Funding Options Proposal",
+    "description":"",
+    "additionalProperties": false,
+    "type": "object",
+    "required": [
+        "applicant", "finance_need", "requesting_entity"
+    ],
+    "properties": {
+        "applicant":{
+            "$ref": "https://www.fundingoptions.com/schema/person_v1#"
+        },
+        "actors": {
+            "type: "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "person": {"$ref":"https://www.fundingoptions.com/schema/person_v1#"}
+                    "role": { 
+                        "type": "string",
+                        "enum": ["guarantor", "director"]
+                    }
+                }
+            }
+        },
+        "requesting_entity":{
+            "oneOf": [
+                "$ref": "https://www.fundingoptions.com/schema/entity_v1#",
+            ]
+        },
+        "finance_need":{
+            "$ref": "https://www.fundingoptions.com/schema/finance_need_v1#"
+        }
+    }
+}

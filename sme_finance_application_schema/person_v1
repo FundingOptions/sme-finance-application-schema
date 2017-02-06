@@ -1,0 +1,38 @@
+{
+    "$schema":"http://json-schema.org/draft-04/schema#",
+    "title":"",
+    "description":"",
+    "additionalProperties": false,
+    "type": "object",
+    "required": ["first_name","surname"],
+    "properties": {
+        "date_of_birth": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "title": {
+            "type": "string"
+        },
+        "first_name": {
+            "type": "string"
+        },
+        "surname": {
+            "type": "string"
+        },
+        "address": {
+            "$ref": "https://www.fundingoptions.com/schema/address_v1#"
+        },
+        "email": {
+            "title":"Email",
+            "description":"The email address of the applicant",
+            "type": "string",
+            "format": "email"
+        },
+        "telephone": {
+            "title":"Telephone number",
+            "description":"The telephone number of the applicant, in E.164 format",
+            "type": "string",
+            "pattern": "^\\+?[1-9]\\d{1,14}$"
+        }
+    }
+}
