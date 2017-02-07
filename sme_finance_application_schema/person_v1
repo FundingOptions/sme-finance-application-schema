@@ -19,8 +19,22 @@
         "surname": {
             "type": "string"
         },
-        "address": {
-            "$ref": "https://www.fundingoptions.com/schema/address_v1#"
+        "addresses": {
+            "type": "array",
+            "items":{
+                "type": "object",
+                "properties": {
+                    "address":{"$ref": "https://www.fundingoptions.com/schema/address_v1#"},
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
         },
         "email": {
             "title":"Email",
