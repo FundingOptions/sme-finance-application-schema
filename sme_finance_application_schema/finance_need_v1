@@ -8,6 +8,9 @@
         "deposit": {
             "type": "integer"
         },
+        "free_form": {
+            "type": "string",
+        },
         "requested_amount": {
             "title":"Requested amount",
             "description":"The amount of finance requested, in GBP. If the SME has requested and been declined for an increase in an existing facility, this should be the amount of the increase. If the SME has requested and been declined for multiple finance products, this should be the total amount requested across all declined products.",

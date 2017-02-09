@@ -46,6 +46,9 @@
             "description":"The average monthly revenue of the SME, in GBP",
             "type": "integer"
         },
+        "free_form": {
+            "type":"string"
+        },
         "sic_code": {
             "title":"Sector Industry Classification code",
             "description":"The Sector Industry Classification (SIC) code for the SME, according to the 2007 SIC structure. Any level of SIC code is acceptable, from Section to Sub Class.",
