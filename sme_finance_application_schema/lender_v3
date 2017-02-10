@@ -1,0 +1,1665 @@
+{
+  "required": [
+    "funding_amount",
+    "finance_speed"
+  ],
+  "additionalProperties": false,
+  "type": "object",
+  "properties": {
+    "required_criteria": {
+      "type": "array",
+      "title":"Required criteria",
+      "description":"Required criteria by the lender - the lender match score will be 0 for applications which lack required criteria",
+      "items": [
+        {"type":"string",
+         "enum":[
+            "institutional_revenue",
+            "finance_term_length",
+            "overseas_revenue",
+            "financial_forecast",
+            "business_plan",
+            "card_revenue",
+            "registered_brand",
+            "directors_pensions",
+            "months_revenue",
+            "stock_ready",
+            "directors_houses",
+            "purpose",
+            "sic_code",
+            "intellectual_property",
+            "online_revenue",
+            "revenue",
+            "profitability",
+            "legal_status",
+            "up_to_date_accounts",
+            "business_assets",
+            "business_premises",
+            "trade_credit",
+            "revenue_growth",
+            "customers"]}],
+      "uniqueItems": true
+    },
+    "finance_turnover_ratio": {
+      "additionalProperties": false,
+      "title": "Ratio of finance to turnover",
+      "description": "Ratio of finance requested to turnover, expressed as a percentage",
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "25": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "250": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+       }
+    },
+    "institutional_revenue": {
+      "title":"Institutional revenue",
+      "description":"The proportion of revenue the SME receives from sales to listed companies, 'household name' businesses, and local and central government bodies, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "finance_term_general": {
+      "title":"Finance term",
+      "description":"Whether the application is for long term investment, an ongoing finance facility or a term loan",
+      "type": "object",
+      "properties": {
+        "ongoing_finance": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "long_term_investing": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "term_loan": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "finance_term_length": {
+      "title":"Finance term length",
+      "description":"The term length required, in days",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "180": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "2000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "overseas_revenue": {
+      "title":"Overseas revenue",
+      "description":"The proportion of revenue the SME receives from sales outside the United Kingdom, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "financial_forecast": {
+      "title":"Financial forecast available",
+      "description":"A financial forecast is available",
+      "type": "object",
+      "properties": {
+        "yes": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "no": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "business_plan": {
+      "title":"Business plan available",
+      "description":"A written business plan is available",
+      "type": "object",
+      "properties": {
+        "yes": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "no": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "years_of_filed_accounts": {
+      "title": "Years of filed accounts",
+      "description": "The number of years of filed accounts that are available for the SME",
+      "type": "object",
+      "properties": {
+        "1": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "2": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "card_revenue": {
+      "title":"Card revenue",
+      "description":"The proportion of revenue the SME receives from sales via card terminals, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "registered_brand": {
+      "title":"Registered brand",
+      "description":"The SME has a registered trademark or is otherwise generally well known",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "yes": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "no": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "directors_pensions": {
+      "title":"Directors' pensions",
+      "description":"The combined value of the Directors' or other proprietors' pensions, in GBP",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "12500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "37500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "200000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "400000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "months_revenue": {
+      "type": "object",
+      "title":"Months of revenue",
+      "description":"How long the SME has been receiving revenues, in months",
+      "additionalProperties": false,
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "3": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "9": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "18": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "48": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "200": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "years_of_positive_net_assets": {
+      "title":"Years of positive net assets",
+      "description": "The number of years the business has had positive net assets",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "1": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "2": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "stock_ready": {
+      "title":"Ready for sale stock",
+      "description":"The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "directors_houses": {
+      "title":"Directors' residential property",
+      "description":"The combined value of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "12500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "37500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "200000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "400000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "purpose": {
+      "additionalProperties": false,
+      "title":"Purpose",
+      "description":"The purpose of the finance application",
+      "type": "object",
+      "properties": {
+          "other_cashflow": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+          "other_asset_purchase": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+          "other_property_purchase": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+          "other_long_term_growth": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+          "other_turnaround_restructuring": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+          "other": {
+            "maximum":100,
+            "minimum":0,
+            "type": "integer"
+          },
+        "printing_equipment": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "fund_a_prepackaged_insolvency": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "insolvency_or_restructuring_support": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "stock": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "construction_vehicles": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "agricultural_equipment": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "bridging_loan": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "debt_refinancing": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "deliver_on_new_contract": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "replace_an_existing_funder": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "launch_a_new_business_line": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "transport_vehicles": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "equipment_repairs": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "research_and_development": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "buy_to_let": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "new_contract": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "expand_existing_business": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "fund_a_merger_or_aquisition": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "seasonal_trading": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "development_finance": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "facilities_improvement": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "business_premises": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "bill_or_tax_payment": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "deliver_strategic_plan": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "other_reason": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "refurbishment": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "machinery": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "cashflow_headroom": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "construction_equipment": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "sic_code": {
+      "title":"Sector Industry Classification code",
+      "description":"The Sector Industry Classification (SIC) code for the SME, according to the 2007 SIC structure. This accepts scores for SIC Sections only.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "A": {
+          "title":"Agriculture, forestry and fishing",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "B": {
+          "title":"Mining and quarrying",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "C": {
+          "title":"Manufacturing",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "D": {
+          "title":"Electricity, gas, steam and air conditioning supply",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "E": {
+          "title":"Water supply; sewerage, waste management and remediation activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "F": {
+          "title":"Construction",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "G": {
+          "title":"Wholesale and retail trade; repair of motor vehicles and motorcycles",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "H": {
+          "title":"Transportation and storage",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "I": {
+          "title":"Accommodation and food service activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "J": {
+          "title":"Information and communication",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "K": {
+          "title":"Financial and insurance activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "L": {
+          "title":"Real estate activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "M": {
+          "title":"Professional, scientific and technical activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "N": {
+          "title":"Administrative and support service activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "O": {
+          "title":"Public administration and defence; compulsory social security",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "P": {
+          "title":"Education",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "Q": {
+          "title":"Human health and social work activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "R": {
+          "title":"Arts, entertainment and recreation",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "S": {
+          "title":"Other service activities",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "T": {
+          "title":"Activities of households as employers; undifferentiated goods-and services-producing activities of households for own use",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "U": {
+          "title":"Activities of extraterritorial organisations and bodies",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "intellectual_property": {
+      "title":"Intellectual property",
+      "description":"The SME has recognised intellectual property such as patents",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "yes": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "no": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "online_revenue": {
+      "title":"Online revenue",
+      "description":"The proportion of revenue the SME receives from sales online, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "funding_amount": {
+      "title": "Funding amount",
+      "description":"The amount of finance requested, in GBP",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "1000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "3000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "15000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "25000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "150000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "250000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "2000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "3000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "revenue": {
+      "title": "Monthly Turnover",
+      "description": "The average monthly revenue of the SME, in GBP",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "3000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "15000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "25000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "150000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "250000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "2000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "3000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10000000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "profitability": {
+      "title":"Profitability before tax",
+      "description":"The pre-tax profitability of the SME, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "-25": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "-10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "25": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "finance_speed": {
+      "title": "Finance speed",
+      "description": "How quickly does the SME need the finance, in days",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "5": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "legal_status": {
+      "title":"Legal status",
+      "description":"The legal status of the SME",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "sole_trader": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "partnership_less_than_5": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "partnership_more_than_4": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "public_company": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "limited_company": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "limited_partnership": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "charity_limited_by_guarantee": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "other": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "up_to_date_accounts": {
+      "title":"Up to date accounts available",
+      "description":"Statutory or management accounts fewer than two months old are available",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "yes": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "no": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "business_assets": {
+      "title":"Business assets",
+      "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "12500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "37500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "200000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "400000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "business_premises": {
+      "additionalProperties": false,
+      "type": "object",
+      "title":"Business premises",
+      "description":"The value of any business premises owned by the SME, net of any existing finance, in GBP",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "12500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "37500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "75000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "200000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "400000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "750000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "1500000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "trade_credit": {
+      "title":"Trade credit",
+      "description":"The proportion of revenue the SME receives from sales conducted on trade credit, expressed as a percentage",
+      "additionalProperties": false,
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "20": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "30": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "40": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "60": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "70": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "80": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "90": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "100": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "revenue_growth": {
+      "additionalProperties": false,
+      "title":"Turnover growth",
+      "description":"The change in the SME's turnover in the last year, expressed as a percentage",
+      "type": "object",
+      "properties": {
+        "0": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "25": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "-10": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "-25": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "customers": {
+      "title":"Customers",
+      "description":"The number of customers the SME traded with in the last year",
+      "type": "object",
+      "properties": {
+        "500": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5000": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "5": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "50": {
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    },
+    "region": {
+      "additionalProperties": false,
+      "title":"Region",
+      "description":"Region in which the SME is based according to NUTS 2013 (level 1 region)",
+      "type":"object",
+      "properties": {
+        "UKC": {
+          "title":"North East England",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKD": {
+          "title":"North West England",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKE": {
+          "title":"Yorkshire and the Humber",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKF": {
+          "title":"East Midlands",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKG": {
+          "title":"West Midlands",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKH": {
+          "title":"East of England",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKI": {
+          "title":"Greater London",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKJ": {
+          "title":"South East England",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKK": {
+          "title":"South West England",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKL": {
+          "title":"Wales",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKM": {
+          "title":"Scotland",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKN": {
+          "title":"Northern Ireland",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        },
+        "UKZ": {
+          "title":"Extra-regio",
+          "maximum":100,
+          "minimum":0,
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
