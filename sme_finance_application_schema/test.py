@@ -13,9 +13,11 @@ def patch_store(store):
 
 class TestJson(TestCase):
     def test_entity_json(self):
-        with open('./sme_finance_application_schema/entity_v1') as f:
-            content = f.read()
-        self.assertTrue(json.loads(content))
+        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3'):
+            with self.subTest(schema=schema):
+                with open('./sme_finance_application_schema/' + schema) as f:
+                    content = f.read()
+                self.assertTrue(json.loads(content))
 
 
 class TestTranslations(TestCase):
