@@ -9,7 +9,7 @@
             "type": "integer"
         },
         "free_form": {
-            "type": "string",
+            "type": "string"
         },
         "requested_amount": {
             "title":"Requested amount",
