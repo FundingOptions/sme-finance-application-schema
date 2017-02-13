@@ -1,41 +1,45 @@
-
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "title":"Funding Options Proposal",
     "description":"",
+    "id": "https://www.fundingoptions.com/schema/finance_application_v3",
     "additionalProperties": false,
     "type": "object",
-    "required": [
-        "applicant", "finance_need", "requesting_entity"
-    ],
-    "properties": {
-        "applicant":{
-            "$ref": "https://www.fundingoptions.com/schema/person_v1#"
-        },
-        "actors": {
-            "type: "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "value_of_personal_assets": {
-                        "type":"integer",
-                        "description": "The net value of the assets that the person is willing/able to use as a guarantee"
-                    },
-                    "person": {"$ref":"https://www.fundingoptions.com/schema/person_v1#"},
-                    "role": { 
-                        "type": "string",
-                        "enum": ["guarantor", "director"]
-                    }
+    "required": [ "applicant", "finance_need", "requesting_entity" ],
+    "definitions":
+    {
+        "person_v1": { "id": "person_v1"},
+        "finance_need_v1": { "id": "finance_need_v1"},
+        "entity_v1": { "id": "entity_v1"},
+        "actor":{
+            "id": "actor",
+            "type": "object",
+            "properties": {
+                "value_of_personal_assets": {
+                    "type":"integer",
+                    "description": "The net value of the assets that the person is willing/able to use as a guarantee"
+                },
+                "person": {"$ref":"person_v1"},
+                "role": {
+                    "type": "string",
+                    "enum": ["guarantor", "director"]
                 }
             }
+        }
+    },
+    "properties": {
+        "applicant":{
+            "$ref": "person_v1"
+        },
+        "actors": {
+            "type": "array",
+            "items": {"$ref": "actor" }
         },
         "requesting_entity":{
-            "oneOf": [
-                "$ref": "https://www.fundingoptions.com/schema/entity_v1#",
-            ]
+            "$ref": "entity_v1"
         },
         "finance_need":{
-            "$ref": "https://www.fundingoptions.com/schema/finance_need_v1#"
+            "$ref": "finance_need_v1"
         }
     }
 }
