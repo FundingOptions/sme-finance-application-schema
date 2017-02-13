@@ -13,7 +13,7 @@ def patch_store(store):
 
 class TestJson(TestCase):
     def test_entity_json(self):
-        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3'):
+        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3', 'batch_application_v1', 'batch_response_v1'):
             with self.subTest(schema=schema):
                 with open('./sme_finance_application_schema/' + schema) as f:
                     content = f.read()
