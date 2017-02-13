@@ -5,6 +5,12 @@
     "description":"",
     "additionalProperties": false,
     "type": "object",
+    "definitions":
+    {
+        "address_v1": {
+            "id":"address_v1"
+        }
+    },
     "properties": {
         "name": {
             "type": "string"
@@ -14,7 +20,7 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "address": {"$ref":"https://www.fundingoptions.com/schema/address_v1#"},
+                    "address": {"$ref":"address_v1"},
                     "role": {
                         "type": "string",
                         "enum": ["trading", "registered"]
