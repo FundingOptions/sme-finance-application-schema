@@ -1,3 +1,21 @@
+def finance_application_v3_to_sme_v5(finance_application):
+    sme_v5 = {}
+    for field in ('legal_status', 'months_revenue', 'revenue',
+        'sic_code', 'profitability', 'directors_houses', 'business_assets',
+        'overseas_revenue', 'exports', 'stock_imports', 'purchase_orders',
+        'directors_pensions', 'up_to_date_accounts', 'financial_forecast',
+        'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
+        'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
+        'business_premises', 'registered_brand', 'customers', 'region',
+        'company_credit_rating', 'familiarity_with_financing', 'accounting_software'):
+        if field in finance_application['requesting_entity']:
+            sme_v5[field] = finance_application['requesting_entity'][field]
+    for field in ( 'requested_amount', 'finance_type_requested', 'date_finance_required',
+            'date_finance_requested', 'finance_term_length', 'guarantor_available', 'purpose'):
+        if field in finance_application['finance_need']:
+            sme_v5[field] = finance_application['finance_need'][field]
+    return sme_v5
+
 def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact):
     applicant = sme_contact_v3_to_person_v1_translator(sme_contact)
     requesting_entity = sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact)
@@ -42,7 +60,7 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
         'familiarity_with_financing': sme.get('familiarity_with_financing'),
         'accounting_software': sme.get('accounting_software')
     }
-    return _strip_dictionary(requesting_entity)
+    return _remove_key_if_value_is_none(requesting_entity)
 
 
 def sme_v5_to_finance_need_v1_translator(sme):
@@ -55,7 +73,7 @@ def sme_v5_to_finance_need_v1_translator(sme):
         'guarantor_available': sme.get('guarantor_available'),
         'purpose': sme.get('purpose'),
     }
-    return _strip_dictionary(finance_need)
+    return _remove_key_if_value_is_none(finance_need)
 
 
 def sme_contact_v3_to_address_v1_translator(sme_contact):
@@ -64,7 +82,7 @@ def sme_contact_v3_to_address_v1_translator(sme_contact):
         'postcode': sme_contact.get('postcode') or '',
         'post_town': sme_contact.get('city')
     }
-    return _strip_dictionary(address)
+    return _remove_key_if_value_is_none(address)
 
 
 def sme_contact_v3_to_person_v1_translator(sme_contact):
@@ -79,11 +97,10 @@ def sme_contact_v3_to_person_v1_translator(sme_contact):
     if _dictionary_has_populated_values(address):
         person['addresses'] = [{'address': address}]
 
-    return _strip_dictionary(person)
+    return _remove_key_if_value_is_none(person)
 
 
-def _strip_dictionary(dictionary):
-    """Remove key value pairs from dictionary where the value is null"""
+def _remove_key_if_value_is_none(dictionary):
     return dict(
         (key, value) for key, value in dictionary.items()
         if value is not None
