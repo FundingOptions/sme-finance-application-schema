@@ -37,3 +37,7 @@ class TestTranslations(TestCase):
     def test_finance_application_v3_to_sme_v5(self):
         from .translations import finance_application_v3_to_sme_v5
         self.assertDictEqual(finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3), SME)
+
+    def test_finance_application_v3_to_sme_contact_v3(self):
+        from .translations import finance_application_v3_to_sme_contact_v3
+        self.assertDictEqual(finance_application_v3_to_sme_contact_v3(FINANCE_APPLICATION_V3), SME_CONTACT)

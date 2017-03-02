@@ -1,3 +1,27 @@
+def finance_application_v3_to_sme_contact_v3(finance_application):
+    applicant = finance_application['applicant']
+    requesting_entity = finance_application['requesting_entity']
+    sme_contact_v3 = {
+        'sme_name': requesting_entity['name'],
+        'applicant_surname': applicant['surname'],
+        'applicant_first_name': applicant.get('first_name') or None,  # disallow blank values
+        'applicant_title': applicant.get('title'),
+        'email': applicant.get('email'),
+        'telephone': applicant.get('telephone'),
+    }
+    if 'addresses' in applicant:
+        if len(applicant['addresses']) != 1:
+            raise ValueError("Cannot safely convert applicant with multiple addresses to sme_contact_v3")
+
+        address = applicant['addresses'][0]['address']
+        sme_contact_v3.update({
+            'address_line_1': address['building_number_and_street_name'],
+            'postcode': address['postcode'],
+            'city': address.get('post_town')
+        })
+    return _remove_key_if_value_is_none(sme_contact_v3)
+
+
 def finance_application_v3_to_sme_v5(finance_application):
     sme_v5 = {}
     for field in ('legal_status', 'months_revenue', 'revenue',
