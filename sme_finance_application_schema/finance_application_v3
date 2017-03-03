@@ -19,6 +19,10 @@
                     "type":"integer",
                     "description": "The net value of the assets that the person is willing/able to use as a guarantee"
                 },
+                "outstanding_mortgage_on_property": {
+                    "type":"integer",
+                    "description": "Outstanding mortage on properties"
+                },
                 "person": {"$ref":"person_v1"},
                 "role": {
                     "type": "string",

@@ -91,6 +91,11 @@
                 "seasonal_trading",
                 "experienced_a_bad_debt"
                 ]
+        },
+        "outstanding_invoices": {
+            "title":"Value of outstanding Invoices",
+            "description":"Value of outstanding invoices, in GBP",
+            "type": "integer"
         }
     }
 }
