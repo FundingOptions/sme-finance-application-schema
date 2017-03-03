@@ -15,6 +15,10 @@
         "name": {
             "type": "string"
         },
+        "registration_date": {
+            "type": "string",
+            "format": "date-time"
+        },
         "addresses": {
             "type": "array",
             "items": {
@@ -180,6 +184,11 @@
         "customers": {
             "title":"Customers",
             "description":"The number of customers the SME traded with in the last year",
+            "type":"integer"
+        },
+        "employees": {
+            "title":"Number of employees",
+            "description":"The number of employees the SME employs",
             "type":"integer"
         },
         "region": {
