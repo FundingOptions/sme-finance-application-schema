@@ -8,6 +8,7 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
         'applicant_title': applicant.get('title'),
         'email': applicant.get('email'),
         'telephone': applicant.get('telephone'),
+        'company_number': requesting_entity.get('company_number'),
     }
     if 'addresses' in applicant:
         if len(applicant['addresses']) != 1:
@@ -54,6 +55,7 @@ def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact)
 def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
     requesting_entity = {
         'name': sme_contact.get('sme_name'),
+        'company_number': sme_contact.get('company_number'),
         'legal_status': sme.get('legal_status'),
         'months_revenue': sme.get('months_revenue'),
         'revenue': sme.get('revenue'),

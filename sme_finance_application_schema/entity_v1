@@ -15,6 +15,11 @@
         "name": {
             "type": "string"
         },
+        "company_number": {
+            "type":"string",
+            "title":"Company number",
+            "description":"The Companies House number for this SME"
+        },
         "registration_date": {
             "type": "string",
             "format": "date-time"
