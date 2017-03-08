@@ -76,11 +76,6 @@
             "description":"The pre-tax profitability of the SME, expressed as a percentage",
             "type": "integer"
         },
-        "directors_houses": {
-            "title":"Directors' residential property",
-            "description":"The combined equity of the Directors' or other proprietors' residential property, net of any existing finance, in GBP",
-            "type": "integer"
-        },
         "business_assets": {
             "title":"Business assets",
             "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
