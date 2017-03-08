@@ -228,7 +228,7 @@
         },
         "company_credit_rating": {
             "title":"Credit rating of the SME itself, not its Directors.",
-            "description":"The credit ratings of the Company.",
+            "description":"The credit rating of the Company. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
             "enum":[
                 "very_poor",
                 "poor",
