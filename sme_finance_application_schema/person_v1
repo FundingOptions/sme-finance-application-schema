@@ -18,7 +18,8 @@
             "format": "date-time"
         },
         "title": {
-            "type": "string"
+            "type": "string",
+            "description": "The form of address, e.g. Miss, Mr, Dr"
         },
         "first_name": {
             "type": "string"
@@ -28,6 +29,7 @@
         },
         "addresses": {
             "type": "array",
+            "description": "The person's primary residences",
             "items":{
                 "type": "object",
                 "properties": {
@@ -45,13 +47,12 @@
         },
         "email": {
             "title":"Email",
-            "description":"The email address of the applicant",
             "type": "string",
             "format": "email"
         },
         "telephone": {
             "title":"Telephone number",
-            "description":"The telephone number of the applicant, in E.164 format",
+            "description":"The telephone number of the person, in E.164 format",
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$"
         }
