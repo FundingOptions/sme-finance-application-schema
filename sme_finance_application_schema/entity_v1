@@ -95,7 +95,7 @@
         },
         "exports": {
             "title":"Exports",
-            "description":"Does the SME export or plans to export",
+            "description":"Does the SME export or have plans to export",
             "type": "boolean"
         },
         "stock_imports": {
