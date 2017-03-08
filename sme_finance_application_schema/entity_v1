@@ -74,7 +74,9 @@
         "profitability": {
             "title":"Profitability before tax",
             "description":"The pre-tax profitability of the SME, expressed as a percentage",
-            "type": "integer"
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
         },
         "business_assets": {
             "title":"Business assets",
