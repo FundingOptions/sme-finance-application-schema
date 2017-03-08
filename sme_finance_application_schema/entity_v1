@@ -162,7 +162,9 @@
         "revenue_growth": {
             "title":"Turnover growth",
             "description":"The change in the SME's revenue in the last year, expressed as a percentage",
-            "type": "integer"
+            "type": "integer",
+            "maximum":100,
+            "minimum":0
         },
         "intellectual_property": {
             "title":"Intellectual property",
