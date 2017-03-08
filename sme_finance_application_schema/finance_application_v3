@@ -1,7 +1,7 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
-    "title":"Funding Options Proposal",
-    "description":"",
+    "title":"Funding Options Finance Application",
+    "description":"An application for business finance, describing the requesting entity, its finance need, and relevant actors",
     "id": "https://www.fundingoptions.com/schema/finance_application_v3",
     "additionalProperties": false,
     "type": "object",

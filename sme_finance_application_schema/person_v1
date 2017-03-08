@@ -1,8 +1,8 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "id": "https://www.fundingoptions.com/schema/person_v1",
-    "title":"",
-    "description":"",
+    "title":"Person",
+    "description":"A person",
     "additionalProperties": false,
     "type": "object",
     "required": ["first_name","surname"],

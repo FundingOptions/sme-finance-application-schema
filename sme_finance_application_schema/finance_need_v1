@@ -1,7 +1,7 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
-    "title":"",
-    "description":"",
+    "title":"Finance need",
+    "description":"A description of the finance need",
     "additionalProperties": false,
     "type": "object",
     "properties": {

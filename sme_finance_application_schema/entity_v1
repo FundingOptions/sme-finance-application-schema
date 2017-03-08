@@ -1,8 +1,8 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
     "id": "https://www.fundingoptions.com/schema/entity_v1",
-    "title":"",
-    "description":"",
+    "title":"Requesting Entity",
+    "description":"The entity requesting finance. Describes a UK based Small-to-medium enterprise (SME)",
     "additionalProperties": false,
     "type": "object",
     "definitions":
