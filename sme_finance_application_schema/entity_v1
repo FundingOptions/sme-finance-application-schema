@@ -5,6 +5,7 @@
     "description":"The entity requesting finance. Describes a UK based Small-to-medium enterprise (SME)",
     "additionalProperties": false,
     "type": "object",
+    "required": [ "name" ],
     "definitions":
     {
         "address_v1": {
@@ -109,9 +110,9 @@
             "maximum":100,
             "minimum":0
         },
-        "directors_pensions": {
-            "title":"Directors' pensions",
-            "description":"The combined value of the Directors' or other proprietors' pensions, in GBP",
+        "outstanding_invoices": {
+            "title":"Value of outstanding Invoices",
+            "description":"Value of outstanding invoices, in GBP",
             "type": "integer"
         },
         "up_to_date_accounts": {
@@ -214,17 +215,6 @@
                 "UKZ"
             ]
         },
-        "personal_credit_ratings": {
-            "title":"Directors' personal credit ratings",
-            "description":"The personal credit ratings of the Directors. If there is more than one Director, the lowest credit rating should be provided. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
-            "enum":[
-                "very_poor",
-                "poor",
-                "ok",
-                "good",
-                "excellent"
-            ]
-        },
         "company_credit_rating": {
             "title":"Credit rating of the SME itself, not its Directors.",
             "description":"The credit rating of the Company. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
@@ -234,15 +224,6 @@
                 "ok",
                 "good",
                 "excellent"
-            ]
-        },
-        "familiarity_with_financing": {
-            "title": "Familiarity with Business Finance",
-            "description": "Level of experience with business finance",
-            "enum": [
-                "first_time",
-                "had_finance_before",
-                "expert"
             ]
         },
         "accounting_software": {
