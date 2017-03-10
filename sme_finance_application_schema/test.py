@@ -31,7 +31,6 @@ class TestTranslations(TestCase):
         json_content = json.loads(content)
         validator = jsonschema.validators.Draft4Validator(json_content)
         patch_store(validator.resolver.store)
-        validator.is_valid(sme_v5_and_contact_v3_to_finance_application_v3_translator(SME, SME_CONTACT))
         self.assertTrue(validator.is_valid(sme_v5_and_contact_v3_to_finance_application_v3_translator(SME, SME_CONTACT)))
 
     def test_finance_application_v3_to_sme_v5(self):

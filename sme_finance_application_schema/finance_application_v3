@@ -8,9 +8,6 @@
     "required": [ "applicant", "finance_need", "requesting_entity" ],
     "definitions":
     {
-        "person_v1": { "id": "person_v1"},
-        "finance_need_v1": { "id": "finance_need_v1"},
-        "entity_v1": { "id": "entity_v1"},
         "actor":{
             "type": "object",
             "properties": {
