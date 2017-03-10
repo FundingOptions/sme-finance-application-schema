@@ -17,9 +17,9 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
         address = applicant['addresses'][0]['address']
         sme_contact_v3.update({
             'address_line_1': address['building_number_and_street_name'],
-            'address_line_2': address['locality_name'],
-            'postcode': address['postcode'],
-            'city': address.get('post_town')
+            'address_line_2': address.get('locality_name'),
+            'city': address.get('post_town'),
+            'postcode': address['postcode']
         })
     return _remove_key_if_value_is_none(sme_contact_v3)
 
