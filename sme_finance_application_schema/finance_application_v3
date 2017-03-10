@@ -12,7 +12,6 @@
         "finance_need_v1": { "id": "finance_need_v1"},
         "entity_v1": { "id": "entity_v1"},
         "actor":{
-            "id": "actor",
             "type": "object",
             "properties": {
                 "value_of_personal_assets": {
@@ -64,7 +63,7 @@
         },
         "actors": {
             "type": "array",
-            "items": {"$ref": "actor" }
+            "items": {"$ref": "#/definitions/actor" }
         },
         "requesting_entity":{
             "$ref": "entity_v1"
