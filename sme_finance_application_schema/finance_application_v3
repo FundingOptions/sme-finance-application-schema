@@ -21,6 +21,11 @@
                     "type":"integer",
                     "description": "The outstanding value of mortgages on personal properties belonging to this actor, in GBP"
                 },
+                "value_of_property_equity": {
+                    "title":"Value of property equity",
+                    "description":"The value of this actors' property equity, in GBP",
+                    "type": "integer"
+                },
                 "value_of_pension": {
                     "title":"Value of pension",
                     "description":"The value of this actors' pension, in GBP",

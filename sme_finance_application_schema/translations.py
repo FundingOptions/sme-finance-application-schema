@@ -27,7 +27,7 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
 def finance_application_v3_to_sme_v5(finance_application):
     sme_v5 = {}
     for field in ('legal_status', 'months_revenue', 'revenue',
-        'sic_code', 'profitability', 'directors_houses', 'business_assets',
+        'sic_code', 'profitability', 'business_assets',
         'overseas_revenue', 'exports', 'stock_imports', 'purchase_orders',
         'directors_pensions', 'up_to_date_accounts', 'financial_forecast',
         'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
@@ -40,6 +40,16 @@ def finance_application_v3_to_sme_v5(finance_application):
             'date_finance_requested', 'finance_term_length', 'guarantor_available', 'purpose'):
         if field in finance_application['finance_need']:
             sme_v5[field] = finance_application['finance_need'][field]
+    if finance_application.get('actors'):
+        directors = [x for x in finance_application['actors'] if x['role'] == 'director']
+        if directors:
+            if len(directors) > 1:
+                raise Exception
+            director = directors[0]
+            if 'value_of_property_equity' in director:
+                sme_v5['directors_houses'] = director['value_of_property_equity']
+            if 'value_of_pension' in director:
+                sme_v5['directors_pensions'] = director['value_of_pension']
     return sme_v5
 
 def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact):
