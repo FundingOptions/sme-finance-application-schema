@@ -64,7 +64,7 @@
                 "ground_up_development_multiple_units"
                 ]
         },
-        "permission_for_development: {
+        "permission_for_development": {
             "enum":["None",
                 "permitted_development",
                 "pre_application",
