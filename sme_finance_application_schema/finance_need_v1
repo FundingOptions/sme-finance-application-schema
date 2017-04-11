@@ -75,8 +75,7 @@
         "equity_in_site": {
             "enum":["None",
                 "between_50k_and_250k",
-                "more_than_250k",
-                "owned_outright"
+                "more_than_250k"
                 ]
         },
         "date_finance_required": {
