@@ -40,11 +40,11 @@
         },
         "type_of_property": {
             "title":"Property type requested",
-            "enum":["undeveloped_land_no_planning_permission",
+            "enum":["undeveloped_land_without_planning_permission",
                 "undeveloped_land_with_planning_permission",
                 "part_finished_development",
                 "buy_to_let",
-                "hmo",
+                "house_in_multiple_occupation",
                 "freehold_flats",
                 "holiday_homes",
                 "semi_commercial_unit",
@@ -57,7 +57,7 @@
             ]
         },
         "experience_in_development": {
-            "enum":["None",
+            "enum":["none",
                 "refurbishement_and_sale",
                 "refurbishement_and_let",
                 "ground_up_development_single_unit",
@@ -65,7 +65,7 @@
                 ]
         },
         "permission_for_development": {
-            "enum":["None",
+            "enum":["none",
                 "permitted_development",
                 "pre_application",
                 "outline_planning",
@@ -73,10 +73,7 @@
                 ]
         },
         "equity_in_site": {
-            "enum":["None",
-                "between_50k_and_250k",
-                "more_than_250k"
-                ]
+            "type": "integer"
         },
         "date_finance_required": {
             "title":"When the finance is required",
