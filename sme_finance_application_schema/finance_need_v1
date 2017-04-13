@@ -30,6 +30,51 @@
                 "multiple"
             ]
         },
+        "type_of_mortgage": {
+            "title":"Mortgage type requested",
+            "enum":[ "owner_occupied",
+                "commercial_buy_to_let",
+                "residential_buy_to_let",
+                "refinance"
+            ]
+        },
+        "type_of_property": {
+            "title":"Property type requested",
+            "enum":["undeveloped_land_without_planning_permission",
+                "undeveloped_land_with_planning_permission",
+                "part_finished_development",
+                "buy_to_let",
+                "house_in_multiple_occupation",
+                "freehold_flats",
+                "holiday_homes",
+                "semi_commercial_unit",
+                "office",
+                "retail_unit",
+                "light_industrial",
+                "heavy_industrial",
+                "agricultural",
+                "warehousing"
+            ]
+        },
+        "experience_in_development": {
+            "enum":["none",
+                "refurbishement_and_sale",
+                "refurbishement_and_let",
+                "ground_up_development_single_unit",
+                "ground_up_development_multiple_units"
+                ]
+        },
+        "permission_for_development": {
+            "enum":["none",
+                "permitted_development",
+                "pre_application",
+                "outline_planning",
+                "detailed_planning"
+                ]
+        },
+        "equity_in_site": {
+            "type": "integer"
+        },
         "date_finance_required": {
             "title":"When the finance is required",
             "description":"The date on which the finance is required. If the SME has requested and been declined for multiple products, this should be the earliest of the dates required.",
