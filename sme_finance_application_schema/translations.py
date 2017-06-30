@@ -50,6 +50,10 @@ def finance_application_v3_to_sme_v5(finance_application):
                 sme_v5['directors_houses'] = director['value_of_property_equity']
             if 'value_of_pension' in director:
                 sme_v5['directors_pensions'] = director['value_of_pension']
+            if 'familiarity_with_financing' in director:
+                sme_v5['familiarity_with_financing'] = director['familiarity_with_financing']
+            if 'personal_credit_ratings' in director:
+                sme_v5['personal_credit_ratings'] = director['personal_credit_ratings']
     return sme_v5
 
 def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact):
