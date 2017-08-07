@@ -299,9 +299,10 @@
                 "sage_live",
                 "sage_instant",
                 "sage_line_50",
-                "sage_other", 
-                "xero_quickbooks_online",
-                "xero_quickbooks_pro",
+                "sage_other",
+                "xero",
+                "quickbooks_online",
+                "quickbooks_pro",
                 "freeagent",
                 "spreadsheet",
                 "other"
