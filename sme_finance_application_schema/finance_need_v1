@@ -156,6 +156,14 @@
                 "yes_with_mortgage",
                 "yes_without_mortgage"
             ]
+        },
+        "property_work_started": {
+            "title": "Work started",
+            "description": "Has building work started already",
+            "enum": [
+                "yes",
+                "no"
+            ]
         }
     }
 }
