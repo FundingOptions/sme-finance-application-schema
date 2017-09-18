@@ -137,6 +137,16 @@
                 "seasonal_trading",
                 "experienced_a_bad_debt"
                 ]
+        },
+        "property_development_type": {
+            "title": "Property development type",
+            "description": "The type of development to be done to the property",
+            "enum": [
+                "new_build",
+                "demolition_conversion",
+                "heavy_refurbishment",
+                "light_refurbishment"
+            ]
         }
     }
 }
