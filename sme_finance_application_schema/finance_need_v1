@@ -147,6 +147,15 @@
                 "heavy_refurbishment",
                 "light_refurbishment"
             ]
+        },
+        "property_ownership": {
+            "title": "Property ownership",
+            "description": "Is the property owned and if so is there a mortgage",
+            "enum": [
+                "no",
+                "yes_with_mortgage",
+                "yes_without_mortgage"
+            ]
         }
     }
 }
