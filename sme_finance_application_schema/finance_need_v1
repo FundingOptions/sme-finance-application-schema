@@ -72,9 +72,6 @@
                 "detailed_planning"
                 ]
         },
-        "equity_in_site": {
-            "type": "integer"
-        },
         "date_finance_required": {
             "title":"When the finance is required",
             "description":"The date on which the finance is required. If the SME has requested and been declined for multiple products, this should be the earliest of the dates required.",
@@ -137,6 +134,33 @@
                 "seasonal_trading",
                 "experienced_a_bad_debt"
                 ]
+        },
+        "property_development_type": {
+            "title": "Property development type",
+            "description": "The type of development to be done to the property",
+            "enum": [
+                "new_build",
+                "demolition_conversion",
+                "heavy_refurbishment",
+                "light_refurbishment"
+            ]
+        },
+        "property_ownership": {
+            "title": "Property ownership",
+            "description": "Is the property owned and if so is there a mortgage",
+            "enum": [
+                "no",
+                "yes_with_mortgage",
+                "yes_without_mortgage"
+            ]
+        },
+        "property_work_started": {
+            "title": "Work started",
+            "description": "Has building work started already",
+            "enum": [
+                "yes",
+                "no"
+            ]
         }
     }
 }
