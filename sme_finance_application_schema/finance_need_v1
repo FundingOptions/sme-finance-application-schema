@@ -161,6 +161,16 @@
                 "yes",
                 "no"
             ]
+        },
+        "asset_type": {
+            "title": "Asset type",
+            "description": "Type of asset looking to be financed",
+            "type": "string"
+        },
+        "vehicle_type": {
+            "title": "Vehicle type",
+            "description": "Type of vehicle to be financed",
+            "type": "string"
         }
     }
 }
