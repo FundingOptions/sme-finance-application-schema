@@ -1,21 +1,21 @@
 {
-    "$schema":"http://json-schema.org/draft-04/schema#",
-    "title":"Postal address",
-    "description":"As per Royal Mail Clear Addressing standards, retrieved January 2017 - http://www.royalmail.com/help-and-support/how-to-address-your-mail-correctly",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Postal address",
+    "description": "As per Royal Mail Clear Addressing standards, retrieved January 2017 - http://www.royalmail.com/help-and-support/how-to-address-your-mail-correctly",
     "additionalProperties": false,
     "type": "object",
     "required": ["building_number_and_street_name","postcode"],
     "properties": {
         "building_number_and_street_name": {
-            "title":"Building number and street name",
+            "title": "Building number and street name",
             "type": "string"
         },
         "locality_name": {
-            "title":"Locality name",
+            "title": "Locality name",
             "type": "string"
         },
         "post_town": {
-            "title":"Post town",
+            "title": "Post town",
             "type": "string"
         },
         "postcode": {

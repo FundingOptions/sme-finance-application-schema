@@ -1,25 +1,19 @@
 {
-    "$schema":"http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-04/schema#",
     "id": "https://www.fundingoptions.com/schema/entity_v1",
-    "title":"Requesting Entity",
-    "description":"The entity requesting finance. Describes a UK based Small-to-medium enterprise (SME)",
+    "title": "Requesting Entity",
+    "description": "The entity requesting finance. Describes a UK based Small-to-medium enterprise (SME)",
     "additionalProperties": false,
     "type": "object",
-    "required": [ "name" ],
-    "definitions":
-    {
-        "address_v1": {
-            "id":"address_v1"
-        }
-    },
+    "required": ["name"],
     "properties": {
         "name": {
             "type": "string"
         },
         "company_number": {
-            "type":"string",
-            "title":"Company number",
-            "description":"The Companies House number for this SME"
+            "type": "string",
+            "title": "Company number",
+            "description": "The Companies House number for this SME"
         },
         "registration_date": {
             "type": "string",
@@ -30,7 +24,7 @@
             "items": {
                 "type": "object",
                 "properties": {
-                    "address": {"$ref":"address_v1"},
+                    "address": {"$ref": "address_v1"},
                     "role": {
                         "type": "string",
                         "enum": ["trading", "registered"]
@@ -39,8 +33,8 @@
             }
         },
         "legal_status": {
-            "title":"Legal status",
-            "description":"The legal status of the SME",
+            "title": "Legal status",
+            "description": "The legal status of the SME",
             "enum": [
                 "limited_company",
                 "limited_partnership",
@@ -53,153 +47,153 @@
                 ]
         },
         "months_revenue": {
-            "title":"Months of revenue",
-            "description":"How long the SME has been receiving revenues, in months",
+            "title": "Months of revenue",
+            "description": "How long the SME has been receiving revenues, in months",
             "type": "integer",
             "maximum":1800
         },
         "revenue": {
-            "title":"Monthly revenue",
-            "description":"The average monthly revenue of the SME, in GBP",
+            "title": "Monthly revenue",
+            "description": "The average monthly revenue of the SME, in GBP",
             "type": "integer"
         },
         "free_form": {
-            "type":"string"
+            "type": "string"
         },
         "sic_code": {
-            "title":"Sector Industry Classification code",
-            "description":"The Sector Industry Classification (SIC) code for the SME, according to the 2007 SIC structure. Any level of SIC code is acceptable, from Section to Sub Class.",
-            "type":"string",
+            "title": "Sector Industry Classification code",
+            "description": "The Sector Industry Classification (SIC) code for the SME, according to the 2007 SIC structure. Any level of SIC code is acceptable, from Section to Sub Class.",
+            "type": "string",
             "pattern": "^([a-uA-U]|[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}|[0-9]{1,2}\\.[0-9]{1,2}\\/[0-9])$"
         },
         "profitability": {
-            "title":"Profitability before tax",
-            "description":"The pre-tax profitability of the SME, expressed as a percentage",
+            "title": "Profitability before tax",
+            "description": "The pre-tax profitability of the SME, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "business_assets": {
-            "title":"Business assets",
-            "description":"The value of any assets owned by the SME, net of any existing finance, in GBP",
-            "type":"integer"
+            "title": "Business assets",
+            "description": "The value of any assets owned by the SME, net of any existing finance, in GBP",
+            "type": "integer"
         },
         "overseas_revenue": {
-            "title":"Overseas revenue",
-            "description":"The proportion of revenue the SME receives from sales outside the United Kingdom, expressed as a percentage",
+            "title": "Overseas revenue",
+            "description": "The proportion of revenue the SME receives from sales outside the United Kingdom, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "exports": {
-            "title":"Exports",
-            "description":"Does the SME export or have plans to export",
+            "title": "Exports",
+            "description": "Does the SME export or have plans to export",
             "type": "boolean"
         },
         "stock_imports": {
-            "title":"Stock Imports",
-            "description":"The proportion of stock the SME imports from outside the United Kingdom, expressed as a percentage",
+            "title": "Stock Imports",
+            "description": "The proportion of stock the SME imports from outside the United Kingdom, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "purchase_orders": {
-            "title":"Purchase Orders",
-            "description":"The proportion of purchase orders the SME receives, expressed as a percentage",
+            "title": "Purchase Orders",
+            "description": "The proportion of purchase orders the SME receives, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "outstanding_invoices": {
-            "title":"Value of outstanding Invoices",
-            "description":"Value of outstanding invoices, in GBP",
+            "title": "Value of outstanding Invoices",
+            "description": "Value of outstanding invoices, in GBP",
             "type": "integer"
         },
         "up_to_date_accounts": {
-            "title":"Up to date accounts available",
-            "description":"Statutory or management accounts fewer than two months old are available",
+            "title": "Up to date accounts available",
+            "description": "Statutory or management accounts fewer than two months old are available",
             "type": "boolean"
         },
         "financial_forecast": {
-            "title":"Financial forecast available",
-            "description":"A financial forecast is available",
+            "title": "Financial forecast available",
+            "description": "A financial forecast is available",
             "type": "boolean"
         },
         "business_plan": {
-            "title":"Business plan available",
-            "description":"A written business plan is available",
+            "title": "Business plan available",
+            "description": "A written business plan is available",
             "type": "boolean"
         },
         "card_revenue": {
-            "title":"Card revenue",
-            "description":"The monthly revenue the SME receives from sales via card terminals, in GBP",
+            "title": "Card revenue",
+            "description": "The monthly revenue the SME receives from sales via card terminals, in GBP",
             "type": "integer",
             "minimum":0
         },
         "online_revenue": {
-            "title":"Online revenue",
-            "description":"The proportion of revenue the SME receives from sales online, expressed as a percentage",
+            "title": "Online revenue",
+            "description": "The proportion of revenue the SME receives from sales online, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "institutional_revenue": {
-            "title":"Institutional revenue",
-            "description":"The proportion of revenue the SME receives from sales to listed companies, 'household name' businesses, and local and central government bodies, expressed as a percentage",
+            "title": "Institutional revenue",
+            "description": "The proportion of revenue the SME receives from sales to listed companies, 'household name' businesses, and local and central government bodies, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "stock_ready": {
-            "title":"Ready for sale stock",
-            "description":"The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
+            "title": "Ready for sale stock",
+            "description": "The proportion of stock purchased by the SME that is ready for sale, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "revenue_growth": {
-            "title":"Turnover growth",
-            "description":"The change in the SME's revenue in the last year, expressed as a percentage",
+            "title": "Turnover growth",
+            "description": "The change in the SME's revenue in the last year, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "intellectual_property": {
-            "title":"Intellectual property",
-            "description":"The SME has recognised intellectual property such as patents",
+            "title": "Intellectual property",
+            "description": "The SME has recognised intellectual property such as patents",
             "type": "boolean"
         },
         "trade_credit": {
-            "title":"Trade credit",
-            "description":"The proportion of revenue the SME receives from sales conducted on trade credit, expressed as a percentage",
+            "title": "Trade credit",
+            "description": "The proportion of revenue the SME receives from sales conducted on trade credit, expressed as a percentage",
             "type": "integer",
             "maximum":100,
             "minimum":0
         },
         "business_premises": {
-            "title":"Business premises",
-            "description":"The value of any business premises owned by the SME, net of any existing finance, in GBP",
-            "type":"integer"
+            "title": "Business premises",
+            "description": "The value of any business premises owned by the SME, net of any existing finance, in GBP",
+            "type": "integer"
         },
         "registered_brand": {
-            "title":"Registered brand",
-            "description":"The SME has a registered trademark or is otherwise generally well known",
+            "title": "Registered brand",
+            "description": "The SME has a registered trademark or is otherwise generally well known",
             "type": "boolean"
         },
         "customers": {
-            "title":"Customers",
-            "description":"The number of customers the SME traded with in the last year",
-            "type":"integer"
+            "title": "Customers",
+            "description": "The number of customers the SME traded with in the last year",
+            "type": "integer"
         },
         "employees": {
-            "title":"Number of employees",
-            "description":"The number of employees the SME employs",
-            "type":"integer"
+            "title": "Number of employees",
+            "description": "The number of employees the SME employs",
+            "type": "integer"
         },
         "region": {
-          "title":"Region",
-          "description":"Region in which the SME is based according to NUTS 2013 (level 1 region)",
-          "enum":[
+          "title": "Region",
+          "description": "Region in which the SME is based according to NUTS 2013 (level 1 region)",
+          "enum": [
                 "UKC",
                 "UKD",
                 "UKE",
@@ -216,9 +210,9 @@
             ]
         },
         "company_credit_rating": {
-            "title":"Credit rating of the SME itself, not its Directors.",
-            "description":"The credit rating of the Company. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
-            "enum":[
+            "title": "Credit rating of the SME itself, not its Directors.",
+            "description": "The credit rating of the Company. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "enum": [
                 "very_poor",
                 "poor",
                 "ok",
