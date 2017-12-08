@@ -35,6 +35,7 @@
         "legal_status": {
             "title": "Legal status",
             "description": "The legal status of the SME",
+            "type": "string",
             "enum": [
                 "limited_company",
                 "limited_partnership",
@@ -193,6 +194,7 @@
         "region": {
           "title": "Region",
           "description": "Region in which the SME is based according to NUTS 2013 (level 1 region)",
+          "type": "string",
           "enum": [
                 "UKC",
                 "UKD",
@@ -212,6 +214,7 @@
         "company_credit_rating": {
             "title": "Credit rating of the SME itself, not its Directors.",
             "description": "The credit rating of the Company. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "type": "string",
             "enum": [
                 "very_poor",
                 "poor",
@@ -223,6 +226,7 @@
         "accounting_software": {
             "title": "The accounting software the SME uses",
             "description": "The accounting software the SME uses",
+            "type": "string",
             "enum": [
                 "sage_one",
                 "sage_live",

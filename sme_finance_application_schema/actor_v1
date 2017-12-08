@@ -29,6 +29,7 @@
         "familiarity_with_financing": {
             "title": "Familiarity with business finance",
             "description": "This actors' level of experience with business finance",
+            "type": "string",
             "enum": [
                 "first_time",
                 "had_finance_before",
@@ -38,6 +39,7 @@
         "personal_credit_rating": {
             "title": "Personal credit rating",
             "description": "The personal credit rating of this actor. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "type": "string",
             "enum": [
                 "very_poor",
                 "poor",

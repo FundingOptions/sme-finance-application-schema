@@ -20,6 +20,7 @@
         "finance_type_requested": {
             "title": "Finance type requested",
             "description": "The finance type requested by the SME, if specified",
+            "type": "string",
             "enum": [
                 "term_loan",
                 "overdraft",
@@ -33,6 +34,7 @@
         },
         "type_of_mortgage": {
             "title": "Mortgage type requested",
+            "type": "string",
             "enum": [
                 "owner_occupied",
                 "commercial_buy_to_let",
@@ -42,6 +44,7 @@
         },
         "type_of_property": {
             "title": "Property type requested",
+            "type": "string",
             "enum": [
                 "undeveloped_land_without_planning_permission",
                 "undeveloped_land_with_planning_permission",
@@ -60,6 +63,7 @@
             ]
         },
         "experience_in_development": {
+            "type": "string",
             "enum": [
                 "none",
                 "refurbishement_and_sale",
@@ -69,6 +73,7 @@
             ]
         },
         "permission_for_development": {
+            "type": "string",
             "enum": [
                 "none",
                 "permitted_development",
@@ -102,6 +107,7 @@
         "purpose": {
             "title": "Purpose",
             "description": "The purpose of the finance application",
+            "type": "string",
             "enum": [
                 "other_cashflow",
                 "other_asset_purchase",
@@ -143,6 +149,7 @@
         "property_development_type": {
             "title": "Property development type",
             "description": "The type of development to be done to the property",
+            "type": "string",
             "enum": [
                 "new_build",
                 "demolition_conversion",
@@ -153,6 +160,7 @@
         "property_ownership": {
             "title": "Property ownership",
             "description": "Is the property owned and if so is there a mortgage",
+            "type": "string",
             "enum": [
                 "no",
                 "yes_with_mortgage",
@@ -162,6 +170,7 @@
         "property_work_started": {
             "title": "Work started",
             "description": "Has building work started already",
+            "type": "string",
             "enum": [
                 "yes",
                 "no"
