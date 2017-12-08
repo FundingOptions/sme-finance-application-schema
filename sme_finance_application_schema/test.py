@@ -7,14 +7,14 @@ SME_CONTACT = {"applicant_surname": "dd", "telephone": "+447445387241", "sme_nam
 FINANCE_APPLICATION_V3 = {'applicant': {'first_name':'', 'surname': 'dd', 'telephone':'+447445387241', 'email': 'nestor.arocha@fundingoptions.com'}, 'finance_need': {"finance_term_length": 30, "purpose": "stock", "date_finance_requested": "2017-01-23T00:00:00+00:00", "requested_amount": 3000, }, 'requesting_entity': {'name': 'ddsaasd', "company_number": "123456", 'legal_status': 'limited_company', 'months_revenue':0, 'trade_credit':0, 'revenue':2000, 'sic_code':'A'}}
 
 def patch_store(store):
-    for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1'):
+    for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
         with open('./sme_finance_application_schema/' + schema) as f:
             store['https://www.fundingoptions.com/schema/' + schema] = json.loads(f.read())
 
 
 class TestJson(TestCase):
     def test_entity_json(self):
-        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3', 'batch_application_v1', 'batch_response_v1'):
+        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3', 'batch_application_v1', 'batch_response_v1', 'actor_v1'):
             with self.subTest(schema=schema):
                 with open('./sme_finance_application_schema/' + schema) as f:
                     content = f.read()

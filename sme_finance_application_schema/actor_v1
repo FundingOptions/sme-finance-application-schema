@@ -1,0 +1,57 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://www.fundingoptions.com/schema/actor_v1",
+    "title": "Actor",
+    "description": "An actor is a person acting in the capacity of director or guarantor",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "value_of_personal_assets": {
+            "title": "Value of personal assets",
+            "type": "integer",
+            "description": "The net value of the assets that the person is willing/able to use as a guarantee"
+        },
+        "outstanding_mortgage_on_property": {
+            "title": "Outstanding mortgages",
+            "type": "integer",
+            "description": "The outstanding value of mortgages on personal properties belonging to this actor, in GBP"
+        },
+        "value_of_property_equity": {
+            "title": "Value of property equity",
+            "description": "The value of this actors' property equity, in GBP",
+            "type": "integer"
+        },
+        "value_of_pension": {
+            "title": "Value of pension",
+            "description": "The value of this actors' pension, in GBP",
+            "type": "integer"
+        },
+        "familiarity_with_financing": {
+            "title": "Familiarity with business finance",
+            "description": "This actors' level of experience with business finance",
+            "type": "string",
+            "enum": [
+                "first_time",
+                "had_finance_before",
+                "expert"
+            ]
+        },
+        "personal_credit_rating": {
+            "title": "Personal credit rating",
+            "description": "The personal credit rating of this actor. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "type": "string",
+            "enum": [
+                "very_poor",
+                "poor",
+                "ok",
+                "good",
+                "excellent"
+            ]
+        },
+        "person": {"$ref": "person_v1"},
+        "role": {
+            "type": "string",
+            "enum": ["guarantor", "director"]
+        }
+    }
+}

@@ -1,7 +1,7 @@
 {
-    "$schema":"http://json-schema.org/draft-04/schema#",
-    "title":"Finance need",
-    "description":"A description of the finance need",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Finance need",
+    "description": "A description of the finance need",
     "additionalProperties": false,
     "type": "object",
     "required": ["requested_amount"],
@@ -13,14 +13,16 @@
             "type": "string"
         },
         "requested_amount": {
-            "title":"Requested amount",
-            "description":"The amount of finance requested, in GBP. If the SME has requested and been declined for an increase in an existing facility, this should be the amount of the increase. If the SME has requested and been declined for multiple finance products, this should be the total amount requested across all declined products.",
+            "title": "Requested amount",
+            "description": "The amount of finance requested, in GBP. If the SME has requested and been declined for an increase in an existing facility, this should be the amount of the increase. If the SME has requested and been declined for multiple finance products, this should be the total amount requested across all declined products.",
             "type": "integer"
         },
         "finance_type_requested": {
-            "title":"Finance type requested",
-            "description":"The finance type requested by the SME, if specified",
-            "enum":[ "term_loan",
+            "title": "Finance type requested",
+            "description": "The finance type requested by the SME, if specified",
+            "type": "string",
+            "enum": [
+                "term_loan",
                 "overdraft",
                 "hire_purchase_or_lease",
                 "commercial_mortgage",
@@ -31,16 +33,20 @@
             ]
         },
         "type_of_mortgage": {
-            "title":"Mortgage type requested",
-            "enum":[ "owner_occupied",
+            "title": "Mortgage type requested",
+            "type": "string",
+            "enum": [
+                "owner_occupied",
                 "commercial_buy_to_let",
                 "residential_buy_to_let",
                 "refinance"
             ]
         },
         "type_of_property": {
-            "title":"Property type requested",
-            "enum":["undeveloped_land_without_planning_permission",
+            "title": "Property type requested",
+            "type": "string",
+            "enum": [
+                "undeveloped_land_without_planning_permission",
                 "undeveloped_land_with_planning_permission",
                 "part_finished_development",
                 "buy_to_let",
@@ -57,46 +63,51 @@
             ]
         },
         "experience_in_development": {
-            "enum":["none",
+            "type": "string",
+            "enum": [
+                "none",
                 "refurbishement_and_sale",
                 "refurbishement_and_let",
                 "ground_up_development_single_unit",
                 "ground_up_development_multiple_units"
-                ]
+            ]
         },
         "permission_for_development": {
-            "enum":["none",
+            "type": "string",
+            "enum": [
+                "none",
                 "permitted_development",
                 "pre_application",
                 "outline_planning",
                 "detailed_planning"
-                ]
+            ]
         },
         "date_finance_required": {
-            "title":"When the finance is required",
-            "description":"The date on which the finance is required. If the SME has requested and been declined for multiple products, this should be the earliest of the dates required.",
-            "type":"string",
+            "title": "When the finance is required",
+            "description": "The date on which the finance is required. If the SME has requested and been declined for multiple products, this should be the earliest of the dates required.",
+            "type": "string",
             "format": "date-time"
         },
         "date_finance_requested": {
-            "title":"When the finance was requested",
-            "description":"The date on which the finance was requested. If the SME has requested and been declined for multiple products, this should be the date on which the first product was requested.",
-            "type":"string",
+            "title": "When the finance was requested",
+            "description": "The date on which the finance was requested. If the SME has requested and been declined for multiple products, this should be the date on which the first product was requested.",
+            "type": "string",
             "format": "date-time"
         },
         "finance_term_length": {
-            "title":"Finance term length",
-            "description":"The term length required, in days",
+            "title": "Finance term length",
+            "description": "The term length required, in days",
             "type": "integer"
         },
         "guarantor_available": {
-            "title":"A guarantor is available for the finance",
-            "description":"The SME has a guarantor willing to guarantee the finance.",
+            "title": "A guarantor is available for the finance",
+            "description": "The SME has a guarantor willing to guarantee the finance.",
             "type": "boolean"
         },
         "purpose": {
-            "title":"Purpose",
-            "description":"The purpose of the finance application",
+            "title": "Purpose",
+            "description": "The purpose of the finance application",
+            "type": "string",
             "enum": [
                 "other_cashflow",
                 "other_asset_purchase",
@@ -133,11 +144,12 @@
                 "deliver_strategic_plan",
                 "seasonal_trading",
                 "experienced_a_bad_debt"
-                ]
+            ]
         },
         "property_development_type": {
             "title": "Property development type",
             "description": "The type of development to be done to the property",
+            "type": "string",
             "enum": [
                 "new_build",
                 "demolition_conversion",
@@ -148,6 +160,7 @@
         "property_ownership": {
             "title": "Property ownership",
             "description": "Is the property owned and if so is there a mortgage",
+            "type": "string",
             "enum": [
                 "no",
                 "yes_with_mortgage",
@@ -157,6 +170,7 @@
         "property_work_started": {
             "title": "Work started",
             "description": "Has building work started already",
+            "type": "string",
             "enum": [
                 "yes",
                 "no"
