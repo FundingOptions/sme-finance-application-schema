@@ -19,7 +19,7 @@
             "$ref": "sme_contact_v3"
         },
         "finance_application": {
-            "oneOf": [
+            "anyOf": [
                 {"$ref": "sme_v4"},
                 {"$ref": "sme_v5"}
             ]
