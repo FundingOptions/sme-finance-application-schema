@@ -44,7 +44,7 @@ def finance_application_v3_to_sme_v5(finance_application):
         directors = [x for x in finance_application['actors'] if x['role'] == 'director']
         for director in directors:
             if 'value_of_property_equity' in director:
-                director_equity = ['value_of_property_equity']
+                director_equity = director['value_of_property_equity']
                 if sme_v5.get('directors_houses'):
                     sme_v5['directors_houses'] += director_equity
                 else:
