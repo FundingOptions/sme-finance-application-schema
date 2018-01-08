@@ -67,8 +67,6 @@ def finance_application_v3_to_sme_v5(finance_application):
                 sme_v5['familiarity_with_financing'] = max_familiarity
 
             if 'personal_credit_rating' in director:
-                director_credit_rating = director['personal_credit_rating']
-
                 credit_list = [
                     'very_poor',
                     'poor',
@@ -77,16 +75,13 @@ def finance_application_v3_to_sme_v5(finance_application):
                     'excellent',
                 ]
 
-                # Min is probably not the best function here
-                if sme_v5.get('personal_credit_rating'):
-                    min_credit_rating = min(
-                        sme_v5['personal_credit_rating'],
-                        director_credit_rating,
-                        key=credit_list.index,
-                    )
-                    sme_v5['personal_credit_rating'] = min_credit_rating
-                else:
-                    sme_v5['personal_credit_rating'] = director_credit_rating
+                sme_v5.setdefault('personal_credit_rating', credit_list[0])
+                max_credit_rating = max(
+                    sme_v5['personal_credit_rating'],
+                    director['personal_credit_rating'],
+                    key=credit_list.index,
+                )
+                sme_v5['personal_credit_rating'] = max_credit_rating
 
     return sme_v5
 
