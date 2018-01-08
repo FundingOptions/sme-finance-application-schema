@@ -44,18 +44,12 @@ def finance_application_v3_to_sme_v5(finance_application):
         directors = [x for x in finance_application['actors'] if x['role'] == 'director']
         for director in directors:
             if 'value_of_property_equity' in director:
-                director_equity = director['value_of_property_equity']
-                if sme_v5.get('directors_houses'):
-                    sme_v5['directors_houses'] += director_equity
-                else:
-                    sme_v5['directors_houses'] = director_equity
+                sme_v5.setdefault('directors_houses', 0)
+                sme_v5['directors_houses'] += director['value_of_property_equity']
 
             if 'value_of_pension' in director:
-                directors_pension = director['value_of_pension']
-                if sme_v5.get('directors_pensions'):
-                    sme_v5['directors_pensions'] += directors_pension
-                else:
-                    sme_v5['directors_pensions'] = directors_pension
+                sme_v5.setdefault('directors_pensions', 0)
+                sme_v5['directors_pensions'] += director['value_of_pension']
 
             if 'familiarity_with_financing' in director:
                 director_familiarity = director['familiarity_with_financing']
