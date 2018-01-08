@@ -73,9 +73,6 @@ def finance_application_v3_to_sme_v5(finance_application):
                     sme_v5['familiarity_with_financing'] = director['familiarity_with_financing']
 
             if 'personal_credit_rating' in director:
-                sme_v5['personal_credit_ratings'] = director['personal_credit_rating']
-
-            if 'personal_credit_rating' in director:
                 credit_table = {
                     'very_poor': 0,
                     'poor': 1,
@@ -96,8 +93,6 @@ def finance_application_v3_to_sme_v5(finance_application):
                 else:
                     sme_v5['personal_credit_rating'] = director['personal_credit_rating']
 
-            if 'personal_credit_rating' in director:
-                sme_v5['personal_credit_ratings'] = director['personal_credit_rating']
     return sme_v5
 
 
