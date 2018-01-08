@@ -44,18 +44,22 @@ def finance_application_v3_to_sme_v5(finance_application):
         directors = [x for x in finance_application['actors'] if x['role'] == 'director']
         for director in directors:
             if 'value_of_property_equity' in director:
+                director_equity = ['value_of_property_equity']
                 if sme_v5.get('directors_houses'):
-                    sme_v5['directors_houses'] += director['value_of_property_equity']
+                    sme_v5['directors_houses'] += director_equity
                 else:
-                    sme_v5['directors_houses'] = director['value_of_property_equity']
+                    sme_v5['directors_houses'] = director_equity
 
             if 'value_of_pension' in director:
+                directors_pension = director['value_of_pension']
                 if sme_v5.get('directors_pensions'):
-                    sme_v5['directors_pensions'] += director['value_of_pension']
+                    sme_v5['directors_pensions'] += directors_pension
                 else:
-                    sme_v5['directors_pensions'] = director['value_of_pension']
+                    sme_v5['directors_pensions'] = directors_pension
 
             if 'familiarity_with_financing' in director:
+                director_familiarity = director['familiarity_with_financing']
+
                 familiarity_table = {
                     'first_time': 0,
                     'had_finance_before': 1,
@@ -65,14 +69,16 @@ def finance_application_v3_to_sme_v5(finance_application):
 
                 if sme_v5.get('familiarity_with_financing'):
                     max_familiarity = max(
-                        familiarity_table[sme_v5['familiarity_with_financing']],
+                        familiarity_table[director_familiarity],
                         familiarity_table[director['familiarity_with_financing']]
                     )
                     sme_v5['familiarity_with_financing'] = reverse_familiarity_table[max_familiarity]
                 else:
-                    sme_v5['familiarity_with_financing'] = director['familiarity_with_financing']
+                    sme_v5['familiarity_with_financing'] = director_familiarity
 
             if 'personal_credit_rating' in director:
+                director_credit_rating = director['personal_credit_rating']
+
                 credit_table = {
                     'very_poor': 0,
                     'poor': 1,
@@ -87,11 +93,11 @@ def finance_application_v3_to_sme_v5(finance_application):
                 if sme_v5.get('personal_credit_rating'):
                     min_credit_rating = min(
                         credit_table[sme_v5['personal_credit_rating']],
-                        credit_table[director['personal_credit_rating']]
+                        credit_table[director_credit_rating]
                     )
                     sme_v5['personal_credit_rating'] = reverse_credit_table[min_credit_rating]
                 else:
-                    sme_v5['personal_credit_rating'] = director['personal_credit_rating']
+                    sme_v5['personal_credit_rating'] = director_credit_rating
 
     return sme_v5
 
