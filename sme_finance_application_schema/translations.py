@@ -52,23 +52,19 @@ def finance_application_v3_to_sme_v5(finance_application):
                 sme_v5['directors_pensions'] += director['value_of_pension']
 
             if 'familiarity_with_financing' in director:
-                director_familiarity = director['familiarity_with_financing']
-
                 familiarity_list = [
                     'first_time',
                     'had_finance_before',
                     'expert',
                 ]
 
-                if sme_v5.get('familiarity_with_financing'):
-                    max_familiarity = max(
-                        sme_v5['familiarity_with_financing'],
-                        director_familiarity,
-                        key=familiarity_list.index,
-                    )
-                    sme_v5['familiarity_with_financing'] = max_familiarity
-                else:
-                    sme_v5['familiarity_with_financing'] = director_familiarity
+                sme_v5.setdefault('familiarity_with_financing', familiarity_list[0])
+                max_familiarity = max(
+                    sme_v5['familiarity_with_financing'],
+                    director['familiarity_with_financing'],
+                    key=familiarity_list.index,
+                )
+                sme_v5['familiarity_with_financing'] = max_familiarity
 
             if 'personal_credit_rating' in director:
                 director_credit_rating = director['personal_credit_rating']
