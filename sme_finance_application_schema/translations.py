@@ -75,13 +75,13 @@ def finance_application_v3_to_sme_v5(finance_application):
                     'excellent',
                 ]
 
-                sme_v5.setdefault('personal_credit_rating', credit_list[0])
+                sme_v5.setdefault('personal_credit_ratings', credit_list[0])
                 max_credit_rating = max(
-                    sme_v5['personal_credit_rating'],
+                    sme_v5['personal_credit_ratings'],
                     director['personal_credit_rating'],
                     key=credit_list.index,
                 )
-                sme_v5['personal_credit_rating'] = max_credit_rating
+                sme_v5['personal_credit_ratings'] = max_credit_rating
 
     return sme_v5
 
