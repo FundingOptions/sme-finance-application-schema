@@ -27,34 +27,64 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
 def finance_application_v3_to_sme_v5(finance_application):
     sme_v5 = {}
     for field in ('legal_status', 'months_revenue', 'revenue',
-        'sic_code', 'profitability', 'business_assets',
-        'overseas_revenue', 'exports', 'stock_imports', 'purchase_orders',
-        'directors_pensions', 'up_to_date_accounts', 'financial_forecast',
-        'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
-        'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
-        'business_premises', 'registered_brand', 'customers', 'region',
-        'company_credit_rating', 'familiarity_with_financing', 'accounting_software'):
+                  'sic_code', 'profitability', 'business_assets',
+                  'overseas_revenue', 'exports', 'stock_imports', 'purchase_orders',
+                  'directors_pensions', 'up_to_date_accounts', 'financial_forecast',
+                  'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
+                  'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
+                  'business_premises', 'registered_brand', 'customers', 'region',
+                  'company_credit_rating', 'familiarity_with_financing', 'accounting_software'):
         if field in finance_application['requesting_entity']:
             sme_v5[field] = finance_application['requesting_entity'][field]
-    for field in ( 'requested_amount', 'finance_type_requested', 'date_finance_required',
-            'date_finance_requested', 'finance_term_length', 'guarantor_available', 'purpose'):
+    for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
+                  'date_finance_requested', 'finance_term_length', 'guarantor_available', 'purpose'):
         if field in finance_application['finance_need']:
             sme_v5[field] = finance_application['finance_need'][field]
     if finance_application.get('actors'):
         directors = [x for x in finance_application['actors'] if x['role'] == 'director']
-        if directors:
-            if len(directors) > 1:
-                raise Exception
-            director = directors[0]
+        for director in directors:
             if 'value_of_property_equity' in director:
-                sme_v5['directors_houses'] = director['value_of_property_equity']
+                sme_v5.setdefault('directors_houses', 0)
+                sme_v5['directors_houses'] += director['value_of_property_equity']
+
             if 'value_of_pension' in director:
-                sme_v5['directors_pensions'] = director['value_of_pension']
+                sme_v5.setdefault('directors_pensions', 0)
+                sme_v5['directors_pensions'] += director['value_of_pension']
+
             if 'familiarity_with_financing' in director:
-                sme_v5['familiarity_with_financing'] = director['familiarity_with_financing']
+                familiarity_list = [
+                    'first_time',
+                    'had_finance_before',
+                    'expert',
+                ]
+
+                sme_v5.setdefault('familiarity_with_financing', familiarity_list[0])
+                max_familiarity = max(
+                    sme_v5['familiarity_with_financing'],
+                    director['familiarity_with_financing'],
+                    key=familiarity_list.index,
+                )
+                sme_v5['familiarity_with_financing'] = max_familiarity
+
             if 'personal_credit_rating' in director:
-                sme_v5['personal_credit_ratings'] = director['personal_credit_rating']
+                credit_list = [
+                    'very_poor',
+                    'poor',
+                    'ok',
+                    'good',
+                    'excellent',
+                ]
+
+                sme_v5.setdefault('personal_credit_rating', credit_list[0])
+                max_credit_rating = max(
+                    sme_v5['personal_credit_rating'],
+                    director['personal_credit_rating'],
+                    key=credit_list.index,
+                )
+                sme_v5['personal_credit_rating'] = max_credit_rating
+
     return sme_v5
+
 
 def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact):
     applicant = sme_contact_v3_to_person_v1_translator(sme_contact)
