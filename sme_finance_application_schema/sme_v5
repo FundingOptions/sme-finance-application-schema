@@ -307,6 +307,11 @@
                 "spreadsheet",
                 "other"
             ]
+        },
+        "total_value_of_unsatisfied_ccjs": {
+            "title": "Total value of unsatisfied CCJs",
+            "description": "The sum of the value of all unsatisfied County Court Judgements (CCJs) against the SME, in GBP",
+            "type": "integer"
         }
     }
 }
