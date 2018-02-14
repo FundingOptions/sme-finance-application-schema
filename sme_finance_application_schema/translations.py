@@ -129,7 +129,8 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
         'region': sme.get('region'),
         'company_credit_rating': sme.get('company_credit_rating'),
         'familiarity_with_financing': sme.get('familiarity_with_financing'),
-        'accounting_software': sme.get('accounting_software')
+        'accounting_software': sme.get('accounting_software'),
+        'total_value_of_unsatisfied_ccjs': sme.get('total_value_of_unsatisfied_ccjs')
     }
     return _remove_key_if_value_is_none(requesting_entity)
 
