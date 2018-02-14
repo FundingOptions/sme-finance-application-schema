@@ -70,9 +70,7 @@
         "profitability": {
             "title": "Profitability before tax",
             "description": "The pre-tax profitability of the SME, expressed as a percentage",
-            "type": "integer",
-            "maximum":100,
-            "minimum":0
+            "type": "integer"
         },
         "business_assets": {
             "title": "Business assets",
@@ -155,9 +153,7 @@
         "revenue_growth": {
             "title": "Turnover growth",
             "description": "The change in the SME's revenue in the last year, expressed as a percentage",
-            "type": "integer",
-            "maximum":100,
-            "minimum":0
+            "type": "integer"
         },
         "intellectual_property": {
             "title": "Intellectual property",
