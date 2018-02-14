@@ -10,8 +10,8 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
         'telephone': applicant.get('telephone'),
         'company_number': requesting_entity.get('company_number'),
     }
-    if 'addresses' in applicant:
-        if len(applicant['addresses']) != 1:
+    if applicant.get('addresses'):
+        if len(applicant['addresses']) > 1:
             raise ValueError("Cannot safely convert applicant with multiple addresses to sme_contact_v3")
 
         address = applicant['addresses'][0]['address']
