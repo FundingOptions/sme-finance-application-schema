@@ -106,13 +106,11 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
         'revenue': sme.get('revenue'),
         'sic_code': sme.get('sic_code'),
         'profitability': sme.get('profitability'),
-        'directors_houses': sme.get('directors_houses'),
         'business_assets': sme.get('business_assets'),
         'overseas_revenue': sme.get('overseas_revenue'),
         'exports': sme.get('exports'),
         'stock_imports': sme.get('stock_imports'),
         'purchase_orders': sme.get('purchase_orders'),
-        'directors_pensions': sme.get('directors_pensions'),
         'up_to_date_accounts': sme.get('up_to_date_accounts'),
         'financial_forecast': sme.get('financial_forecast'),
         'business_plan': sme.get('business_plan'),
@@ -128,7 +126,6 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
         'customers': sme.get('customers'),
         'region': sme.get('region'),
         'company_credit_rating': sme.get('company_credit_rating'),
-        'familiarity_with_financing': sme.get('familiarity_with_financing'),
         'accounting_software': sme.get('accounting_software'),
         'total_value_of_unsatisfied_ccjs': sme.get('total_value_of_unsatisfied_ccjs')
     }
