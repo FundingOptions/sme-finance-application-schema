@@ -312,6 +312,12 @@
             "title": "Total value of unsatisfied CCJs",
             "description": "The sum of the value of all unsatisfied County Court Judgements (CCJs) against the SME, in GBP",
             "type": "integer"
+        },
+        "date_of_first_filed_accounts": {
+            "title":"When the SME first filed accounts",
+            "description":"The date on which the SME first filed accounts",
+            "type":"string",
+            "format": "date-time"
         }
     }
 }
