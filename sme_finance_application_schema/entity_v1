@@ -103,6 +103,11 @@
             "maximum":100,
             "minimum":0
         },
+        "count_of_invoiced_customers": {
+            "title": "How many customers the SME invoices",
+            "description": "The number of customers that the SME bills by invoice"
+            "type": "integer"
+        },
         "outstanding_invoices": {
             "title": "Value of outstanding Invoices",
             "description": "Value of outstanding invoices, in GBP",
