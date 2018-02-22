@@ -108,6 +108,11 @@
             "description": "Value of outstanding invoices, in GBP",
             "type": "integer"
         },
+        "count_of_invoiced_customers": {
+            "title": "How many customers the SME invoices",
+            "description": "The number of customers that the SME bills by invoice",
+            "type": "integer"
+        },
         "up_to_date_accounts": {
             "title": "Up to date accounts available",
             "description": "Statutory or management accounts fewer than two months old are available",
