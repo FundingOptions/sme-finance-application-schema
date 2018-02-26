@@ -197,24 +197,6 @@ class TestTranslations(TestCase):
         test_completion_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
 
 
-    def test_finance_application_v3_to_sme_v5_completeness(self):
-        """
-        This confirms that all fields in sme_v5 are accounted for
-        when creating one out of a finance_application_v3
-        """
-        with open('./sme_finance_application_schema/sme_v5') as f:
-            sme_v5 = json.loads(f.read())
-            all_fields = sme_v5['properties'].keys()
-
-        expected_fields = [x for x in all_fields if x not in UNTRANSLATED_SME_V5_FIELDS]
-
-        from .translations import finance_application_v3_to_sme_v5
-        sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3)
-        for field in expected_fields:
-            with self.subTest(field=field):
-                self.assertIn(field, sme_v5)
-
-
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
         from .translations import sme_v5_and_contact_v3_to_finance_application_v3_translator
         self.maxDiff = None
