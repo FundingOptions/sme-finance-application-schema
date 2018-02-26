@@ -130,7 +130,6 @@ UNTRANSLATED_SME_V5_FIELDS = [
     'familiarity_with_financing',
     'personal_credit_ratings',
     'directors_houses',
-    'total_value_of_unsatisfied_ccjs',
 ]
 
 UNTRANSLATED_CONTACT_V3_FIELDS = [

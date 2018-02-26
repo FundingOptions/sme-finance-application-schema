@@ -33,7 +33,8 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
                   'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
                   'business_premises', 'registered_brand', 'customers', 'region',
-                  'company_credit_rating', 'familiarity_with_financing', 'accounting_software'):
+                  'company_credit_rating', 'familiarity_with_financing', 'accounting_software',
+                  'total_value_of_unsatisfied_ccjs'):
         if field in finance_application['requesting_entity']:
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
