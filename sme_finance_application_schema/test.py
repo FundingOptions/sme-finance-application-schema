@@ -61,7 +61,22 @@ class TestJson(TestCase):
                 self.assertTrue(json.loads(content))
 
 
+def test_validity_of_data(data, schema_name):
+    with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+        schema = json.loads(f.read())
+        validator = jsonschema.validators.Draft4Validator(schema)
+        patch_store(validator.resolver.store)
+        if not validator.is_valid(data):
+            raise Exception('invalid data according to {}: {}'.format(schema_name, validator.validate(SME_V5)))
+
+
 class TestTranslations(TestCase):
+    def test_sample_data_is_valid(self):
+        test_validity_of_data(SME_V5,'sme_v5')
+        test_validity_of_data(SME_CONTACT_V3,'sme_contact_v3')
+        test_validity_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
+
+
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
         from .translations import sme_v5_and_contact_v3_to_finance_application_v3_translator
         self.maxDiff = None
