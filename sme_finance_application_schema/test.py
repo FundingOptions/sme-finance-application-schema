@@ -125,29 +125,29 @@ FINANCE_APPLICATION_V3 = {
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
 
 UNTRANSLATED_SME_V5_FIELDS = [
-    'directors_pensions',
-    'date_of_first_filed_accounts',
-    'familiarity_with_financing',
-    'personal_credit_ratings',
-    'directors_houses',
+    'directors_pensions', #Aggregate
+    'date_of_first_filed_accounts', #Unsupported
+    'familiarity_with_financing', #Aggregate
+    'personal_credit_ratings', #Aggregate
+    'directors_houses', #Aggregate
 ]
 
 UNTRANSLATED_CONTACT_V3_FIELDS = [
-    'address_line_2',
-    'county',
+    'address_line_2', #Deprecated
+    'county', #Deprecated
 ]
 
 # The following are fields that do not appear in the objects when they are translated from sme_v5 / sme_contact_v3
 
 UNTRANSLATED_ENTITY_V1_FIELDS = [
-    'count_of_invoiced_customers',
-    'employees',
-    'outstanding_invoices',
-    'registration_date',
+    'count_of_invoiced_customers', #Unsupported
+    'employees', #Unsupported
+    'outstanding_invoices', #Unsupported
+    'registration_date', #Unsupported
 ]
 
 UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS = [
-    'actors',
+    'actors', #Complex
 ]
 
 
