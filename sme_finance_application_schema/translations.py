@@ -34,7 +34,7 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
                   'business_premises', 'registered_brand', 'customers', 'region',
                   'company_credit_rating', 'familiarity_with_financing', 'accounting_software',
-                  'total_value_of_unsatisfied_ccjs'):
+                  'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices'):
         if field in finance_application['requesting_entity']:
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
@@ -128,7 +128,9 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
         'region': sme.get('region'),
         'company_credit_rating': sme.get('company_credit_rating'),
         'accounting_software': sme.get('accounting_software'),
-        'total_value_of_unsatisfied_ccjs': sme.get('total_value_of_unsatisfied_ccjs')
+        'total_value_of_unsatisfied_ccjs': sme.get('total_value_of_unsatisfied_ccjs'),
+        'outstanding_invoices': sme.get('outstanding_invoices'),
+        'count_of_invoiced_customers': sme.get('count_of_invoiced_customers'),
     }
     return _remove_key_if_value_is_none(requesting_entity)
 

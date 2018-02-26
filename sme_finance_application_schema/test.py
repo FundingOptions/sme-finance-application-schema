@@ -43,6 +43,8 @@ SME_V5 = {
     'institutional_revenue':50,
     'up_to_date_accounts':True,
     'date_of_first_filed_accounts': '2015-01-23T00:00:00+00:00',
+    'count_of_invoiced_customers': 100,
+    'outstanding_invoices': 1000,
 }
 
 SME_CONTACT_V3 = {
@@ -140,9 +142,7 @@ UNTRANSLATED_CONTACT_V3_FIELDS = [
 # The following are fields that do not appear in the objects when they are translated from sme_v5 / sme_contact_v3
 
 UNTRANSLATED_ENTITY_V1_FIELDS = [
-    'count_of_invoiced_customers', #Unsupported
     'employees', #Unsupported
-    'outstanding_invoices', #Unsupported
     'registration_date', #Unsupported
 ]
 
