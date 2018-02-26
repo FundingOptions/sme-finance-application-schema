@@ -45,11 +45,18 @@ SME_V5 = {
 }
 
 SME_CONTACT_V3 = {
+    'applicant_title': 'Mr',
+    'applicant_first_name': 'Dave',
     'applicant_surname': 'dd',
     'telephone': '+447445387241',
     'sme_name': 'ddsaasd',
     'email': 'nestor.arocha@fundingoptions.com',
-    'company_number': '123456'
+    'company_number': '123456',
+    'address_line_1': 'Unit 109',
+    'address_line_2': '30 Great Guildford Street',
+    'postcode': 'SE1 0HS',
+    'city': 'London',
+    'county': 'London',
 }
 
 FINANCE_APPLICATION_V3 = {
@@ -97,7 +104,13 @@ FINANCE_APPLICATION_V3 = {
         'profitability':50,
         'institutional_revenue':50,
         'up_to_date_accounts':True,
-    }
+        'registration_date': '2012-01-23T00:00:00+00:00',
+        'employees':50,
+        'outstanding_invoices': 1000,
+        'count_of_invoiced_customers':100,
+        'total_value_of_unsatisfied_ccjs':1000
+    },
+    'actors': []
 }
 
 KNOWN_UNTRANSLATED_SME_V5_FIELDS = [
@@ -133,16 +146,32 @@ def test_validity_of_data(data, schema_name):
             raise Exception('invalid data according to {}: {}'.format(schema_name, validator.validate(SME_V5)))
 
 
+def test_completion_of_data(data, schema_name):
+    with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+        schema = json.loads(f.read())
+        expected_fields = schema['properties'].keys()
+        for field in expected_fields:
+            if field not in data:
+                raise Exception('sample data missing field according to {}: {}'.format(schema_name, field))
+
+
 class TestTranslations(TestCase):
     def test_sample_data_is_valid(self):
         test_validity_of_data(SME_V5,'sme_v5')
         test_validity_of_data(SME_CONTACT_V3,'sme_contact_v3')
         test_validity_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
 
+
+    def test_sample_data_is_complete(self):
+        test_completion_of_data(SME_V5,'sme_v5')
+        test_completion_of_data(SME_CONTACT_V3,'sme_contact_v3')
+        test_completion_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
+
+
     def test_finance_application_v3_to_sme_v5_completeness(self):
         """
         This confirms that all fields in sme_v5 are accounted for
-        when creating one out of a finance_application_v3 for matching purposes
+        when creating one out of a finance_application_v3
         """
         with open('./sme_finance_application_schema/sme_v5') as f:
             sme_v5 = json.loads(f.read())
