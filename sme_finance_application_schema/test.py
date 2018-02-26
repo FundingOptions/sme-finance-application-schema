@@ -175,26 +175,34 @@ def test_validity_of_data(data, schema_name):
             raise Exception('invalid data according to {}: {}'.format(schema_name, validator.validate(SME_V5)))
 
 
-def test_completion_of_data(data, schema_name):
-    with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
-        schema = json.loads(f.read())
-        expected_fields = schema['properties'].keys()
-        for field in expected_fields:
-            if field not in data:
-                raise Exception('sample data missing field according to {}: {}'.format(schema_name, field))
+
 
 
 class TestTranslations(TestCase):
-    def test_sample_data_is_valid(self):
-        test_validity_of_data(SME_V5,'sme_v5')
-        test_validity_of_data(SME_CONTACT_V3,'sme_contact_v3')
-        test_validity_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
+    def completion_of_data_subtest(self, data, schema_name):
+        with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+            schema = json.loads(f.read())
+            expected_fields = schema['properties'].keys()
+            for field in expected_fields:
+                with self.subTest(field=field):
+                    self.assertIn(field, data)
 
+    def validity_of_data_subtest(self, data, schema_name):
+        with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+            schema = json.loads(f.read())
+            validator = jsonschema.validators.Draft4Validator(schema)
+            patch_store(validator.resolver.store)
+            self.assertTrue(validator.is_valid(data))
+
+    def test_sample_data_is_valid(self):
+        self.validity_of_data_subtest(SME_V5,'sme_v5')
+        self.validity_of_data_subtest(SME_CONTACT_V3,'sme_contact_v3')
+        self.validity_of_data_subtest(FINANCE_APPLICATION_V3,'finance_application_v3')
 
     def test_sample_data_is_complete(self):
-        test_completion_of_data(SME_V5,'sme_v5')
-        test_completion_of_data(SME_CONTACT_V3,'sme_contact_v3')
-        test_completion_of_data(FINANCE_APPLICATION_V3,'finance_application_v3')
+        self.completion_of_data_subtest(SME_V5,'sme_v5')
+        self.completion_of_data_subtest(SME_CONTACT_V3,'sme_contact_v3')
+        self.completion_of_data_subtest(FINANCE_APPLICATION_V3,'finance_application_v3')
 
 
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
