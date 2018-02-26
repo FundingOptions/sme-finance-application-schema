@@ -1,6 +1,7 @@
 from unittest import TestCase
 import json
 import jsonschema.validators
+import copy
 
 SME_V5 = {
     'legal_status': 'limited_company',
@@ -52,8 +53,8 @@ SME_CONTACT_V3 = {
     'sme_name': 'ddsaasd',
     'email': 'nestor.arocha@fundingoptions.com',
     'company_number': '123456',
-    'address_line_1': 'Unit 109',
-    'address_line_2': '30 Great Guildford Street',
+    'address_line_1': '30 Great Guildford Street',
+    'address_line_2': 'Derp',
     'postcode': 'SE1 0HS',
     'city': 'London',
     'county': 'London',
@@ -61,10 +62,18 @@ SME_CONTACT_V3 = {
 
 FINANCE_APPLICATION_V3 = {
     'applicant': {
-        'first_name': '',
+        'title': 'Mr',
+        'first_name': 'Dave',
         'surname': 'dd',
         'telephone':'+447445387241',
-        'email': 'nestor.arocha@fundingoptions.com'
+        'email': 'nestor.arocha@fundingoptions.com',
+        'addresses': [{
+            'address': {
+                'building_number_and_street_name': '30 Great Guildford Street',
+                'post_town': 'London',
+                'postcode': 'SE1 0HS',
+            }
+        }]
     },
     'finance_need': {
         'finance_term_length': 30,
@@ -113,7 +122,9 @@ FINANCE_APPLICATION_V3 = {
     'actors': []
 }
 
-KNOWN_UNTRANSLATED_SME_V5_FIELDS = [
+# The following are fields that do not appear in the objects when they are translated from finance_application_v3
+
+UNTRANSLATED_SME_V5_FIELDS = [
     'directors_pensions',
     'date_of_first_filed_accounts',
     'familiarity_with_financing',
@@ -121,6 +132,25 @@ KNOWN_UNTRANSLATED_SME_V5_FIELDS = [
     'directors_houses',
     'total_value_of_unsatisfied_ccjs',
 ]
+
+UNTRANSLATED_CONTACT_V3_FIELDS = [
+    'address_line_2',
+    'county',
+]
+
+# The following are fields that do not appear in the objects when they are translated from sme_v5 / sme_contact_v3
+
+UNTRANSLATED_ENTITY_V1_FIELDS = [
+    'count_of_invoiced_customers',
+    'employees',
+    'outstanding_invoices',
+    'registration_date',
+]
+
+UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS = [
+    'actors',
+]
+
 
 def patch_store(store):
     for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
@@ -177,7 +207,7 @@ class TestTranslations(TestCase):
             sme_v5 = json.loads(f.read())
             all_fields = sme_v5['properties'].keys()
 
-        expected_fields = [x for x in all_fields if x not in KNOWN_UNTRANSLATED_SME_V5_FIELDS]
+        expected_fields = [x for x in all_fields if x not in UNTRANSLATED_SME_V5_FIELDS]
 
         from .translations import finance_application_v3_to_sme_v5
         sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3)
@@ -185,10 +215,20 @@ class TestTranslations(TestCase):
             with self.subTest(field=field):
                 self.assertIn(field, sme_v5)
 
+
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
         from .translations import sme_v5_and_contact_v3_to_finance_application_v3_translator
         self.maxDiff = None
-        self.assertDictEqual(sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3), FINANCE_APPLICATION_V3)
+
+        expected_finance_application_v3 = copy.deepcopy(FINANCE_APPLICATION_V3)
+        for field in UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS:
+            expected_finance_application_v3.pop(field)
+        for field in UNTRANSLATED_ENTITY_V1_FIELDS:
+            expected_finance_application_v3['requesting_entity'].pop(field)
+
+        translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
+        self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
+
         with open('./sme_finance_application_schema/finance_application_v3') as f:
             content = f.read()
         json_content = json.loads(content)
@@ -196,12 +236,21 @@ class TestTranslations(TestCase):
         patch_store(validator.resolver.store)
         self.assertTrue(validator.is_valid(sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)))
 
+
     def test_finance_application_v3_to_sme_v5(self):
         from .translations import finance_application_v3_to_sme_v5
-        for field in KNOWN_UNTRANSLATED_SME_V5_FIELDS:
-            SME_V5.pop(field)
-        self.assertDictEqual(finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3), SME_V5)
+        expected_sme_v5 = copy.deepcopy(SME_V5)
+        for field in UNTRANSLATED_SME_V5_FIELDS:
+            expected_sme_v5.pop(field)
+
+        translated_sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3)
+        self.assertDictEqual(translated_sme_v5, expected_sme_v5)
 
     def test_finance_application_v3_to_sme_contact_v3(self):
         from .translations import finance_application_v3_to_sme_contact_v3
-        self.assertDictEqual(finance_application_v3_to_sme_contact_v3(FINANCE_APPLICATION_V3), SME_CONTACT_V3)
+        expected_sme_contact_v3 = copy.deepcopy(SME_CONTACT_V3)
+        for field in UNTRANSLATED_CONTACT_V3_FIELDS:
+            expected_sme_contact_v3.pop(field)
+
+        translated_sme_contact_v3 = finance_application_v3_to_sme_contact_v3(FINANCE_APPLICATION_V3)
+        self.assertDictEqual(translated_sme_contact_v3, expected_sme_contact_v3)
