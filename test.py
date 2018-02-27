@@ -3,7 +3,18 @@ import json
 from jsonschema.validators import Draft4Validator
 from unittest import TestCase
 
-from examples import *
+from examples import (
+    SME_V5,
+    SME_CONTACT_V3,
+    ADDRESS_V1,
+    PERSON_V1,
+    FINANCE_NEED_V1,
+    ENTITY_V1,
+    ACTOR_V1_DIRECTOR_1,
+    ACTOR_V1_DIRECTOR_2,
+    ACTOR_V1_GUARANTOR,
+    FINANCE_APPLICATION_V3,
+)
 from pkg_resources import resource_filename
 from sme_finance_application_schema.translations import (
     sme_v5_and_contact_v3_to_finance_application_v3_translator,
