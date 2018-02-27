@@ -1,11 +1,15 @@
 import copy
 import json
-import jsonschema.validators
+from jsonschema.validators import Draft4Validator
 from unittest import TestCase
 
 from examples import *
 from pkg_resources import resource_filename
-from sme_finance_application_schema.translations import *
+from sme_finance_application_schema.translations import (
+    sme_v5_and_contact_v3_to_finance_application_v3_translator,
+    finance_application_v3_to_sme_v5,
+    finance_application_v3_to_sme_contact_v3,
+)
 
 
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
@@ -66,16 +70,6 @@ class TestJson(TestCase):
                 self.assertTrue(json.loads(content))
 
 
-def test_validity_of_data(data, schema_name):
-    resource = resource_filename('sme_finance_application_schema', schema_name)
-    with open(resource) as f:
-        schema = json.loads(f.read())
-        validator = jsonschema.validators.Draft4Validator(schema)
-        patch_store(validator.resolver.store)
-        if not validator.is_valid(data):
-            raise Exception('invalid data according to {}: {}'.format(schema_name, validator.validate(SME_V5)))
-
-
 class TestTranslations(TestCase):
     def completion_of_data_subtest(self, data, schema_name):
         resource = resource_filename('sme_finance_application_schema', schema_name)
@@ -91,7 +85,7 @@ class TestTranslations(TestCase):
         resource = resource_filename('sme_finance_application_schema', schema_name)
         with open(resource) as f:
             schema = json.loads(f.read())
-            validator = jsonschema.validators.Draft4Validator(schema)
+            validator = Draft4Validator(schema)
             patch_store(validator.resolver.store)
             self.assertTrue(validator.is_valid(data))
 
@@ -123,7 +117,7 @@ class TestTranslations(TestCase):
         # TODO - test entity_address and actor_address structures
 
 
-    def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
+    def test_sme_v5_and_contact_v3_to_finance_application_v3(self):
         expected_finance_application_v3 = copy.deepcopy(FINANCE_APPLICATION_V3)
         for field in UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS:
             expected_finance_application_v3.pop(field)
@@ -138,14 +132,6 @@ class TestTranslations(TestCase):
 
         translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
-
-        resource = resource_filename('sme_finance_application_schema', 'finance_application_v3')
-        with open(resource) as f:
-            content = f.read()
-        json_content = json.loads(content)
-        validator = jsonschema.validators.Draft4Validator(json_content)
-        patch_store(validator.resolver.store)
-        self.assertTrue(validator.is_valid(sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)))
 
 
     def test_finance_application_v3_to_sme_v5(self):
