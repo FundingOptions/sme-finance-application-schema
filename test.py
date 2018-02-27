@@ -70,7 +70,7 @@ class TestJson(TestCase):
                 self.assertTrue(json.loads(content))
 
 
-class TestTranslations(TestCase):
+class TestSampleData(TestCase):
     def completion_of_data_subtest(self, data, schema_name):
         resource = resource_filename('sme_finance_application_schema', schema_name)
         with open(resource) as f:
@@ -117,6 +117,7 @@ class TestTranslations(TestCase):
         # TODO - test entity_address and actor_address structures
 
 
+class TestTranslations(TestCase):
     def test_sme_v5_and_contact_v3_to_finance_application_v3(self):
         expected_finance_application_v3 = copy.deepcopy(FINANCE_APPLICATION_V3)
         for field in UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS:
