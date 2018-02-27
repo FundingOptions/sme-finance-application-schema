@@ -29,11 +29,11 @@ def finance_application_v3_to_sme_v5(finance_application):
     for field in ('legal_status', 'months_revenue', 'revenue',
                   'sic_code', 'profitability', 'business_assets',
                   'overseas_revenue', 'exports', 'stock_imports', 'purchase_orders',
-                  'directors_pensions', 'up_to_date_accounts', 'financial_forecast',
+                  'up_to_date_accounts', 'financial_forecast',
                   'business_plan', 'card_revenue', 'online_revenue', 'institutional_revenue',
                   'stock_ready', 'revenue_growth', 'intellectual_property', 'trade_credit',
                   'business_premises', 'registered_brand', 'customers', 'region',
-                  'company_credit_rating', 'familiarity_with_financing', 'accounting_software',
+                  'company_credit_rating', 'accounting_software',
                   'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices'):
         if field in finance_application['requesting_entity']:
             sme_v5[field] = finance_application['requesting_entity'][field]
