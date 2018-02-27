@@ -25,10 +25,7 @@ from sme_finance_application_schema.translations import (
 
 
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
-UNTRANSLATED_SME_V5_FIELDS = [
-    #To remove - no translation written
-    'date_of_first_filed_accounts',
-]
+UNTRANSLATED_SME_V5_FIELDS = []
 UNTRANSLATED_CONTACT_V3_FIELDS = [
     #Deprecated
     'county',
@@ -42,8 +39,6 @@ UNTRANSLATED_ENTITY_V1_FIELDS = [
     'registration_date',
     'addresses',
     'free_form',
-    # To remove - no translation written
-    'date_of_first_filed_accounts',
 ]
 UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported

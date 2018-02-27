@@ -37,7 +37,6 @@ SME_V5 = {
     'profitability':50,
     'institutional_revenue':50,
     'up_to_date_accounts':True,
-    'date_of_first_filed_accounts': '2015-01-23T00:00:00+00:00',
     'count_of_invoiced_customers': 100,
     'outstanding_invoices': 1000,
 }
@@ -131,7 +130,6 @@ ENTITY_V1 = {
     'outstanding_invoices': 1000,
     'count_of_invoiced_customers':100,
     'total_value_of_unsatisfied_ccjs':1000,
-    'date_of_first_filed_accounts': '2015-01-23T00:00:00+00:00',
     'addresses': [{
         'role': 'trading',
         'address': ADDRESS_V1,
