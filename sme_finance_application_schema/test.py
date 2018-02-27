@@ -137,7 +137,13 @@ ENTITY_V1 = {
     'count_of_invoiced_customers':100,
     'total_value_of_unsatisfied_ccjs':1000,
     'date_of_first_filed_accounts': '2015-01-23T00:00:00+00:00',
-    'addresses': [],
+    'addresses': [{
+        'role': 'trading',
+        'address': ADDRESS_V1,
+    }, {
+        'role': 'registered',
+        'address': ADDRESS_V1,
+    }],
     'free_form': 'A string',
 }
 
@@ -167,7 +173,7 @@ UNTRANSLATED_CONTACT_V3_FIELDS = [
 UNTRANSLATED_ENTITY_V1_FIELDS = [
     'employees', #Unsupported
     'registration_date', #Unsupported
-    'addresses', #TODO
+    'addresses', #Not present in SME_v5
     'date_of_first_filed_accounts', #To remove
     'free_form', #Not present in SME_v5
 ]
