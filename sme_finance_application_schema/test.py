@@ -20,9 +20,9 @@ SME_V5 = {
     'revenue_growth':50,
     'purchase_orders':50,
     'guarantor_available':True,
-    'directors_pensions':5000,
+    'directors_pensions':40000,
     'registered_brand':True,
-    'familiarity_with_financing':'first_time',
+    'familiarity_with_financing':'had_finance_before',
     'stock_imports':50,
     'customers':100,
     'business_plan':True,
@@ -36,7 +36,7 @@ SME_V5 = {
     'online_revenue':50,
     'company_credit_rating':'ok',
     'personal_credit_ratings':'ok',
-    'directors_houses':100000,
+    'directors_houses':40000,
     'exports':True,
     'total_value_of_unsatisfied_ccjs':1000,
     'profitability':50,
@@ -147,21 +147,50 @@ ENTITY_V1 = {
     'free_form': 'A string',
 }
 
+ACTOR_V1_DIRECTOR_1 = {
+    'value_of_personal_assets': 10000,
+    'outstanding_mortgage_on_property': 10000,
+    'value_of_property_equity': 10000,
+    'value_of_pension': 10000,
+    'familiarity_with_financing': 'had_finance_before',
+    'personal_credit_rating': 'ok',
+    'role': 'director',
+    'person': PERSON_V1,
+}
+
+ACTOR_V1_DIRECTOR_2 = {
+    'value_of_personal_assets': 30000,
+    'outstanding_mortgage_on_property': 30000,
+    'value_of_property_equity': 30000,
+    'value_of_pension': 30000,
+    'familiarity_with_financing': 'first_time',
+    'personal_credit_rating': 'very_poor',
+    'role': 'director',
+    'person': PERSON_V1,
+}
+
+ACTOR_V1_GUARANTOR = {
+    'value_of_personal_assets': 20000,
+    'outstanding_mortgage_on_property': 20000,
+    'value_of_property_equity': 20000,
+    'value_of_pension': 20000,
+    'familiarity_with_financing': 'expert',
+    'personal_credit_rating': 'excellent',
+    'role': 'guarantor',
+    'person': PERSON_V1,
+}
+
 FINANCE_APPLICATION_V3 = {
     'applicant': PERSON_V1,
     'finance_need': FINANCE_NEED_V1,
     'requesting_entity': ENTITY_V1,
-    'actors': []
+    'actors': [ACTOR_V1_DIRECTOR_1, ACTOR_V1_DIRECTOR_2, ACTOR_V1_GUARANTOR],
 }
 
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
 
 UNTRANSLATED_SME_V5_FIELDS = [
-    'directors_pensions', #Aggregate
-    'date_of_first_filed_accounts', #Unsupported
-    'familiarity_with_financing', #Aggregate
-    'personal_credit_ratings', #Aggregate
-    'directors_houses', #Aggregate
+    'date_of_first_filed_accounts', #To remove - no translation written
 ]
 
 UNTRANSLATED_CONTACT_V3_FIELDS = [
@@ -171,19 +200,19 @@ UNTRANSLATED_CONTACT_V3_FIELDS = [
 # The following are fields that do not appear in the objects when they are translated from sme_v5 / sme_contact_v3
 
 UNTRANSLATED_ENTITY_V1_FIELDS = [
-    'employees', #Unsupported
-    'registration_date', #Unsupported
+    'employees', #Not present in SME_v5
+    'registration_date', #Not present in SME_v5
     'addresses', #Not present in SME_v5
-    'date_of_first_filed_accounts', #To remove
+    'date_of_first_filed_accounts', #To remove - no translation written
     'free_form', #Not present in SME_v5
 ]
 
 UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS = [
-    'actors', #Complex
+    'actors', #Unsupported
 ]
 
 UNTRANSLATED_PERSON_V1_FIELDS = [
-    'date_of_birth' #Not present in SME_v5
+    'date_of_birth' #Not present in SME_V5 or CONTACT_V3
 ]
 
 UNTRANSLATED_FINANCE_NEED_V1_FIELDS = [
@@ -251,6 +280,13 @@ class TestTranslations(TestCase):
         self.validity_of_data_subtest(SME_V5,'sme_v5')
         self.validity_of_data_subtest(SME_CONTACT_V3,'sme_contact_v3')
         self.validity_of_data_subtest(FINANCE_APPLICATION_V3,'finance_application_v3')
+        self.validity_of_data_subtest(FINANCE_NEED_V1,'finance_need_v1')
+        self.validity_of_data_subtest(ENTITY_V1,'entity_v1')
+        self.validity_of_data_subtest(PERSON_V1,'person_v1')
+        self.validity_of_data_subtest(ADDRESS_V1,'address_v1')
+        self.validity_of_data_subtest(ACTOR_V1_DIRECTOR_1,'actor_v1')
+        self.validity_of_data_subtest(ACTOR_V1_DIRECTOR_2,'actor_v1')
+        self.validity_of_data_subtest(ACTOR_V1_GUARANTOR,'actor_v1')
 
     def test_sample_data_is_complete(self):
         self.completion_of_data_subtest(SME_V5,'sme_v5')
@@ -260,7 +296,10 @@ class TestTranslations(TestCase):
         self.completion_of_data_subtest(ENTITY_V1,'entity_v1')
         self.completion_of_data_subtest(PERSON_V1,'person_v1')
         self.completion_of_data_subtest(ADDRESS_V1,'address_v1')
-        #self.completion_of_data_subtest(ACTOR_V1,'actor_v1')
+        self.completion_of_data_subtest(ACTOR_V1_DIRECTOR_1,'actor_v1')
+        self.completion_of_data_subtest(ACTOR_V1_DIRECTOR_2,'actor_v1')
+        self.completion_of_data_subtest(ACTOR_V1_GUARANTOR,'actor_v1')
+        # TODO - test entity_address and actor_address structures
 
 
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
