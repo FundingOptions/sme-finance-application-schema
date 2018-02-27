@@ -152,8 +152,7 @@ def sme_contact_v3_to_address_v1_translator(sme_contact):
     address = {
         'building_number_and_street_name': sme_contact.get('address_line_1') or '',
         'postcode': sme_contact.get('postcode') or '',
-        'post_town': sme_contact.get('city'),
-        'locality_name': sme_contact.get('address_line_2')
+        'post_town': sme_contact.get('city')
     }
     return _remove_key_if_value_is_none(address)
 
