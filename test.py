@@ -4,6 +4,7 @@ import jsonschema.validators
 from unittest import TestCase
 
 from examples import *
+from pkg_resources import resource_filename
 from sme_finance_application_schema.translations import *
 
 
@@ -50,7 +51,8 @@ UNTRANSLATED_ADDRESS_V1_FIELDS = [
 
 def patch_store(store):
     for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
-        with open('./sme_finance_application_schema/' + schema) as f:
+        resource = resource_filename('sme_finance_application_schema', schema)
+        with open(resource) as f:
             store['https://www.fundingoptions.com/schema/' + schema] = json.loads(f.read())
 
 
@@ -58,13 +60,15 @@ class TestJson(TestCase):
     def test_entity_json(self):
         for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3', 'batch_application_v1', 'batch_response_v1', 'actor_v1'):
             with self.subTest(schema=schema):
-                with open('./sme_finance_application_schema/' + schema) as f:
+                resource = resource_filename('sme_finance_application_schema', schema)
+                with open(resource) as f:
                     content = f.read()
                 self.assertTrue(json.loads(content))
 
 
 def test_validity_of_data(data, schema_name):
-    with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+    resource = resource_filename('sme_finance_application_schema', schema_name)
+    with open(resource) as f:
         schema = json.loads(f.read())
         validator = jsonschema.validators.Draft4Validator(schema)
         patch_store(validator.resolver.store)
@@ -74,7 +78,8 @@ def test_validity_of_data(data, schema_name):
 
 class TestTranslations(TestCase):
     def completion_of_data_subtest(self, data, schema_name):
-        with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+        resource = resource_filename('sme_finance_application_schema', schema_name)
+        with open(resource) as f:
             schema = json.loads(f.read())
             expected_fields = schema['properties'].keys()
             for field in expected_fields:
@@ -83,7 +88,8 @@ class TestTranslations(TestCase):
 
 
     def validity_of_data_subtest(self, data, schema_name):
-        with open('./sme_finance_application_schema/{}'.format(schema_name)) as f:
+        resource = resource_filename('sme_finance_application_schema', schema_name)
+        with open(resource) as f:
             schema = json.loads(f.read())
             validator = jsonschema.validators.Draft4Validator(schema)
             patch_store(validator.resolver.store)
@@ -133,7 +139,8 @@ class TestTranslations(TestCase):
         translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
 
-        with open('./sme_finance_application_schema/finance_application_v3') as f:
+        resource = resource_filename('sme_finance_application_schema', 'finance_application_v3')
+        with open(resource) as f:
             content = f.read()
         json_content = json.loads(content)
         validator = jsonschema.validators.Draft4Validator(json_content)
