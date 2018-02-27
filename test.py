@@ -1,6 +1,8 @@
 import copy
 import json
 from jsonschema.validators import Draft4Validator
+from pkg_resources import resource_string, resource_listdir, resource_isdir
+import re
 from unittest import TestCase
 
 from examples import (
@@ -15,7 +17,6 @@ from examples import (
     ACTOR_V1_GUARANTOR,
     FINANCE_APPLICATION_V3,
 )
-from pkg_resources import resource_filename
 from sme_finance_application_schema.translations import (
     sme_v5_and_contact_v3_to_finance_application_v3_translator,
     finance_application_v3_to_sme_v5,
@@ -73,40 +74,47 @@ UNTRANSLATED_ADDRESS_V1_FIELDS = [
 
 
 def patch_store(store):
-    for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
-        resource = resource_filename('sme_finance_application_schema', schema)
-        with open(resource) as f:
-            store['https://www.fundingoptions.com/schema/' + schema] = json.loads(f.read())
+    for schema_name in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
+        content = resource_string('sme_finance_application_schema', schema_name).decode()
+        store['https://www.fundingoptions.com/schema/' + schema_name] = json.loads(content)
+
+def _list_schema_names():
+    package_name = 'sme_finance_application_schema'
+    python_resource_re = re.compile(r'.*\.py[cod]?$')
+    for filename in resource_listdir(package_name, ''):  # type: str
+        if python_resource_re.match(filename):
+            continue
+        elif filename.startswith(('_','.')):  # we care not about hidden files
+            continue
+        elif resource_isdir(package_name, filename):  # we have no nesting
+            continue
+        yield filename
 
 
 class TestJson(TestCase):
     def test_entity_json(self):
-        for schema in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'finance_application_v1', 'finance_application_v2', 'finance_application_v3', 'batch_application_v1', 'batch_response_v1', 'actor_v1'):
-            with self.subTest(schema=schema):
-                resource = resource_filename('sme_finance_application_schema', schema)
-                with open(resource) as f:
-                    content = f.read()
+        for schema_name in _list_schema_names():
+            with self.subTest(schema=schema_name):
+                content = resource_string('sme_finance_application_schema', schema_name).decode()
                 self.assertTrue(json.loads(content))
 
 
 class TestSampleData(TestCase):
     def completion_of_data_subtest(self, data, schema_name):
-        resource = resource_filename('sme_finance_application_schema', schema_name)
-        with open(resource) as f:
-            schema = json.loads(f.read())
-            expected_fields = schema['properties'].keys()
-            for field in expected_fields:
-                with self.subTest(field=field):
-                    self.assertIn(field, data)
+        content = resource_string('sme_finance_application_schema', schema_name).decode()
+        schema = json.loads(content)
+        expected_fields = schema['properties'].keys()
+        for field in expected_fields:
+            with self.subTest(field=field):
+                self.assertIn(field, data)
 
 
     def validity_of_data_subtest(self, data, schema_name):
-        resource = resource_filename('sme_finance_application_schema', schema_name)
-        with open(resource) as f:
-            schema = json.loads(f.read())
-            validator = Draft4Validator(schema)
-            patch_store(validator.resolver.store)
-            self.assertTrue(validator.is_valid(data))
+        content = resource_string('sme_finance_application_schema', schema_name).decode()
+        schema = json.loads(content)
+        validator = Draft4Validator(schema)
+        patch_store(validator.resolver.store)
+        self.assertTrue(validator.is_valid(data))
 
 
     def test_sample_data_is_valid(self):
