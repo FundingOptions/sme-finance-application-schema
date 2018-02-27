@@ -14,42 +14,50 @@ from sme_finance_application_schema.translations import (
 
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
 UNTRANSLATED_SME_V5_FIELDS = [
-    'date_of_first_filed_accounts', #To remove - no translation written
+    #To remove - no translation written
+    'date_of_first_filed_accounts',
 ]
 UNTRANSLATED_CONTACT_V3_FIELDS = [
-    'county', #Deprecated
+    #Deprecated
+    'county',
 ]
 
 
 # The following are fields that do not appear in the objects when they are translated from sme_v5 / sme_contact_v3
 UNTRANSLATED_ENTITY_V1_FIELDS = [
-    'employees', #Not present in SME_v5
-    'registration_date', #Not present in SME_v5
-    'addresses', #Not present in SME_v5
-    'date_of_first_filed_accounts', #To remove - no translation written
-    'free_form', #Not present in SME_v5
+    # Not present in SME_V5
+    'employees',
+    'registration_date',
+    'addresses',
+    'free_form',
+    # To remove - no translation written
+    'date_of_first_filed_accounts',
 ]
 UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS = [
-    'actors', #Unsupported
+    # Unsupported
+    'actors',
 ]
 UNTRANSLATED_PERSON_V1_FIELDS = [
-    'date_of_birth' #Not present in SME_V5 or CONTACT_V3
+    # Not present in SME_V5 or CONTACT_V3
+    'date_of_birth'
 ]
 UNTRANSLATED_FINANCE_NEED_V1_FIELDS = [
-    'free_form', #Not present in SME_v5
-    'property_ownership', #Not present in SME_v5
-    'permission_for_development', #Not present in SME_v5
-    'property_development_type', #Not present in SME_v5
-    'property_work_started', #Not present in SME_v5
-    'asset_type', #Not present in SME_v5
-    'type_of_mortgage', #Not present in SME_v5
-    'experience_in_development', #Not present in SME_v5
-    'deposit', #Not present in SME_v5
-    'vehicle_type', #Not present in SME_v5
-    'type_of_property', #Not present in SME_v5
+    # Not present in SME_V5
+    'free_form',
+    'property_ownership',
+    'permission_for_development',
+    'property_development_type',
+    'property_work_started',
+    'asset_type',
+    'type_of_mortgage',
+    'experience_in_development',
+    'deposit',
+    'vehicle_type',
+    'type_of_property',
 ]
 UNTRANSLATED_ADDRESS_V1_FIELDS = [
-    'locality_name', #TODO
+    # TODO - Translation is missing
+    'locality_name',
 ]
 
 
