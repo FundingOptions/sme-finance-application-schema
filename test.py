@@ -3,7 +3,8 @@ import json
 import jsonschema.validators
 from unittest import TestCase
 
-from .examples import *
+from examples import *
+from sme_finance_application_schema.translations import *
 
 
 # The following are fields that do not appear in the objects when they are translated from finance_application_v3
@@ -117,9 +118,6 @@ class TestTranslations(TestCase):
 
 
     def test_sme_v5_and_contact_v3_to_finance_application_v3_translator(self):
-        from .translations import sme_v5_and_contact_v3_to_finance_application_v3_translator
-        self.maxDiff = None
-
         expected_finance_application_v3 = copy.deepcopy(FINANCE_APPLICATION_V3)
         for field in UNTRANSLATED_FINANCE_APPLICATION_V3_FIELDS:
             expected_finance_application_v3.pop(field)
@@ -144,7 +142,6 @@ class TestTranslations(TestCase):
 
 
     def test_finance_application_v3_to_sme_v5(self):
-        from .translations import finance_application_v3_to_sme_v5
         expected_sme_v5 = copy.deepcopy(SME_V5)
         for field in UNTRANSLATED_SME_V5_FIELDS:
             expected_sme_v5.pop(field)
@@ -154,7 +151,6 @@ class TestTranslations(TestCase):
 
 
     def test_finance_application_v3_to_sme_contact_v3(self):
-        from .translations import finance_application_v3_to_sme_contact_v3
         expected_sme_contact_v3 = copy.deepcopy(SME_CONTACT_V3)
         for field in UNTRANSLATED_CONTACT_V3_FIELDS:
             expected_sme_contact_v3.pop(field)
