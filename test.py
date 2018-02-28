@@ -62,10 +62,7 @@ UNTRANSLATED_FINANCE_NEED_V1_FIELDS = [
     'vehicle_type',
     'type_of_property',
 ]
-UNTRANSLATED_ADDRESS_V1_FIELDS = [
-    # TODO - Translation is missing
-    'locality_name',
-]
+UNTRANSLATED_ADDRESS_V1_FIELDS = []
 
 
 def patch_store(store):
