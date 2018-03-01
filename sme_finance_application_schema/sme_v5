@@ -322,6 +322,11 @@
             "title": "How many customers the SME invoices",
             "description": "The number of customers that the SME bills by invoice",
             "type": "integer"
+        },
+        "sets_of_filed_accounts": {
+            "title": "How many sets of accounts the SME has filed",
+            "description": "The number of sets of accounts the SME has filed with Companies House",
+            "type": "integer"
         }
     }
 }
