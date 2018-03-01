@@ -5,6 +5,9 @@
     "description": "An actor is a person acting in the capacity of director or guarantor",
     "additionalProperties": false,
     "type": "object",
+    "required": [
+        "role"
+    ],
     "properties": {
         "value_of_personal_assets": {
             "title": "Value of personal assets",

@@ -26,6 +26,7 @@
             "description": "The person's primary residences",
             "items": {
                 "type": "object",
+                "required": ["address"],
                 "properties": {
                     "address": {"$ref": "address_v1"},
                     "from": {

@@ -23,6 +23,10 @@
             "type": "array",
             "items": {
                 "type": "object",
+                "required": [
+                    "address",
+                    "role"
+                ],
                 "properties": {
                     "address": {"$ref": "address_v1"},
                     "role": {
