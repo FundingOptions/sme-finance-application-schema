@@ -322,11 +322,6 @@
             "title": "How many customers the SME invoices",
             "description": "The number of customers that the SME bills by invoice",
             "type": "integer"
-        },
-        "years_of_filed_accounts": {
-            "title": "How many years of consecutive accounts the SME has filed",
-            "description": "Starting with the most recent set of filed accounts, the number of consecutive years of accounts the SME has filed",
-            "type": "integer"
         }
     }
 }

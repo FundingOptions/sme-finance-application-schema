@@ -250,11 +250,6 @@
             "title": "Total value of unsatisfied CCJs",
             "description": "The sum of the value of all unsatisfied County Court Judgements (CCJs) against the SME, in GBP",
             "type": "integer"
-        },
-        "years_of_filed_accounts": {
-            "title": "How many years of consecutive accounts the SME has filed",
-            "description": "Starting with the most recent set of filed accounts, the number of consecutive years of accounts the SME has filed",
-            "type": "integer"
         }
     }
 }

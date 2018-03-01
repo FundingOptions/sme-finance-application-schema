@@ -39,7 +39,6 @@ SME_V5 = {
     'up_to_date_accounts':True,
     'count_of_invoiced_customers': 100,
     'outstanding_invoices': 1000,
-    'years_of_filed_accounts': 10,
 }
 
 SME_CONTACT_V3 = {
@@ -139,7 +138,6 @@ ENTITY_V1 = {
         'address': ADDRESS_V1,
     }],
     'free_form': 'A string',
-    'years_of_filed_accounts': 10,
 }
 
 ACTOR_V1_DIRECTOR_1 = {
