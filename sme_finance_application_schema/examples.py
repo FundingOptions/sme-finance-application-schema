@@ -1,3 +1,5 @@
+import copy
+
 SME_V5 = {
     'legal_status': 'limited_company',
     'finance_term_length': 30,
@@ -72,7 +74,7 @@ PERSON_V1 = {
     'email': 'nestor.arocha@fundingoptions.com',
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'addresses': [{
-        'address':ADDRESS_V1
+        'address':copy.deepcopy(ADDRESS_V1)
     }]
 }
 
@@ -133,10 +135,10 @@ ENTITY_V1 = {
     'total_value_of_unsatisfied_ccjs':1000,
     'addresses': [{
         'role': 'trading',
-        'address': ADDRESS_V1,
+        'address': copy.deepcopy(ADDRESS_V1),
     }, {
         'role': 'registered',
-        'address': ADDRESS_V1,
+        'address': copy.deepcopy(ADDRESS_V1),
     }],
     'free_form': 'A string',
     'sets_of_filed_accounts': 10,
@@ -150,7 +152,7 @@ ACTOR_V1_DIRECTOR_1 = {
     'familiarity_with_financing': 'had_finance_before',
     'personal_credit_rating': 'ok',
     'role': 'director',
-    'person': PERSON_V1,
+    'person': copy.deepcopy(PERSON_V1),
 }
 
 ACTOR_V1_DIRECTOR_2 = {
@@ -161,7 +163,7 @@ ACTOR_V1_DIRECTOR_2 = {
     'familiarity_with_financing': 'first_time',
     'personal_credit_rating': 'very_poor',
     'role': 'director',
-    'person': PERSON_V1,
+    'person': copy.deepcopy(PERSON_V1),
 }
 
 ACTOR_V1_GUARANTOR = {
@@ -172,11 +174,11 @@ ACTOR_V1_GUARANTOR = {
     'familiarity_with_financing': 'expert',
     'personal_credit_rating': 'excellent',
     'role': 'guarantor',
-    'person': PERSON_V1,
+    'person': copy.deepcopy(PERSON_V1),
 }
 
 FINANCE_APPLICATION_V3 = {
-    'applicant': PERSON_V1,
+    'applicant': copy.deepcopy(PERSON_V1),
     'finance_need': FINANCE_NEED_V1,
     'requesting_entity': ENTITY_V1,
     'actors': [ACTOR_V1_DIRECTOR_1, ACTOR_V1_DIRECTOR_2, ACTOR_V1_GUARANTOR],

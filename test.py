@@ -5,7 +5,7 @@ from pkg_resources import resource_string, resource_listdir, resource_isdir
 import re
 from unittest import TestCase
 
-from examples import (
+from sme_finance_application_schema.examples import (
     SME_V5,
     SME_CONTACT_V3,
     ADDRESS_V1,
