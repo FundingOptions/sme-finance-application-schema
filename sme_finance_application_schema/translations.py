@@ -35,11 +35,11 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'business_premises', 'registered_brand', 'customers', 'region',
                   'company_credit_rating', 'accounting_software',
                   'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices'):
-        if field in finance_application['requesting_entity']:
+        if field in finance_application.get('requesting_entity', {}):
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
                   'date_finance_requested', 'finance_term_length', 'guarantor_available', 'purpose'):
-        if field in finance_application['finance_need']:
+        if field in finance_application.get('finance_need', {}):
             sme_v5[field] = finance_application['finance_need'][field]
     if finance_application.get('actors'):
         directors = [x for x in finance_application['actors'] if x['role'] == 'director']
