@@ -19,6 +19,9 @@
         },
         "finance_need": {
             "$ref": "finance_need_v1"
+        },
+        "aggregated_actors": {
+            "$ref": "aggregated_actors_v1"
         }
     }
 }

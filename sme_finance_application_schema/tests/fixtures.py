@@ -17,9 +17,9 @@ SME_V5 = {
     'revenue_growth':50,
     'purchase_orders':50,
     'guarantor_available':True,
-    'directors_pensions':40000,
+    'directors_pensions':60000,
     'registered_brand':True,
-    'familiarity_with_financing':'had_finance_before',
+    'familiarity_with_financing':'expert',
     'stock_imports':50,
     'customers':100,
     'business_plan':True,
@@ -32,8 +32,8 @@ SME_V5 = {
     'overseas_revenue':50,
     'online_revenue':50,
     'company_credit_rating':'ok',
-    'personal_credit_ratings':'ok',
-    'directors_houses':40000,
+    'personal_credit_ratings':'very_poor',
+    'directors_houses':60000,
     'exports':True,
     'total_value_of_unsatisfied_ccjs':1000,
     'profitability':50,
@@ -74,7 +74,7 @@ PERSON_V1 = {
     'email': 'nestor.arocha@fundingoptions.com',
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'addresses': [{
-        'address':copy.deepcopy(ADDRESS_V1)
+        'address': copy.deepcopy(ADDRESS_V1),
     }]
 }
 
@@ -177,9 +177,32 @@ ACTOR_V1_GUARANTOR = {
     'person': copy.deepcopy(PERSON_V1),
 }
 
+AGGREGATED_ACTORS_V1 = {
+    'sum_value_of_personal_assets': 60000,
+    'sum_outstanding_mortgage_on_property': 60000,
+    'sum_value_of_property_equity': 60000,
+    'sum_value_of_pension': 60000,
+    'max_familiarity_with_financing': 'expert',
+    'max_personal_credit_rating': 'excellent',
+    'min_personal_credit_rating': 'very_poor',
+}
+
+AGGREGATED_ACTORS_V1_INCOMPLETE = {
+    'sum_value_of_property_equity': 10000,
+    'sum_value_of_pension': 1000000,
+    'max_familiarity_with_financing': 'ok',
+    'min_personal_credit_rating': 'excellent',
+}
+
 FINANCE_APPLICATION_V3 = {
     'applicant': copy.deepcopy(PERSON_V1),
     'finance_need': FINANCE_NEED_V1,
     'requesting_entity': ENTITY_V1,
     'actors': [ACTOR_V1_DIRECTOR_1, ACTOR_V1_DIRECTOR_2, ACTOR_V1_GUARANTOR],
+    'aggregated_actors': AGGREGATED_ACTORS_V1,
 }
+
+FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE = copy.deepcopy(FINANCE_APPLICATION_V3)
+for actor in FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE['actors']:
+    actor.pop('familiarity_with_financing')
+FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE['aggregated_actors'] = AGGREGATED_ACTORS_V1_INCOMPLETE

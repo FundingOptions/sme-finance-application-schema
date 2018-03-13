@@ -5,7 +5,8 @@ from pkg_resources import resource_string, resource_listdir, resource_isdir
 import re
 from unittest import TestCase
 
-from sme_finance_application_schema.examples import (
+
+from .fixtures import (
     SME_V5,
     SME_CONTACT_V3,
     ADDRESS_V1,
@@ -16,6 +17,7 @@ from sme_finance_application_schema.examples import (
     ACTOR_V1_DIRECTOR_2,
     ACTOR_V1_GUARANTOR,
     FINANCE_APPLICATION_V3,
+    FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE,
 )
 from sme_finance_application_schema.translations import (
     sme_v5_and_contact_v3_to_finance_application_v3_translator,
@@ -63,10 +65,15 @@ UNTRANSLATED_FINANCE_NEED_V1_FIELDS = [
     'type_of_property',
 ]
 UNTRANSLATED_ADDRESS_V1_FIELDS = []
+UNTRANSLATED_AGGREGATED_ACTORS_V1_FIELDS = [
+    # Cannot generate from SME_v5
+    'max_personal_credit_rating',
+    'sum_outstanding_mortgage_on_property',
+]
 
 
 def patch_store(store):
-    for schema_name in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1'):
+    for schema_name in ('entity_v1', 'person_v1', 'finance_need_v1', 'address_v1', 'actor_v1', 'aggregated_actors_v1'):
         content = resource_string('sme_finance_application_schema', schema_name).decode()
         store['https://www.fundingoptions.com/schema/' + schema_name] = json.loads(content)
 
@@ -149,6 +156,8 @@ class TestTranslations(TestCase):
             expected_finance_application_v3['finance_need'].pop(field)
         for field in UNTRANSLATED_ADDRESS_V1_FIELDS:
             expected_finance_application_v3['applicant']['addresses'][0]['address'].pop(field)
+        for field in UNTRANSLATED_AGGREGATED_ACTORS_V1_FIELDS:
+            expected_finance_application_v3['aggregated_actors'].pop(field)
 
         translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
@@ -160,6 +169,15 @@ class TestTranslations(TestCase):
             expected_sme_v5.pop(field)
 
         translated_sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3)
+        self.assertDictEqual(translated_sme_v5, expected_sme_v5)
+
+    def test_finance_application_v3_to_sme_v5_partial_aggregated(self):
+        expected_sme_v5 = copy.deepcopy(SME_V5)
+        expected_sme_v5.update({
+            'familiarity_with_financing': 'ok',
+        })
+        self.maxDiff=None
+        translated_sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE)
         self.assertDictEqual(translated_sme_v5, expected_sme_v5)
 
 
