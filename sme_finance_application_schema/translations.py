@@ -77,7 +77,7 @@ def finance_application_v3_to_sme_v5(finance_application):
                     'excellent',
                 ]
 
-                sme_v5.setdefault('personal_credit_ratings', credit_list[0])
+                sme_v5.setdefault('personal_credit_ratings', credit_list[-1])
                 min_credit_rating = min(
                     sme_v5['personal_credit_ratings'],
                     actor['personal_credit_rating'],
