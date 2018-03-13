@@ -32,7 +32,7 @@ SME_V5 = {
     'overseas_revenue':50,
     'online_revenue':50,
     'company_credit_rating':'ok',
-    'personal_credit_ratings':'very_poor',
+    'personal_credit_ratings':'poor',
     'directors_houses':60000,
     'exports':True,
     'total_value_of_unsatisfied_ccjs':1000,
@@ -161,7 +161,7 @@ ACTOR_V1_DIRECTOR_2 = {
     'value_of_property_equity': 30000,
     'value_of_pension': 30000,
     'familiarity_with_financing': 'first_time',
-    'personal_credit_rating': 'very_poor',
+    'personal_credit_rating': 'poor',
     'role': 'director',
     'person': copy.deepcopy(PERSON_V1),
 }
@@ -184,7 +184,7 @@ AGGREGATED_ACTORS_V1 = {
     'sum_value_of_pension': 60000,
     'max_familiarity_with_financing': 'expert',
     'max_personal_credit_rating': 'excellent',
-    'min_personal_credit_rating': 'very_poor',
+    'min_personal_credit_rating': 'poor',
 }
 
 AGGREGATED_ACTORS_V1_INCOMPLETE = {
