@@ -93,7 +93,7 @@ FINANCE_NEED_V1 = {
     'property_work_started': 'yes',
     'asset_type': 'Another string',
     'type_of_mortgage': 'commercial_buy_to_let',
-    'experience_in_development': 'refurbishement_and_sale',
+    'experience_in_development': 'refurbishment_and_sale',
     'deposit': 50000,
     'vehicle_type': 'Apache helicopter',
     'type_of_property': 'undeveloped_land_with_planning_permission',
