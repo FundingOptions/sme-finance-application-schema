@@ -66,8 +66,8 @@
             "type": "string",
             "enum": [
                 "none",
-                "refurbishement_and_sale",
-                "refurbishement_and_let",
+                "refurbishment_and_sale",
+                "refurbishment_and_let",
                 "ground_up_development_single_unit",
                 "ground_up_development_multiple_units"
             ]
