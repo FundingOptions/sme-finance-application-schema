@@ -1,0 +1,55 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://www.fundingoptions.com/schema/person_v1",
+    "title": "Person",
+    "description": "A person",
+    "additionalProperties": false,
+    "type": "object",
+    "required": ["first_name", "surname"],
+    "properties": {
+        "date_of_birth": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "title": {
+            "type": "string",
+            "description": "The form of address, e.g. Miss, Mr, Dr"
+        },
+        "first_name": {
+            "type": "string"
+        },
+        "surname": {
+            "type": "string"
+        },
+        "addresses": {
+            "type": "array",
+            "description": "The person's primary residences",
+            "items": {
+                "type": "object",
+                "required": ["address"],
+                "properties": {
+                    "address": {"$ref": "address_v1"},
+                    "from": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "to": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        },
+        "email": {
+            "title": "Email",
+            "type": "string",
+            "format": "email"
+        },
+        "telephone": {
+            "title": "Telephone number",
+            "description": "The telephone number of the person, in E.164 format",
+            "type": "string",
+            "pattern": "^\\+?[1-9]\\d{1,14}$"
+        }
+    }
+}

@@ -1,0 +1,64 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "id": "https://www.fundingoptions.com/schema/aggregated_actors_v1",
+    "title": "Aggregated Actors",
+    "description": "This contains aggregated information about certain Actors (Directors and Guarantors) on the Finance Application, allowing easier transmission of aggregate and/or anonymised information. It is intended that information contained in this object is always superseded by information contained in the Actors array, if available.",
+    "additionalProperties": false,
+    "type": "object",
+    "properties": {
+        "sum_value_of_personal_assets": {
+            "title": "Sum value of personal assets of the Directors and Guarantors",
+            "type": "integer",
+            "description": "The sum net value of the assets that the Directors and Guarantors are willing/able to use as a guarantee"
+        },
+        "sum_outstanding_mortgage_on_property": {
+            "title": "Sum outstanding mortgages",
+            "type": "integer",
+            "description": "The sum outstanding value of mortgages on personal properties belonging to the Directors and Guarantors, in GBP"
+        },
+        "sum_value_of_property_equity": {
+            "title": "Sum value of property equity",
+            "description": "The sum value of the Directors and Guarantors property equity, in GBP",
+            "type": "integer"
+        },
+        "sum_value_of_pension": {
+            "title": "Sum value of pension",
+            "description": "The sum value of the pensions of the Directors and Guarantors, in GBP",
+            "type": "integer"
+        },
+        "max_familiarity_with_financing": {
+            "title": "Maximum familiarity with business finance",
+            "description": "This level of experience with business finance of the most experienced Director or Guarantor",
+            "type": "string",
+            "enum": [
+                "first_time",
+                "had_finance_before",
+                "expert"
+            ]
+        },
+        "max_personal_credit_rating": {
+            "title": "Maximum personal credit rating",
+            "description": "The highest personal credit rating of the Directors and Guarantors. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "type": "string",
+            "enum": [
+                "very_poor",
+                "poor",
+                "ok",
+                "good",
+                "excellent"
+            ]
+        },
+        "min_personal_credit_rating": {
+            "title": "Minimum personal credit rating",
+            "description": "The lowest personal credit rating of the Directors and Guarantors. Equifax and Experian scores map directly to these values (Experian 'Fair' maps to 'ok'), for CallCredit scores map 'Poor' as 'very_poor', 'Fair' as 'poor', 'Good' as 'ok', 'Very good' as 'good' and 'Excellent' as 'excellent'.",
+            "type": "string",
+            "enum": [
+                "very_poor",
+                "poor",
+                "ok",
+                "good",
+                "excellent"
+            ]
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Funding Options Finance Application",
+    "description": "An application for business finance, describing the requesting entity, its finance need, and relevant actors",
+    "id": "https://www.fundingoptions.com/schema/finance_application_v3",
+    "additionalProperties": false,
+    "type": "object",
+    "required": ["applicant", "finance_need", "requesting_entity"],
+    "properties": {
+        "applicant": {
+            "$ref": "person_v1"
+        },
+        "actors": {
+            "type": "array",
+            "items": {"$ref": "actor_v1" }
+        },
+        "requesting_entity": {
+            "$ref": "entity_v1"
+        },
+        "finance_need": {
+            "$ref": "finance_need_v1"
+        },
+        "aggregated_actors": {
+            "$ref": "aggregated_actors_v1"
+        }
+    }
+}
