@@ -251,6 +251,16 @@
             "description": "The sum of the value of all unsatisfied County Court Judgements (CCJs) against the SME, in GBP",
             "type": "integer"
         },
+        "count_of_unsatisfied_ccjs": {
+            "title": "Count of unsatisfied CCJs",
+            "description": "The count of all unsatisfied County Court Judgements (CCJs) against the SME",
+            "type": "integer"
+        },
+        "count_of_all_ccjs": {
+            "title": "Count of all CCJs",
+            "description": "The count all (satisfied and unsatisfied) County Court Judgements (CCJs) against the SME",
+            "type": "integer"
+        },
         "sets_of_filed_accounts": {
             "title": "How many sets of accounts the SME has filed",
             "description": "The number of sets of accounts the SME has filed with Companies House",

@@ -42,6 +42,8 @@ SME_V5 = {
     'count_of_invoiced_customers': 100,
     'outstanding_invoices': 1000,
     'sets_of_filed_accounts': 10,
+    'count_of_unsatisfied_ccjs': 1,
+    'count_of_all_ccjs': 3,
 }
 
 SME_CONTACT_V3 = {
@@ -142,6 +144,8 @@ ENTITY_V1 = {
     }],
     'free_form': 'A string',
     'sets_of_filed_accounts': 10,
+    'count_of_unsatisfied_ccjs': 1,
+    'count_of_all_ccjs': 3,
 }
 
 ACTOR_V1_DIRECTOR_1 = {
