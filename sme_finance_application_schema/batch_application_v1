@@ -5,9 +5,6 @@
     "description":"A wrapper to allow multiple Finance Applications to be submitted",
     "additionalProperties": false,
     "type": "object",
-    "definitions":{
-        "finance_application_v2": {"id": "finance_application_v2"}
-    },
     "required": [
         "finance_applications"
     ],
