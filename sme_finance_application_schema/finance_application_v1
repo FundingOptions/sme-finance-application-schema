@@ -1,6 +1,6 @@
-
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
+    "id": "https://www.fundingoptions.com/schema/finance_application_v1",
     "title":"SME Finance Application wrapper",
     "description":"A wrapper for an SME finance application and associated information identifying the applicant",
     "additionalProperties": false,
@@ -10,10 +10,10 @@
     ],
     "properties": {
         "identifying_information": {
-            "$ref": "https://www.fundingoptions.com/schema/sme_contact_v2#"
+            "$ref": "sme_contact_v2"
         },
         "finance_application": {
-            "$ref": "https://www.fundingoptions.com/schema/sme_v3#"
+            "$ref": "sme_v3"
         },
         "unique_identifier": {
             "title":"Unique identifier",
@@ -27,4 +27,3 @@
         }
     }
 }
-    

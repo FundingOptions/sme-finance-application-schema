@@ -1,5 +1,6 @@
 {
     "$schema":"http://json-schema.org/draft-04/schema#",
+    "id": "https://www.fundingoptions.com/schema/batch_application_v1",
     "title":"Finance Application Batch submission wrapper",
     "description":"A wrapper to allow multiple Finance Applications to be submitted",
     "additionalProperties": false,
@@ -16,7 +17,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-                "$ref": "https://www.fundingoptions.com/schema/finance_application_v2#"
+                "$ref": "finance_application_v2"
             },
             "uniqueItems": true
         }

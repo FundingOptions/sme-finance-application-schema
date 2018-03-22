@@ -299,13 +299,34 @@
                 "sage_live",
                 "sage_instant",
                 "sage_line_50",
-                "sage_other", 
-                "xero_quickbooks_online",
-                "xero_quickbooks_pro",
+                "sage_other",
+                "xero",
+                "quickbooks_online",
+                "quickbooks_pro",
                 "freeagent",
                 "spreadsheet",
                 "other"
             ]
+        },
+        "total_value_of_unsatisfied_ccjs": {
+            "title": "Total value of unsatisfied CCJs",
+            "description": "The sum of the value of all unsatisfied County Court Judgements (CCJs) against the SME, in GBP",
+            "type": "integer"
+        },
+        "outstanding_invoices": {
+            "title": "Value of outstanding Invoices",
+            "description": "Value of outstanding invoices, in GBP",
+            "type": "integer"
+        },
+        "count_of_invoiced_customers": {
+            "title": "How many customers the SME invoices",
+            "description": "The number of customers that the SME bills by invoice",
+            "type": "integer"
+        },
+        "sets_of_filed_accounts": {
+            "title": "How many sets of accounts the SME has filed",
+            "description": "The number of sets of accounts the SME has filed with Companies House",
+            "type": "integer"
         }
     }
 }
