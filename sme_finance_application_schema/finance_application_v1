@@ -5,10 +5,6 @@
     "description":"A wrapper for an SME finance application and associated information identifying the applicant",
     "additionalProperties": false,
     "type": "object",
-    "definitions": {
-        "sme_contact_v2": { "id": "sme_contact_v2"},
-        "sme_v3": { "id": "sme_v3"}
-    },
     "required": [
         "identifying_information", "finance_application"
     ],

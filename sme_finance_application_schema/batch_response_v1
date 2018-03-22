@@ -5,11 +5,6 @@
     "description":"The response object for receipt of an SME Finance Application Batch",
     "additionalProperties": false,
     "type": "object",
-    "definitions":{
-        "finance_application_response_v1": {
-            "id":"finance_application_response_v1"
-        }
-    },
     "required": [
         "platform_batch_unique_id", "total_applications", "total_successes"
     ],
