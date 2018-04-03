@@ -190,8 +190,8 @@ def sme_contact_v3_to_address_v1_translator(sme_contact):
 def sme_contact_v3_to_person_v1_translator(sme_contact):
     person = {
         'title': sme_contact.get('applicant_title'),
-        'first_name': sme_contact.get('applicant_first_name') or '',
-        'surname': sme_contact.get('applicant_surname') or '',
+        'first_name': sme_contact.get('applicant_first_name'),
+        'surname': sme_contact.get('applicant_surname'),
         'email': sme_contact.get('email'),
         'telephone': sme_contact.get('telephone')
     }
