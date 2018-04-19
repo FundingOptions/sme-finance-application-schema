@@ -1,6 +1,6 @@
 import copy
 
-SME_V5 = {
+SME_V3 = {
     'legal_status': 'limited_company',
     'finance_term_length': 30,
     'purpose': 'stock',
@@ -11,16 +11,12 @@ SME_V5 = {
     'trade_credit': 0,
     'revenue': 2000,
     'sic_code': 'A',
-    'card_revenue':3000,
+    'card_revenue':50,
     'financial_forecast':True,
     'finance_type_requested':'term_loan',
     'revenue_growth':50,
-    'purchase_orders':50,
-    'guarantor_available':True,
     'directors_pensions':60000,
     'registered_brand':True,
-    'familiarity_with_financing':'expert',
-    'stock_imports':50,
     'customers':100,
     'business_plan':True,
     'stock_ready':50,
@@ -28,14 +24,36 @@ SME_V5 = {
     'business_assets':30000,
     'region':'UKZ',
     'intellectual_property':True,
-    'accounting_software':'xero',
     'overseas_revenue':50,
     'online_revenue':50,
+    'directors_houses':60000,
+    'profitability':50,
+    'institutional_revenue':50,
+    'up_to_date_accounts':True,
+    'finance_term_general': 'long_term_investing',
+    'company_number': '123456',
+}
+
+SME_V3_MISSING_INFORMATION = copy.deepcopy(SME_V3)
+for missing_field in ['requested_amount']:
+    SME_V3_MISSING_INFORMATION.pop(missing_field)
+
+# company_number and finance_term_general not present on v5
+# card_revenue is now a value rather than percentage
+
+SME_V5 = copy.deepcopy(SME_V3)
+SME_V5.pop('company_number')
+SME_V5.pop('finance_term_general')
+SME_V5.update({
+    'card_revenue':1000,
+    'purchase_orders':50,
+    'guarantor_available':True,
+    'familiarity_with_financing':'expert',
+    'stock_imports':50,
+    'accounting_software':'xero',
     'company_credit_rating':'ok',
     'personal_credit_ratings':'poor',
-    'directors_houses':60000,
     'exports':True,
-    'total_value_of_unsatisfied_ccjs':1000,
     'profitability':50,
     'institutional_revenue':50,
     'up_to_date_accounts':True,
@@ -44,9 +62,10 @@ SME_V5 = {
     'sets_of_filed_accounts': 10,
     'count_of_unsatisfied_ccjs': 1,
     'count_of_all_ccjs': 3,
-}
+    'total_value_of_unsatisfied_ccjs':1000,
+})
 
-SME_CONTACT_V3 = {
+SME_CONTACT_V2 = {
     'applicant_title': 'Mr',
     'applicant_first_name': 'Dave',
     'applicant_surname': 'dd',
@@ -60,6 +79,12 @@ SME_CONTACT_V3 = {
     'city': 'London',
     'county': 'London',
 }
+
+SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
+
+SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
+for missing_field in ['sme_name', 'applicant_first_name', 'applicant_surname']:
+    SME_CONTACT_V2_MISSING_INFORMATION.pop(missing_field)
 
 ADDRESS_V1 = {
     'building_number_and_street_name': '30 Great Guildford Street',
@@ -109,7 +134,7 @@ ENTITY_V1 = {
     'trade_credit':0,
     'revenue':2000,
     'sic_code':'A',
-    'card_revenue':3000,
+    'card_revenue':1000,
     'financial_forecast':True,
     'revenue_growth':50,
     'purchase_orders':50,
@@ -194,7 +219,7 @@ AGGREGATED_ACTORS_V1 = {
 AGGREGATED_ACTORS_V1_INCOMPLETE = {
     'sum_value_of_property_equity': 10000,
     'sum_value_of_pension': 1000000,
-    'max_familiarity_with_financing': 'ok',
+    'max_familiarity_with_financing': 'expert',
     'min_personal_credit_rating': 'excellent',
 }
 
