@@ -278,12 +278,12 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
 
     telephone = person.get('telephone')
     if telephone:
-        person['telephone'] = sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone)
+        person['telephone'] = sme_contact_v2_telephone_to_e164_telephone(telephone)
 
     return person
 
 
-def sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone):
+def sme_contact_v2_telephone_to_e164_telephone(telephone):
     # We frequently find ourselves needing to remove whitespace
     telephone = telephone.replace(' ', '')
     # Generally, correction to E.164 involves dropping the leading zeros

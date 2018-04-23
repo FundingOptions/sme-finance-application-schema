@@ -31,7 +31,7 @@ from sme_finance_application_schema.translations import (
     finance_application_v3_to_sme_contact_v3,
     sme_v3_and_contact_v2_to_finance_application_v3_translator,
     sme_contact_v2_to_person_v1_translator,
-    sme_contact_v2_and_v3_telephone_to_person_v1_telephone,
+    sme_contact_v2_telephone_to_e164_telephone,
 )
 
 
@@ -332,12 +332,12 @@ class TestTranslations(TestCase):
         self.assertDictEqual(person_v1, expected_person_v1)
 
 
-    def test_sme_contact_v2_and_v3_telephone_to_person_v1_telephone(self):
+    def test_sme_contact_v2_telephone_to_e164_telephone(self):
         telephone = '  07736 936 496 '
         expected_telephone = '7736936496'
-        translated_telephone = sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone)
+        translated_telephone = sme_contact_v2_telephone_to_e164_telephone(telephone)
         self.assertEqual(expected_telephone, translated_telephone)
         telephone = '+447736 936496'
         expected_telephone = '+447736936496'
-        translated_telephone = sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone)
+        translated_telephone = sme_contact_v2_telephone_to_e164_telephone(telephone)
         self.assertEqual(expected_telephone, translated_telephone)
