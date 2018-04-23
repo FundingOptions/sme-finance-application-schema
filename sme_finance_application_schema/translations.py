@@ -251,8 +251,8 @@ def sme_v5_to_aggregated_actors_v1_translator(sme):
 
 def sme_contact_v3_to_address_v1_translator(sme_contact):
     address = {
-        'building_number_and_street_name': sme_contact.get('address_line_1') or '',
-        'postcode': sme_contact.get('postcode') or '',
+        'building_number_and_street_name': sme_contact.get('address_line_1') or 'Unknown',
+        'postcode': sme_contact.get('postcode') or 'Unknown',
         'post_town': sme_contact.get('city'),
         'locality_name': sme_contact.get('address_line_2'),
     }
@@ -278,10 +278,17 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
 
     telephone = person.get('telephone')
     if telephone:
-        # Generally, correction to E.164 involves dropping the leading zeros
-        person['telephone'] = re.sub('^0+', '', telephone)
+        person['telephone'] = sme_contact_v2_telephone_to_e164_telephone(telephone)
 
     return person
+
+
+def sme_contact_v2_telephone_to_e164_telephone(telephone):
+    # We frequently find ourselves needing to remove whitespace
+    telephone = telephone.replace(' ', '')
+    # Generally, correction to E.164 involves dropping the leading zeros
+    telephone = re.sub('^0+', '', telephone)
+    return telephone
 
 
 def sme_contact_v3_to_person_v1_translator(sme_contact):
