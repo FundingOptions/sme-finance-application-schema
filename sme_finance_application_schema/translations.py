@@ -278,10 +278,17 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
 
     telephone = person.get('telephone')
     if telephone:
-        # Generally, correction to E.164 involves dropping the leading zeros
-        person['telephone'] = re.sub('^0+', '', telephone)
+        person['telephone'] = sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone)
 
     return person
+
+
+def sme_contact_v2_and_v3_telephone_to_person_v1_telephone(telephone):
+    # We frequently find ourselves needing to remove whitespace
+    telephone = telephone.replace(' ', '')
+    # Generally, correction to E.164 involves dropping the leading zeros
+    telephone = re.sub('^0+', '', telephone)
+    return telephone
 
 
 def sme_contact_v3_to_person_v1_translator(sme_contact):
