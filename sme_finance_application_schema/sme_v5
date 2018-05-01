@@ -282,6 +282,18 @@
                 "excellent"
             ]
         },
+        "blended_credit_rating": {
+            "title": "Blended credit rating of the SME and its Directors.",
+            "description": "The blended credit rating of the Company and its Directors. Equifax scores map to these values as follows:",
+            "type": "string",
+            "enum": [
+                "very_poor",
+                "poor",
+                "ok",
+                "good",
+                "excellent"
+            ]
+        },
         "familiarity_with_financing": {
             "title": "Familiarity with Business Finance",
             "description": "Level of experience with business finance",

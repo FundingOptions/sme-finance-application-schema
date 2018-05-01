@@ -51,6 +51,7 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'free_form',
     'accounting_software',
     'company_credit_rating',
+    'blended_credit_rating',
     'count_of_all_ccjs',
     'count_of_invoiced_customers',
     'count_of_unsatisfied_ccjs',
