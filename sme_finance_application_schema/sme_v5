@@ -284,7 +284,7 @@
         },
         "blended_credit_rating": {
             "title": "Blended credit rating of the SME and the Applicant.",
-            "description": "The blended credit rating of the Company and the Applicant. Equifax RNOSN04 ("Public RN 4 Opt out subject only") scores map to these values as follows: unknown",
+            "description": "The blended credit rating of the Company and the Applicant. Equifax RNOSN04 (Public RN 4 Opt out subject only) scores map to these values as follows: unknown",
             "type": "string",
             "enum": [
                 "very_poor",
