@@ -1,6 +1,8 @@
 import re
 
-def finance_application_v3_to_sme_contact_v3(finance_application):
+BACKFILL_STRING_VALUE = 'Unknown'
+
+def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfilling=False):
     applicant = finance_application['applicant']
     requesting_entity = finance_application['requesting_entity']
     sme_contact_v3 = {
@@ -12,6 +14,15 @@ def finance_application_v3_to_sme_contact_v3(finance_application):
         'telephone': applicant.get('telephone'),
         'company_number': requesting_entity.get('company_number'),
     }
+    # These cannot be 'None' in finance_application_v3
+    # so a backfill value may have been used to populate them.
+    # This value should be removed at this point
+    if remove_backfilling:
+        properties_that_could_have_been_backfilled = ['sme_name', 'applicant_surname', 'applicant_first_name']
+        for prop in properties_that_could_have_been_backfilled:
+            if sme_contact_v3[prop] == BACKFILL_STRING_VALUE:
+                sme_contact_v3[prop] = None
+
     if applicant.get('addresses'):
         if len(applicant['addresses']) > 1:
             raise ValueError("Cannot safely convert applicant with multiple addresses to sme_contact_v3")
@@ -102,10 +113,10 @@ def finance_application_v3_to_sme_v5(finance_application):
     return sme_v5
 
 
-def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact):
-    applicant = sme_contact_v3_to_person_v1_translator(sme_contact)
-    requesting_entity = sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact)
-    finance_need = sme_v5_to_finance_need_v1_translator(sme)
+def sme_v5_and_contact_v3_to_finance_application_v3_translator(sme, sme_contact, backfill_required_properties=False):
+    applicant = sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
+    requesting_entity = sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact, backfill_required_properties=backfill_required_properties)
+    finance_need = sme_v5_to_finance_need_v1_translator(sme, backfill_required_properties=backfill_required_properties)
     aggregated_actors = sme_v5_to_aggregated_actors_v1_translator(sme)
     return _remove_key_if_value_is_none({
         'applicant': applicant,
@@ -156,7 +167,7 @@ def sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact, b
     }
     requesting_entity = _remove_key_if_value_is_none(requesting_entity)
     if backfill_required_properties:
-        requesting_entity = _backfill_required_properties(requesting_entity, {'name': 'Unknown', 'months_revenue': 0})
+        requesting_entity = _backfill_required_properties(requesting_entity, {'name': BACKFILL_STRING_VALUE, 'months_revenue': 0})
 
     # sme_v3 expresses card_revenue as a percentage, entity_v1 as a value
     card_revenue_as_percentage = requesting_entity.get('card_revenue')
@@ -181,10 +192,10 @@ def sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact, b
     return requesting_entity
 
 
-def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact):
+def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact, backfill_required_properties=False):
     # sme_v5 has additional properties to v3
     # sme_contact_v3 has different requirements to v2
-    requesting_entity = sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact)
+    requesting_entity = sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact, backfill_required_properties=backfill_required_properties)
     additional_data_from_sme_v5 = {
         'exports': sme.get('exports'),
         'stock_imports': sme.get('stock_imports'),
@@ -219,9 +230,9 @@ def sme_v3_to_finance_need_v1_translator(sme, backfill_required_properties=False
     return finance_need
 
 
-def sme_v5_to_finance_need_v1_translator(sme):
+def sme_v5_to_finance_need_v1_translator(sme, backfill_required_properties=False):
     # sme_v5 has additional properties to v3
-    finance_need = sme_v3_to_finance_need_v1_translator(sme)
+    finance_need = sme_v3_to_finance_need_v1_translator(sme, backfill_required_properties=backfill_required_properties)
     additional_data_from_sme_v5 = {
         'guarantor_available': sme.get('guarantor_available'),
     }
@@ -251,8 +262,8 @@ def sme_v5_to_aggregated_actors_v1_translator(sme):
 
 def sme_contact_v3_to_address_v1_translator(sme_contact):
     address = {
-        'building_number_and_street_name': sme_contact.get('address_line_1') or 'Unknown',
-        'postcode': sme_contact.get('postcode') or 'Unknown',
+        'building_number_and_street_name': sme_contact.get('address_line_1') or BACKFILL_STRING_VALUE,
+        'postcode': sme_contact.get('postcode') or BACKFILL_STRING_VALUE,
         'post_town': sme_contact.get('city'),
         'locality_name': sme_contact.get('address_line_2'),
     }
@@ -274,7 +285,7 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
     person = _remove_key_if_value_is_none(person)
 
     if backfill_required_properties:
-        person = _backfill_required_properties(person, {'first_name': 'Unknown', 'surname': 'Unknown'})
+        person = _backfill_required_properties(person, {'first_name': BACKFILL_STRING_VALUE, 'surname': BACKFILL_STRING_VALUE})
 
     telephone = person.get('telephone')
     if telephone:
@@ -291,9 +302,9 @@ def sme_contact_v2_telephone_to_e164_telephone(telephone):
     return telephone
 
 
-def sme_contact_v3_to_person_v1_translator(sme_contact):
+def sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_properties=False):
     # The only difference between sme_contact_v2 and v3 is the requirements
-    return sme_contact_v2_to_person_v1_translator(sme_contact)
+    return sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
 
 
 def _remove_key_if_value_is_none(dictionary):
