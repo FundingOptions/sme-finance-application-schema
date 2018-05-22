@@ -14,14 +14,6 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
         'telephone': applicant.get('telephone'),
         'company_number': requesting_entity.get('company_number'),
     }
-    # These cannot be 'None' in finance_application_v3
-    # so a backfill value may have been used to populate them.
-    # This value should be removed at this point
-    if remove_backfilling:
-        properties_that_could_have_been_backfilled = ['sme_name', 'applicant_surname', 'applicant_first_name']
-        for prop in properties_that_could_have_been_backfilled:
-            if sme_contact_v3[prop] == BACKFILL_STRING_VALUE:
-                sme_contact_v3[prop] = None
 
     if applicant.get('addresses'):
         if len(applicant['addresses']) > 1:
@@ -34,6 +26,18 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
             'city': address.get('post_town'),
             'postcode': address['postcode']
         })
+
+    # These cannot be 'None' in finance_application_v3
+    # so a backfill value may have been used to populate them.
+    # This value should be removed at this point
+    if remove_backfilling:
+        properties_that_could_have_been_backfilled = [
+            'sme_name', 'applicant_surname', 'applicant_first_name', 'address_line_1', 'postcode'
+        ]
+        for prop in properties_that_could_have_been_backfilled:
+            if sme_contact_v3.get(prop) == BACKFILL_STRING_VALUE:
+                sme_contact_v3[prop] = None
+
     return _remove_key_if_value_is_none(sme_contact_v3)
 
 
@@ -260,13 +264,15 @@ def sme_v5_to_aggregated_actors_v1_translator(sme):
     return _remove_key_if_value_is_none(aggregated_actors)
 
 
-def sme_contact_v3_to_address_v1_translator(sme_contact):
+def sme_contact_v3_to_address_v1_translator(sme_contact, backfill_required_properties=False):
     address = {
-        'building_number_and_street_name': sme_contact.get('address_line_1') or BACKFILL_STRING_VALUE,
-        'postcode': sme_contact.get('postcode') or BACKFILL_STRING_VALUE,
+        'building_number_and_street_name': sme_contact.get('address_line_1'),
+        'postcode': sme_contact.get('postcode'),
         'post_town': sme_contact.get('city'),
         'locality_name': sme_contact.get('address_line_2'),
     }
+    if backfill_required_properties:
+        address = _backfill_required_properties(address, {'building_number_and_street_name': BACKFILL_STRING_VALUE, 'postcode': BACKFILL_STRING_VALUE})
     return _remove_key_if_value_is_none(address)
 
 
@@ -278,7 +284,9 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
         'email': sme_contact.get('email'),
         'telephone': sme_contact.get('telephone')
     }
-    address = sme_contact_v3_to_address_v1_translator(sme_contact)
+    # Since a person without an address is valid, we don't backfill here
+    # even if we're backfilling the rest of the object
+    address = sme_contact_v3_to_address_v1_translator(sme_contact, backfill_required_properties=False)
     if _dictionary_has_populated_values(address):
         person['addresses'] = [{'address': address}]
 
