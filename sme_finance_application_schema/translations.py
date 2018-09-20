@@ -12,6 +12,8 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
         'applicant_title': applicant.get('title'),
         'email': applicant.get('email'),
         'telephone': applicant.get('telephone'),
+        'applicant_role': applicant.get('applicant_role'),
+        'residential_status': applicant.get('residential_status'),
         'company_number': requesting_entity.get('company_number'),
     }
 
@@ -52,7 +54,7 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'business_premises', 'registered_brand', 'customers', 'region',
                   'company_credit_rating', 'accounting_software', 'sets_of_filed_accounts',
                   'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices',
-                  'count_of_unsatisfied_ccjs', 'count_of_all_ccjs'):
+                  'count_of_unsatisfied_ccjs', 'count_of_all_ccjs', 'vat_number'):
         if field in finance_application.get('requesting_entity', {}):
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
@@ -168,6 +170,7 @@ def sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact, b
         'registered_brand': sme.get('registered_brand'),
         'customers': sme.get('customers'),
         'region': sme.get('region'),
+        'vat_number': sme.get('vat_number')
     }
     requesting_entity = _remove_key_if_value_is_none(requesting_entity)
     if backfill_required_properties:
@@ -282,7 +285,9 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
         'first_name': sme_contact.get('applicant_first_name'),
         'surname': sme_contact.get('applicant_surname'),
         'email': sme_contact.get('email'),
-        'telephone': sme_contact.get('telephone')
+        'telephone': sme_contact.get('telephone'),
+        'applicant_role': sme_contact.get('applicant_role'),
+        'residential_status': sme_contact.get('residential_status')
     }
     # Since a person without an address is valid, we don't backfill here
     # even if we're backfilling the rest of the object
