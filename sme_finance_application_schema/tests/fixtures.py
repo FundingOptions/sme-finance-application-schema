@@ -63,6 +63,7 @@ SME_V5.update({
     'count_of_unsatisfied_ccjs': 1,
     'count_of_all_ccjs': 3,
     'total_value_of_unsatisfied_ccjs':1000,
+    'vat_number': '123456789'
 })
 
 SME_CONTACT_V2 = {
@@ -70,6 +71,8 @@ SME_CONTACT_V2 = {
     'applicant_first_name': 'Dave',
     'applicant_surname': 'dd',
     'telephone': '+447445387241',
+    'applicant_role': 'director',
+    'residential_status': 'owner_with_mortgage',
     'sme_name': 'ddsaasd',
     'email': 'nestor.arocha@fundingoptions.com',
     'company_number': '123456',
@@ -100,6 +103,8 @@ PERSON_V1 = {
     'telephone':'+447445387241',
     'email': 'nestor.arocha@fundingoptions.com',
     'date_of_birth': '2000-01-23T00:00:00+00:00',
+    'applicant_role': 'director',
+    'residential_status': 'owner_with_mortgage',
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
     }]
@@ -160,6 +165,7 @@ ENTITY_V1 = {
     'outstanding_invoices': 1000,
     'count_of_invoiced_customers':100,
     'total_value_of_unsatisfied_ccjs':1000,
+    'vat_number': '123456789',
     'addresses': [{
         'role': 'trading',
         'address': copy.deepcopy(ADDRESS_V1),

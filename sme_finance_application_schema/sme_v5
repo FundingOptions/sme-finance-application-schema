@@ -337,6 +337,11 @@
             "title": "How many sets of accounts the SME has filed",
             "description": "The number of sets of accounts the SME has filed with Companies House",
             "type": "integer"
+        },
+        "vat_number": {
+            "title": "VAT Number",
+            "description": "The company's VAT number, if the business has one",
+            "type": "string"
         }
     }
 }
