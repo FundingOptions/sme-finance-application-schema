@@ -55,7 +55,7 @@
             "title": "Applicant's Role",
             "description": "Applicant's role in the business",
             "type": "string",
-            "enum": ["director", "shareholder", "both", "neither"]
+            "enum": ["director", "shareholder", "partner", "beneficial_owner", "guarantor"]
         },
         "residential_status": {
             "title": "Residential Status",

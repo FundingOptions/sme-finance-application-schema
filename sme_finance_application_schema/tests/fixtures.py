@@ -63,7 +63,8 @@ SME_V5.update({
     'count_of_unsatisfied_ccjs': 1,
     'count_of_all_ccjs': 3,
     'total_value_of_unsatisfied_ccjs':1000,
-    'vat_number': '123456789'
+    'vat_number': '123456789',
+    'trading_startdate': '2012-01-24'
 })
 
 SME_CONTACT_V2 = {
@@ -71,8 +72,6 @@ SME_CONTACT_V2 = {
     'applicant_first_name': 'Dave',
     'applicant_surname': 'dd',
     'telephone': '+447445387241',
-    'applicant_role': 'director',
-    'residential_status': 'owner_with_mortgage',
     'sme_name': 'ddsaasd',
     'email': 'nestor.arocha@fundingoptions.com',
     'company_number': '123456',
@@ -84,6 +83,8 @@ SME_CONTACT_V2 = {
 }
 
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
+SME_CONTACT_V3['applicant_role'] = 'director'
+SME_CONTACT_V3['residential_status'] = 'owner_with_mortgage'
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
 for missing_field in ['sme_name', 'applicant_first_name', 'applicant_surname']:
@@ -166,6 +167,7 @@ ENTITY_V1 = {
     'count_of_invoiced_customers':100,
     'total_value_of_unsatisfied_ccjs':1000,
     'vat_number': '123456789',
+    'trading_startdate': '2012-01-24',
     'addresses': [{
         'role': 'trading',
         'address': copy.deepcopy(ADDRESS_V1),
