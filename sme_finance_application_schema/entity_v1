@@ -270,11 +270,6 @@
             "title": "VAT Number",
             "description": "The company's VAT number, if the business has one",
             "type": "string"
-        },
-        "trading_startdate": {
-            "title": "Trading StartDate",
-            "type": "string",
-            "format": "date-time"
         }
     }
 }
