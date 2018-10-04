@@ -61,6 +61,8 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'sets_of_filed_accounts',
     'stock_imports',
     'total_value_of_unsatisfied_ccjs',
+    'vat_number',
+    'trading_startdate',
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported
@@ -68,7 +70,9 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_PERSON_V1_FIELDS = [
     # Not present in SME_V3 or CONTACT_V2
-    'date_of_birth'
+    'date_of_birth',
+    'applicant_role',
+    'residential_status',
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_NEED_V1_FIELDS = [
     # Not present in SME_V3
@@ -246,6 +250,8 @@ class TestTranslations(TestCase):
 
 
     def test_sme_v5_and_contact_v3_to_finance_application_v3(self):
+        self.expected_finance_application_v3_from_sme_v5_and_contact_v3['applicant'].pop('residential_status')
+        self.expected_finance_application_v3_from_sme_v5_and_contact_v3['applicant'].pop('applicant_role')
         translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
         self.assertDictEqual(translated_finance_application_v3, self.expected_finance_application_v3_from_sme_v5_and_contact_v3)
 
@@ -263,7 +269,6 @@ class TestTranslations(TestCase):
         expected_sme_v5.update({
             'familiarity_with_financing': 'expert',
         })
-        self.maxDiff=None
         translated_sme_v5 = finance_application_v3_to_sme_v5(FINANCE_APPLICATION_V3_AGGREGATED_INCOMPLETE)
         self.assertDictEqual(translated_sme_v5, expected_sme_v5)
 
@@ -309,7 +314,6 @@ class TestTranslations(TestCase):
         expected_finance_application_v3['finance_need']['requested_amount'] = 0
         expected_finance_application_v3['applicant']['first_name'] = 'Unknown'
         expected_finance_application_v3['applicant']['surname'] = 'Unknown'
-
         translated_finance_application_v3 = sme_v3_and_contact_v2_to_finance_application_v3_translator(SME_V3_MISSING_INFORMATION, SME_CONTACT_V2_MISSING_INFORMATION, backfill_required_properties=True)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
 

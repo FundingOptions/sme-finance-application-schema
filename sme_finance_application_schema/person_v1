@@ -50,6 +50,18 @@
             "description": "The telephone number of the person, in E.164 format",
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$"
+        },
+        "applicant_role": {
+            "title": "Applicant's Role",
+            "description": "Applicant's role in the business",
+            "type": "string",
+            "enum": ["director", "shareholder", "partner", "beneficial_owner", "guarantor"]
+        },
+        "residential_status": {
+            "title": "Residential Status",
+            "description": "Applicant's residential status",
+            "type": "string",
+            "enum": ["tenant", "owner_with_mortgage", "owner_no_mortgage", "rent_free"]
         }
     }
 }
