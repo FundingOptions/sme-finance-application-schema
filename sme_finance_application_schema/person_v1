@@ -62,6 +62,11 @@
             "description": "Applicant's residential status",
             "type": "string",
             "enum": ["tenant", "owner_with_mortgage", "owner_no_mortgage", "rent_free"]
+        },
+        "property_value": {
+            "title": "Property Value",
+            "description": "The value of their property (portfolio)",
+            "type": "integer"
         }
     }
 }

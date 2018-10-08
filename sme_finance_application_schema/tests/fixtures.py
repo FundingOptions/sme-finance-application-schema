@@ -84,7 +84,8 @@ SME_CONTACT_V2 = {
 
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
-SME_CONTACT_V3['residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_property_value'] = 100000
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
 for missing_field in ['sme_name', 'applicant_first_name', 'applicant_surname']:
@@ -106,6 +107,7 @@ PERSON_V1 = {
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
+    'property_value': 100000,
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
     }]

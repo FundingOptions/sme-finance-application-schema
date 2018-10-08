@@ -13,7 +13,8 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
         'email': applicant.get('email'),
         'telephone': applicant.get('telephone'),
         'applicant_role': applicant.get('applicant_role'),
-        'residential_status': applicant.get('residential_status'),
+        'applicant_residential_status': applicant.get('residential_status'),
+        'applicant_property_value': applicant.get('property_value'),
         'company_number': requesting_entity.get('company_number'),
     }
 
@@ -316,7 +317,11 @@ def sme_contact_v2_telephone_to_e164_telephone(telephone):
 
 def sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_properties=False):
     # The only difference between sme_contact_v2 and v3 is the requirements
-    return sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
+    person = sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
+    person['applicant_role'] = sme_contact.get('applicant_role')
+    person['residential_status'] = sme_contact.get('applicant_residential_status')
+    person['property_value'] = sme_contact.get('applicant_property_value')
+    return person
 
 
 def _remove_key_if_value_is_none(dictionary):

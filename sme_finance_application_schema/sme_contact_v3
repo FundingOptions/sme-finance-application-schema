@@ -30,10 +30,15 @@
             "description": "Applicant's role in the business",
             "type": "string"
         },
-        "residential_status": {
+        "applicant_residential_status": {
             "title": "Residential Status",
             "description": "Applicant's residential status",
             "type": "string"
+        },
+        "applicant_property_value": {
+            "title": "Property Value",
+            "description": "The value of their property (portfolio)",
+            "type": "integer"
         },
         "sme_name": {
             "title":"SME name",
