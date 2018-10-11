@@ -63,6 +63,7 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'total_value_of_unsatisfied_ccjs',
     'vat_number',
     'trading_startdate',
+    'is_vat_registered'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported

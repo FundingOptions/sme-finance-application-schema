@@ -64,6 +64,7 @@ SME_V5.update({
     'count_of_all_ccjs': 3,
     'total_value_of_unsatisfied_ccjs':1000,
     'vat_number': '123456789',
+    'is_vat_registered': False,
     'trading_startdate': '2012-01-24'
 })
 
@@ -136,7 +137,8 @@ FINANCE_NEED_V1 = {
 
 ENTITY_V1 = {
     'name': 'ddsaasd',
-    "company_number": "123456",
+    'company_number': "123456",
+    'is_vat_registered': False,
     'legal_status': 'limited_company',
     'months_revenue':0,
     'trade_credit':0,
