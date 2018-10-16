@@ -319,10 +319,10 @@ def sme_contact_v2_telephone_to_e164_telephone(telephone):
 def sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_properties=False):
     # The only difference between sme_contact_v2 and v3 is the requirements
     person = sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
-    person['applicant_role'] = sme_contact.get('applicant_role')
+    person['applicant_role'] = sme_contact.get('applicant_role') 
     person['residential_status'] = sme_contact.get('applicant_residential_status')
     person['property_value'] = sme_contact.get('applicant_property_value')
-    return person
+    return _remove_key_if_value_is_none(person)
 
 
 def _remove_key_if_value_is_none(dictionary):
