@@ -55,13 +55,18 @@
             "title": "Applicant's Role",
             "description": "Applicant's role in the business",
             "type": "string",
-            "enum": ["director", "shareholder", "partner", "beneficial_owner", "guarantor"]
+            "enum": ["director", "shareholder", "partner", "beneficial_owner", "guarantor", "other"]
         },
         "residential_status": {
             "title": "Residential Status",
             "description": "Applicant's residential status",
             "type": "string",
             "enum": ["tenant", "owner_with_mortgage", "owner_no_mortgage", "rent_free"]
+        },
+        "property_value": {
+            "title": "Property Value",
+            "description": "The value of their property (portfolio)",
+            "type": "integer"
         }
     }
 }

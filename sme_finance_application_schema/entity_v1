@@ -15,6 +15,11 @@
             "title": "Company number",
             "description": "The Companies House number for this SME"
         },
+        "is_vat_registered": {
+            "type": "boolean",
+            "title": "VAT Registered",
+            "description": "Is the business VAT registered"
+        },
         "registration_date": {
             "type": "string",
             "format": "date-time"

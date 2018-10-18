@@ -63,6 +63,7 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'total_value_of_unsatisfied_ccjs',
     'vat_number',
     'trading_startdate',
+    'is_vat_registered'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported
@@ -73,6 +74,7 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_PERSON_V1_FIELDS = [
     'date_of_birth',
     'applicant_role',
     'residential_status',
+    'property_value'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_NEED_V1_FIELDS = [
     # Not present in SME_V3
@@ -250,8 +252,6 @@ class TestTranslations(TestCase):
 
 
     def test_sme_v5_and_contact_v3_to_finance_application_v3(self):
-        self.expected_finance_application_v3_from_sme_v5_and_contact_v3['applicant'].pop('residential_status')
-        self.expected_finance_application_v3_from_sme_v5_and_contact_v3['applicant'].pop('applicant_role')
         translated_finance_application_v3 = sme_v5_and_contact_v3_to_finance_application_v3_translator(SME_V5, SME_CONTACT_V3)
         self.assertDictEqual(translated_finance_application_v3, self.expected_finance_application_v3_from_sme_v5_and_contact_v3)
 

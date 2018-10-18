@@ -64,6 +64,7 @@ SME_V5.update({
     'count_of_all_ccjs': 3,
     'total_value_of_unsatisfied_ccjs':1000,
     'vat_number': '123456789',
+    'is_vat_registered': False,
     'trading_startdate': '2012-01-24'
 })
 
@@ -84,7 +85,8 @@ SME_CONTACT_V2 = {
 
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
-SME_CONTACT_V3['residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_property_value'] = 100000
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
 for missing_field in ['sme_name', 'applicant_first_name', 'applicant_surname']:
@@ -106,6 +108,7 @@ PERSON_V1 = {
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
+    'property_value': 100000,
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
     }]
@@ -134,7 +137,8 @@ FINANCE_NEED_V1 = {
 
 ENTITY_V1 = {
     'name': 'ddsaasd',
-    "company_number": "123456",
+    'company_number': "123456",
+    'is_vat_registered': False,
     'legal_status': 'limited_company',
     'months_revenue':0,
     'trade_credit':0,
