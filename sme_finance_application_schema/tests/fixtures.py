@@ -73,6 +73,8 @@ SME_CONTACT_V2 = {
     'applicant_first_name': 'Dave',
     'applicant_surname': 'dd',
     'telephone': '+447445387241',
+    'applicant_role': 'director',
+    'residential_status': 'owner_with_mortgage',
     'sme_name': 'ddsaasd',
     'email': 'nestor.arocha@fundingoptions.com',
     'company_number': '123456',
@@ -171,7 +173,6 @@ ENTITY_V1 = {
     'count_of_invoiced_customers':100,
     'total_value_of_unsatisfied_ccjs':1000,
     'vat_number': '123456789',
-    'trading_startdate': '2012-01-24',
     'addresses': [{
         'role': 'trading',
         'address': copy.deepcopy(ADDRESS_V1),

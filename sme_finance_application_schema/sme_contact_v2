@@ -23,6 +23,17 @@
             "description":"The surname of the applicant",
             "type": "string"
         },
+        "applicant_role": {
+            "title": "Applicant's role",
+            "description": "Applicant's role in the business",
+            "type": "string"
+        },
+        "residential_status": {
+            "title": "Residential Status",
+            "description": "Applicant's residential status",
+            "type": "string",
+            "enum": ["tenant", "owner_with_mortgage", "owner_no_mortgage", "rent_free"]
+        },
         "sme_name": {
             "title":"SME name",
             "description":"The name of the SME represented by the applicant",
