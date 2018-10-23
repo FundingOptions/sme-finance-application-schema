@@ -61,6 +61,9 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'sets_of_filed_accounts',
     'stock_imports',
     'total_value_of_unsatisfied_ccjs',
+    'vat_number',
+    'trading_startdate',
+    'is_vat_registered'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported
@@ -68,7 +71,10 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_PERSON_V1_FIELDS = [
     # Not present in SME_V3 or CONTACT_V2
-    'date_of_birth'
+    'date_of_birth',
+    'applicant_role',
+    'residential_status',
+    'property_value'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_NEED_V1_FIELDS = [
     # Not present in SME_V3
@@ -295,7 +301,6 @@ class TestTranslations(TestCase):
 
     def test_sme_v3_and_contact_v2_to_finance_application_v3_no_backfill(self):
         translated_finance_application_v3 = sme_v3_and_contact_v2_to_finance_application_v3_translator(SME_V3, SME_CONTACT_V2)
-        self.expected_finance_application_v3_from_sme_v3_and_contact_v2['requesting_entity'].pop('vat_number') # remove VAT Number since we are focusing on sme_v5 with this update
         self.assertDictEqual(translated_finance_application_v3, self.expected_finance_application_v3_from_sme_v3_and_contact_v2)
 
 
@@ -309,7 +314,6 @@ class TestTranslations(TestCase):
         expected_finance_application_v3['finance_need']['requested_amount'] = 0
         expected_finance_application_v3['applicant']['first_name'] = 'Unknown'
         expected_finance_application_v3['applicant']['surname'] = 'Unknown'
-        expected_finance_application_v3['requesting_entity'].pop('vat_number') # remove VAT Number since we are focusing on sme_v5 with this update
         translated_finance_application_v3 = sme_v3_and_contact_v2_to_finance_application_v3_translator(SME_V3_MISSING_INFORMATION, SME_CONTACT_V2_MISSING_INFORMATION, backfill_required_properties=True)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
 
@@ -319,7 +323,6 @@ class TestTranslations(TestCase):
         sme_v3_with_incorrect_months_revenue.update({'months_revenue': 2000})
         expected_finance_application_v3 = copy.deepcopy(self.expected_finance_application_v3_from_sme_v3_and_contact_v2)
         expected_finance_application_v3['requesting_entity']['months_revenue'] = 1800
-        expected_finance_application_v3['requesting_entity'].pop('vat_number') # remove VAT Number since we are focusing on sme_v5 with this update
         translated_finance_application_v3 = sme_v3_and_contact_v2_to_finance_application_v3_translator(sme_v3_with_incorrect_months_revenue, SME_CONTACT_V2)
         self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)
 
@@ -334,7 +337,6 @@ class TestTranslations(TestCase):
                 sme_v3_with_incorrect_legal_status = copy.deepcopy(SME_V3)
                 sme_v3_with_incorrect_legal_status.update({'legal_status': original_value})
                 expected_finance_application_v3 = copy.deepcopy(self.expected_finance_application_v3_from_sme_v3_and_contact_v2)
-                expected_finance_application_v3['requesting_entity'].pop('vat_number') # remove VAT Number since we are focusing on sme_v5 with this update
                 expected_finance_application_v3['requesting_entity']['legal_status'] = new_value
                 translated_finance_application_v3 = sme_v3_and_contact_v2_to_finance_application_v3_translator(sme_v3_with_incorrect_legal_status, SME_CONTACT_V2)
                 self.assertDictEqual(translated_finance_application_v3, expected_finance_application_v3)

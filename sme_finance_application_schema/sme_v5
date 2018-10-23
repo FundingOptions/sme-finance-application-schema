@@ -338,10 +338,20 @@
             "description": "The number of sets of accounts the SME has filed with Companies House",
             "type": "integer"
         },
+        "is_vat_registered": {
+            "type": "boolean",
+            "title": "VAT Registered",
+            "description": "Is the business VAT registered"
+        },
         "vat_number": {
             "title": "VAT Number",
             "description": "The company's VAT number, if the business has one",
             "type": "string"
+        },
+        "trading_startdate": {
+            "title": "Trading StartDate",
+            "type": "string",
+            "format": "date-time"
         }
     }
 }
