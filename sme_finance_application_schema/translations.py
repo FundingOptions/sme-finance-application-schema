@@ -170,7 +170,8 @@ def sme_v3_and_contact_v2_to_requesting_entity_v1_translator(sme, sme_contact, b
         'business_premises': sme.get('business_premises'),
         'registered_brand': sme.get('registered_brand'),
         'customers': sme.get('customers'),
-        'region': sme.get('region')
+        'region': sme.get('region'),
+        'vat_number': sme.get('vat_number')
     }
     requesting_entity = _remove_key_if_value_is_none(requesting_entity)
     if backfill_required_properties:
@@ -288,7 +289,9 @@ def sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_proper
         'first_name': sme_contact.get('applicant_first_name'),
         'surname': sme_contact.get('applicant_surname'),
         'email': sme_contact.get('email'),
-        'telephone': sme_contact.get('telephone')
+        'telephone': sme_contact.get('telephone'),
+        'applicant_role': sme_contact.get('applicant_role'),
+        'residential_status': sme_contact.get('residential_status')
     }
     # Since a person without an address is valid, we don't backfill here
     # even if we're backfilling the rest of the object
