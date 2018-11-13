@@ -86,6 +86,11 @@
             "description":"The telephone number of the applicant, in E.164 format",
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$"
+        },
+        "mobile_phone": {
+            "title": "Mobile phone number",
+            "description": "A suitable mobile phone number the lender can use to progress the application",
+            "type": "string"
         }
     }
 }

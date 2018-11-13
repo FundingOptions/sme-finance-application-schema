@@ -51,6 +51,12 @@
             "type": "string",
             "pattern": "^\\+?[1-9]\\d{1,14}$"
         },
+        "mobile_phone": {
+            "title": "Mobile phone number",
+            "description": "A suitable mobile phone number the lender can use to progress the application",
+            "type": "string",
+            "pattern": "^(\\+44\\s?7\\d{3}|\\(?07\\d{3}\\)?)\\s?\\d{3}\\s?\\d{3}$"
+        },
         "applicant_role": {
             "title": "Applicant's Role",
             "description": "Applicant's role in the business",
