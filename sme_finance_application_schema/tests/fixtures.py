@@ -196,6 +196,7 @@ ACTOR_V1_DIRECTOR_1 = {
     'personal_credit_rating': 'ok',
     'role': 'director',
     'person': copy.deepcopy(PERSON_V1),
+    'property_ownership': 'yes',
 }
 
 ACTOR_V1_DIRECTOR_2 = {
@@ -207,6 +208,7 @@ ACTOR_V1_DIRECTOR_2 = {
     'personal_credit_rating': 'poor',
     'role': 'director',
     'person': copy.deepcopy(PERSON_V1),
+    'property_ownership': 'yes',
 }
 
 ACTOR_V1_GUARANTOR = {
@@ -218,6 +220,7 @@ ACTOR_V1_GUARANTOR = {
     'personal_credit_rating': 'excellent',
     'role': 'guarantor',
     'person': copy.deepcopy(PERSON_V1),
+    'property_ownership': 'yes',
 }
 
 AGGREGATED_ACTORS_V1 = {
