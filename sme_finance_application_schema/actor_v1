@@ -55,15 +55,6 @@
         "role": {
             "type": "string",
             "enum": ["guarantor", "director"]
-        },
-        "property_ownership": {
-            "title": "Property ownership",
-            "description": "Is a property owned",
-            "type": "string",
-            "enum": [
-                "no",
-                "yes"
-            ]
         }
     }
 }
