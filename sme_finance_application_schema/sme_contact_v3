@@ -35,6 +35,15 @@
             "description": "Applicant's residential status",
             "type": "string"
         },
+        "applicant_property_ownership": {
+            "title": "Property ownership",
+            "description": "Is a property owned?",
+            "type": "string",
+            "enum": [
+                "no",
+                "yes"
+            ]
+        },
         "applicant_property_value": {
             "title": "Property Value",
             "description": "The value of their property (portfolio)",

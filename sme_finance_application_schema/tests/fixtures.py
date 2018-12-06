@@ -87,6 +87,7 @@ SME_CONTACT_V2 = {
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
 SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_property_ownership'] = 'yes'
 SME_CONTACT_V3['applicant_property_value'] = 100000
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
@@ -110,6 +111,7 @@ PERSON_V1 = {
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
+    'property_ownership': 'yes',
     'property_value': 100000,
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
@@ -196,7 +198,6 @@ ACTOR_V1_DIRECTOR_1 = {
     'personal_credit_rating': 'ok',
     'role': 'director',
     'person': copy.deepcopy(PERSON_V1),
-    'property_ownership': 'yes',
 }
 
 ACTOR_V1_DIRECTOR_2 = {
@@ -208,7 +209,6 @@ ACTOR_V1_DIRECTOR_2 = {
     'personal_credit_rating': 'poor',
     'role': 'director',
     'person': copy.deepcopy(PERSON_V1),
-    'property_ownership': 'yes',
 }
 
 ACTOR_V1_GUARANTOR = {
@@ -220,7 +220,6 @@ ACTOR_V1_GUARANTOR = {
     'personal_credit_rating': 'excellent',
     'role': 'guarantor',
     'person': copy.deepcopy(PERSON_V1),
-    'property_ownership': 'yes',
 }
 
 AGGREGATED_ACTORS_V1 = {
