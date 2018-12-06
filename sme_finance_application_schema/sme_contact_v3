@@ -35,6 +35,11 @@
             "description": "Applicant's residential status",
             "type": "string"
         },
+        "applicant_previous_address": {
+            "title": "Previous address",
+            "description": "Previous address? (if changed in the last three years)",
+            "type": "string"
+        },
         "applicant_property_ownership": {
             "title": "Property ownership",
             "description": "Is a property owned?",

@@ -74,6 +74,7 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_PERSON_V1_FIELDS = [
     'date_of_birth',
     'applicant_role',
     'residential_status',
+    'previous_address',
     'property_ownership',
     'property_value'
 ]

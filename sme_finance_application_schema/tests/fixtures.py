@@ -87,6 +87,7 @@ SME_CONTACT_V2 = {
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
 SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_previous_address'] = 'one previous street, previous road, previous town, previous postcode'
 SME_CONTACT_V3['applicant_property_ownership'] = 'yes'
 SME_CONTACT_V3['applicant_property_value'] = 100000
 
@@ -111,6 +112,7 @@ PERSON_V1 = {
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
+    'previous_address': 'one previous street, previous road, previous town, previous postcode',
     'property_ownership': 'yes',
     'property_value': 100000,
     'addresses': [{

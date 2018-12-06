@@ -15,6 +15,7 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
         'mobile_phone': applicant.get('mobile_phone'),
         'applicant_role': applicant.get('applicant_role'),
         'applicant_residential_status': applicant.get('residential_status'),
+        'applicant_previous_address': applicant.get('previous_address'),
         'applicant_property_ownership': applicant.get('property_ownership'),
         'applicant_property_value': applicant.get('property_value'),
         'company_number': requesting_entity.get('company_number')
@@ -327,6 +328,7 @@ def sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_proper
     person = sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
     person['applicant_role'] = sme_contact.get('applicant_role')
     person['residential_status'] = sme_contact.get('applicant_residential_status')
+    person['previous_address'] = sme_contact.get('applicant_previous_address')
     person['property_ownership'] = sme_contact.get('applicant_property_ownership')
     person['property_value'] = sme_contact.get('applicant_property_value')
     return _remove_key_if_value_is_none(person)
