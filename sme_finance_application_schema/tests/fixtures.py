@@ -199,6 +199,8 @@ ACTOR_V1_DIRECTOR_1 = {
     'familiarity_with_financing': 'had_finance_before',
     'personal_credit_rating': 'ok',
     'role': 'director',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 
@@ -210,6 +212,8 @@ ACTOR_V1_DIRECTOR_2 = {
     'familiarity_with_financing': 'first_time',
     'personal_credit_rating': 'poor',
     'role': 'director',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 
@@ -221,6 +225,8 @@ ACTOR_V1_GUARANTOR = {
     'familiarity_with_financing': 'expert',
     'personal_credit_rating': 'excellent',
     'role': 'guarantor',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 
