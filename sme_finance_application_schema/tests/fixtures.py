@@ -87,6 +87,8 @@ SME_CONTACT_V2 = {
 SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
 SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
+SME_CONTACT_V3['applicant_previous_address'] = 'one previous street, previous road, previous town, previous postcode'
+SME_CONTACT_V3['applicant_property_ownership'] = 'yes'
 SME_CONTACT_V3['applicant_property_value'] = 100000
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
@@ -110,6 +112,8 @@ PERSON_V1 = {
     'date_of_birth': '2000-01-23T00:00:00+00:00',
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
+    'previous_address': 'one previous street, previous road, previous town, previous postcode',
+    'property_ownership': 'yes',
     'property_value': 100000,
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
@@ -195,6 +199,8 @@ ACTOR_V1_DIRECTOR_1 = {
     'familiarity_with_financing': 'had_finance_before',
     'personal_credit_rating': 'ok',
     'role': 'director',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 
@@ -206,6 +212,8 @@ ACTOR_V1_DIRECTOR_2 = {
     'familiarity_with_financing': 'first_time',
     'personal_credit_rating': 'poor',
     'role': 'director',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 
@@ -217,6 +225,8 @@ ACTOR_V1_GUARANTOR = {
     'familiarity_with_financing': 'expert',
     'personal_credit_rating': 'excellent',
     'role': 'guarantor',
+    'is_property_residence': 'yes',
+    'other_properties': 'one other, other street, other town, other postcode',
     'person': copy.deepcopy(PERSON_V1),
 }
 

@@ -69,6 +69,20 @@
             "type": "string",
             "enum": ["tenant", "owner_with_mortgage", "owner_no_mortgage", "rent_free"]
         },
+        "previous_address": {
+            "title": "Previous address",
+            "description": "Previous address? (if changed in the last three years)",
+            "type": "string"
+        },
+        "property_ownership": {
+            "title": "Property ownership",
+            "description": "Is a property owned?",
+            "type": "string",
+            "enum": [
+                "no",
+                "yes"
+            ]
+        },
         "property_value": {
             "title": "Property Value",
             "description": "The value of their property (portfolio)",
