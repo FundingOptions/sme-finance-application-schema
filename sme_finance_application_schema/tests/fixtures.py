@@ -139,6 +139,7 @@ FINANCE_NEED_V1 = {
     'deposit': 50000,
     'vehicle_type': 'Apache helicopter',
     'type_of_property': 'undeveloped_land_with_planning_permission',
+    'main_source_of_revenue': 'A string',
 }
 
 ENTITY_V1 = {
@@ -186,6 +187,7 @@ ENTITY_V1 = {
         'address': copy.deepcopy(ADDRESS_V1),
     }],
     'free_form': 'A string',
+    'main_source_of_revenue': 'A string',
     'sets_of_filed_accounts': 10,
     'count_of_unsatisfied_ccjs': 1,
     'count_of_all_ccjs': 3,
