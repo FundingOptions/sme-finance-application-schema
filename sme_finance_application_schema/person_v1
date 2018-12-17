@@ -49,7 +49,7 @@
             "title": "Telephone number",
             "description": "The telephone number of the person, in E.164 format",
             "type": "string",
-            "pattern": "^\\+?[1-9]\\d{1,14}$"
+            "pattern": "^(?:0)[\d ]{9,15}$"
         },
         "mobile_phone": {
             "title": "Mobile phone number",
