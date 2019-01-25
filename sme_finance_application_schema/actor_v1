@@ -19,6 +19,20 @@
             "type": "integer",
             "description": "The outstanding value of mortgages on personal properties belonging to this actor, in GBP"
         },
+        "is_property_residence": {
+            "title": "Is property residence",
+            "description": "Is this property the same as your current home address",
+            "type": "string",
+            "enum": [
+                "no",
+                "yes"
+            ]
+        },
+        "other_properties": {
+            "title": "Other properties",
+            "description": "Do you own any other properties",
+            "type": "string"
+        },
         "value_of_property_equity": {
             "title": "Value of property equity",
             "description": "The value of this actors' property equity, in GBP",

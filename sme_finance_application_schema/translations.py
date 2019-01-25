@@ -15,6 +15,8 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
         'mobile_phone': applicant.get('mobile_phone'),
         'applicant_role': applicant.get('applicant_role'),
         'applicant_residential_status': applicant.get('residential_status'),
+        'applicant_previous_address': applicant.get('previous_address'),
+        'applicant_property_ownership': applicant.get('property_ownership'),
         'applicant_property_value': applicant.get('property_value'),
         'company_number': requesting_entity.get('company_number')
     }
@@ -56,7 +58,8 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'business_premises', 'registered_brand', 'customers', 'region',
                   'company_credit_rating', 'accounting_software', 'sets_of_filed_accounts',
                   'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices',
-                  'count_of_unsatisfied_ccjs', 'count_of_all_ccjs', 'vat_number', 'trading_startdate', 'is_vat_registered'):
+                  'count_of_unsatisfied_ccjs', 'count_of_all_ccjs', 'vat_number', 'trading_startdate', 'is_vat_registered',
+                  'most_recent_filed_account', 'net_assets', 'net_worth', 'tangible_assets', 'debentures', 'rfa_rating'):
         if field in finance_application.get('requesting_entity', {}):
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
@@ -221,7 +224,13 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact, b
         'card_revenue': sme.get('card_revenue'),
         'vat_number': sme.get('vat_number'),
         'trading_startdate': sme.get('trading_startdate'),
-        'is_vat_registered': sme.get('is_vat_registered')
+        'is_vat_registered': sme.get('is_vat_registered'),
+        'most_recent_filed_account': sme.get('most_recent_filed_account'),
+        'net_assets': sme.get('net_assets'),
+        'net_worth': sme.get('net_worth'),
+        'tangible_assets': sme.get('tangible_assets'),
+        'debentures': sme.get('debentures'),
+        'rfa_rating': sme.get('rfa_rating')
     }
     requesting_entity.update(additional_data_from_sme_v5)
     return _remove_key_if_value_is_none(requesting_entity)
@@ -326,6 +335,8 @@ def sme_contact_v3_to_person_v1_translator(sme_contact, backfill_required_proper
     person = sme_contact_v2_to_person_v1_translator(sme_contact, backfill_required_properties=backfill_required_properties)
     person['applicant_role'] = sme_contact.get('applicant_role')
     person['residential_status'] = sme_contact.get('applicant_residential_status')
+    person['previous_address'] = sme_contact.get('applicant_previous_address')
+    person['property_ownership'] = sme_contact.get('applicant_property_ownership')
     person['property_value'] = sme_contact.get('applicant_property_value')
     return _remove_key_if_value_is_none(person)
 

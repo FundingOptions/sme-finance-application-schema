@@ -280,6 +280,35 @@
             "title": "Trading StartDate",
             "type": "string",
             "format": "date-time"
+        },
+        "most_recent_filed_account": {
+            "title": "Most recent filed account",
+            "type": "string",
+            "format": "date-time"
+        },
+        "net_assets": {
+            "title": "Net Assets",
+            "description": "The company's net assets in monetary value",
+            "type": "integer"
+        },
+        "net_worth": {
+            "title": "Net Worth",
+            "description": "The company's net worth",
+            "type": "integer"
+        },
+        "tangible_assets": {
+            "title": "Tangible Assets",
+            "description": "The company's tangible assets in monetary value",
+            "type": "integer"
+        },
+        "debentures": {
+            "title": "Debentures",
+            "type": "integer"
+        },
+        "rfa_rating": {
+            "title": "RFA Rating",
+            "description": "Company credit rating",
+            "type": "string"
         }
     }
 }
