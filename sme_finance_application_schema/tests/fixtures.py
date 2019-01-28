@@ -65,7 +65,13 @@ SME_V5.update({
     'total_value_of_unsatisfied_ccjs':1000,
     'vat_number': '123456789',
     'is_vat_registered': False,
-    'trading_startdate': '2012-01-24'
+    'trading_startdate': '2012-01-24',
+    'most_recent_filed_account': '2019-01-25',
+    'net_assets': 1000000,
+    'net_worth': 1000000,
+    'tangible_assets': 1000000,
+    'debentures': 5,
+    'rfa_rating': 'ok'
 })
 
 SME_CONTACT_V2 = {
@@ -191,6 +197,12 @@ ENTITY_V1 = {
     'sets_of_filed_accounts': 10,
     'count_of_unsatisfied_ccjs': 1,
     'count_of_all_ccjs': 3,
+    'most_recent_filed_account': '2019-01-25',
+    'net_assets': 1000000,
+    'net_worth': 1000000,
+    'tangible_assets': 1000000,
+    'debentures': 5,
+    'rfa_rating': 'ok',
 }
 
 ACTOR_V1_DIRECTOR_1 = {
