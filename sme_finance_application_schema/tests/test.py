@@ -63,7 +63,13 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'total_value_of_unsatisfied_ccjs',
     'vat_number',
     'trading_startdate',
-    'is_vat_registered'
+    'is_vat_registered',
+    'most_recent_filed_account',
+    'net_assets',
+    'net_worth',
+    'tangible_assets',
+    'debentures',
+    'rfa_rating'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported
@@ -74,6 +80,8 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_PERSON_V1_FIELDS = [
     'date_of_birth',
     'applicant_role',
     'residential_status',
+    'previous_address',
+    'property_ownership',
     'property_value'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_NEED_V1_FIELDS = [
