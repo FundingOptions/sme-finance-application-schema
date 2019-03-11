@@ -71,7 +71,8 @@ SME_V5.update({
     'net_worth': 1000000,
     'tangible_assets': 1000000,
     'debentures': 5,
-    'rfa_rating': 'ok'
+    'rfa_rating': 'ok',
+    'property_ownership': 'yes'
 })
 
 SME_CONTACT_V2 = {
@@ -203,6 +204,7 @@ ENTITY_V1 = {
     'tangible_assets': 1000000,
     'debentures': 5,
     'rfa_rating': 'ok',
+    'property_ownership': 'yes'
 }
 
 ACTOR_V1_DIRECTOR_1 = {

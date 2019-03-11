@@ -381,6 +381,15 @@
             "title": "RFA Rating",
             "description": "Company credit rating",
             "type": "string"
+        },
+        "property_ownership": {
+            "title": "Property ownership",
+            "description": "Is a property owned?",
+            "type": "string",
+            "enum": [
+                "no",
+                "yes"
+            ]
         }
     }
 }

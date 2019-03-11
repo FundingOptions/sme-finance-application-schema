@@ -70,7 +70,8 @@ UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_ENTITY_V1_FIELDS = [
     'net_worth',
     'tangible_assets',
     'debentures',
-    'rfa_rating'
+    'rfa_rating',
+    'property_ownership'
 ]
 UNTRANSLATED_FROM_SME_V3_CONTACT_V2_TO_FINANCE_APPLICATION_V3_FIELDS = [
     # Unsupported
