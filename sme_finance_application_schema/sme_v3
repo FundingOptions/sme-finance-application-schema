@@ -243,6 +243,15 @@
                 "UKN",
                 "UKZ"
             ]
+        },
+        "property_ownership": {
+            "title": "Property ownership",
+            "description": "Is a property owned?",
+            "type": "string",
+            "enum": [
+                "no",
+                "yes"
+            ]
         }
     }
 }
