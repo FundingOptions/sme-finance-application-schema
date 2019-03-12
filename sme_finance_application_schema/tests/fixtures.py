@@ -32,6 +32,7 @@ SME_V3 = {
     'up_to_date_accounts':True,
     'finance_term_general': 'long_term_investing',
     'company_number': '123456',
+    'property_ownership': 'yes'
 }
 
 SME_V3_MISSING_INFORMATION = copy.deepcopy(SME_V3)
