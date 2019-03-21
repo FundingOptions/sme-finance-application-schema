@@ -59,7 +59,8 @@ def finance_application_v3_to_sme_v5(finance_application):
                   'company_credit_rating', 'accounting_software', 'sets_of_filed_accounts',
                   'total_value_of_unsatisfied_ccjs', 'count_of_invoiced_customers', 'outstanding_invoices',
                   'count_of_unsatisfied_ccjs', 'count_of_all_ccjs', 'vat_number', 'trading_startdate', 'is_vat_registered',
-                  'most_recent_filed_account', 'net_assets', 'net_worth', 'tangible_assets', 'debentures', 'rfa_rating', 'property_ownership'):
+                  'most_recent_filed_account', 'net_assets', 'net_worth', 'tangible_assets', 'debentures', 'rfa_rating',
+                  'property_ownership', 'customer_bank'):
         if field in finance_application.get('requesting_entity', {}):
             sme_v5[field] = finance_application['requesting_entity'][field]
     for field in ('requested_amount', 'finance_type_requested', 'date_finance_required',
@@ -231,7 +232,8 @@ def sme_v5_and_contact_v3_to_requesting_entity_v1_translator(sme, sme_contact, b
         'tangible_assets': sme.get('tangible_assets'),
         'debentures': sme.get('debentures'),
         'rfa_rating': sme.get('rfa_rating'),
-        'property_ownership': sme.get('property_ownership')
+        'property_ownership': sme.get('property_ownership'),
+        'customer_bank': sme.get('customer_bank')
     }
     requesting_entity.update(additional_data_from_sme_v5)
     return _remove_key_if_value_is_none(requesting_entity)

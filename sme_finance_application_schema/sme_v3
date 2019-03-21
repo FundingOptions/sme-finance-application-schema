@@ -252,6 +252,23 @@
                 "no",
                 "yes"
             ]
+        },
+        "customer_bank": {
+            "title": "Customer Bank",
+            "description": "Which bank do you use for your business banking?",
+            "type": "string",
+            "enum": [
+                "aib",
+                "bank_of_ireland",
+                "barclays",
+                "hsbc",
+                "lloyds",
+                "nationwide",
+                "danske_bank",
+                "rbs",
+                "santander",
+                "other"
+            ]
         }
     }
 }
