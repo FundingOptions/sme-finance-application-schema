@@ -32,7 +32,8 @@ SME_V3 = {
     'up_to_date_accounts':True,
     'finance_term_general': 'long_term_investing',
     'company_number': '123456',
-    'property_ownership': 'yes'
+    'property_ownership': 'yes',
+    'customer_bank': 'other'
 }
 
 SME_V3_MISSING_INFORMATION = copy.deepcopy(SME_V3)
@@ -73,7 +74,8 @@ SME_V5.update({
     'tangible_assets': 1000000,
     'debentures': 5,
     'rfa_rating': 'ok',
-    'property_ownership': 'yes'
+    'property_ownership': 'yes',
+    'customer_bank': 'other'
 })
 
 SME_CONTACT_V2 = {
@@ -205,7 +207,8 @@ ENTITY_V1 = {
     'tangible_assets': 1000000,
     'debentures': 5,
     'rfa_rating': 'ok',
-    'property_ownership': 'yes'
+    'property_ownership': 'yes',
+    'customer_bank': 'other'
 }
 
 ACTOR_V1_DIRECTOR_1 = {
