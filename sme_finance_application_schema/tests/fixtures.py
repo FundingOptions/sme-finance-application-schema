@@ -32,7 +32,7 @@ SME_V3 = {
     'up_to_date_accounts':True,
     'finance_term_general': 'long_term_investing',
     'company_number': '123456',
-    'property_ownership': 'yes',
+    'property_ownership': 'yes_with_mortgage',
     'customer_bank': 'other'
 }
 
@@ -74,7 +74,7 @@ SME_V5.update({
     'tangible_assets': 1000000,
     'debentures': 5,
     'rfa_rating': 'ok',
-    'property_ownership': 'yes',
+    'property_ownership': 'yes_with_mortgage',
     'customer_bank': 'other'
 })
 
@@ -98,7 +98,7 @@ SME_CONTACT_V3 = copy.deepcopy(SME_CONTACT_V2)
 SME_CONTACT_V3['applicant_role'] = 'director'
 SME_CONTACT_V3['applicant_residential_status'] = 'owner_with_mortgage'
 SME_CONTACT_V3['applicant_previous_address'] = 'one previous street, previous road, previous town, previous postcode'
-SME_CONTACT_V3['applicant_property_ownership'] = 'yes'
+SME_CONTACT_V3['applicant_property_ownership'] = 'yes_with_mortgage'
 SME_CONTACT_V3['applicant_property_value'] = 100000
 
 SME_CONTACT_V2_MISSING_INFORMATION = copy.deepcopy(SME_CONTACT_V2)
@@ -123,7 +123,7 @@ PERSON_V1 = {
     'applicant_role': 'director',
     'residential_status': 'owner_with_mortgage',
     'previous_address': 'one previous street, previous road, previous town, previous postcode',
-    'property_ownership': 'yes',
+    'property_ownership': 'yes_with_mortgage',
     'property_value': 100000,
     'addresses': [{
         'address': copy.deepcopy(ADDRESS_V1),
@@ -207,7 +207,7 @@ ENTITY_V1 = {
     'tangible_assets': 1000000,
     'debentures': 5,
     'rfa_rating': 'ok',
-    'property_ownership': 'yes',
+    'property_ownership': 'yes_with_mortgage',
     'customer_bank': 'other'
 }
 
