@@ -80,7 +80,8 @@
             "type": "string",
             "enum": [
                 "no",
-                "yes"
+                "yes_with_mortgage",
+                "yes_without_mortgage"
             ]
         },
         "property_value": {
