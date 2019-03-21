@@ -185,6 +185,9 @@
             "title": "Vehicle type",
             "description": "Type of vehicle to be financed",
             "type": "string"
+        },
+        "main_source_of_revenue": {
+            "type": "string"
         }
     }
 }
