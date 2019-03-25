@@ -7,7 +7,7 @@ def finance_application_v3_to_sme_contact_v3(finance_application, remove_backfil
     requesting_entity = finance_application['requesting_entity']
     sme_contact_v3 = {
         'sme_name': requesting_entity['name'],
-        'applicant_surname': applicant['surname'],
+        'applicant_surname': applicant.get('surname'),
         'applicant_first_name': applicant.get('first_name') or None,  # disallow blank values
         'applicant_title': applicant.get('title'),
         'email': applicant.get('email'),
